@@ -1,0 +1,14 @@
+<script type="text/javascript" src="{{url('assets/js/wysiwyg-editor/froala_editor.min.js')}}"></script>
+<script type="text/javascript" src="{{url('assets/js/wysiwyg-editor/image.min.js')}}"></script>
+<script type="text/javascript" src="{{url('assets/js/wysiwyg-editor/image_manager.min.js')}}"></script>
+<script type="text/javascript" src="{{url('assets/js/wysiwyg-editor/link.min.js')}}"></script>
+<script type="text/javascript" src="{{url('assets/js/wysiwyg-editor/colors.min.js')}}"></script>
+<script type="text/javascript" src="{{url('assets/js/wysiwyg-editor/lists.min.js')}}"></script>
+<script type="text/javascript" src="{{url('assets/js/wysiwyg-editor/align.min.js')}}"></script>
+<script type="text/javascript" src="{{url('assets/js/wysiwyg-editor/font_family.min.js')}}"></script>
+<script type="text/javascript" src="{{url('assets/js/wysiwyg-editor/font_size.min.js')}}"></script>
+<script type="text/javascript" src="{{url('assets/js/wysiwyg-editor/save.min.js')}}"></script>
+<script type="text/javascript" src="{{url('assets/js/wysiwyg-editor/url.min.js')}}"></script>
+<script type="text/javascript" src="{{url('assets/js/wysiwyg-editor/quote.min.js')}}"></script>
+<script type="text/javascript" src="{{url('assets/js/wysiwyg-editor/code_view.min.js')}}"></script>
+<script type="text/javascript" src="{{url('assets/js/wysiwyg-editor/emoticons.min.js')}}"></script>
