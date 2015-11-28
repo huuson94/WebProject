@@ -16,14 +16,28 @@
 	</div>
 	<div class="col-md-9 list-post list-blog">
 		<div class="row">
-            <form action="{{url(Session::get('user')['account']."/blog")}}" method="POST">
-            <input type="hidden" v
-            <div class="item border">
-                <textarea id="edit-blog" name="content"></textarea>
-            </div>
-            <button type="submit">Post</button>
-            </form>
-			@include('frontend/blogs/index')
+            {{Form::open(array(
+                            'url' => Session::get('user')['account']."/blog", 
+                            'method' => 'POST'
+                        )
+            )}}
+                <div class="item border">
+                    <textarea id="edit-blog" name="content" required="true"></textarea>
+                </div>
+                <div class="up-button">
+                    <div class="right bold">
+                        <select name="privacy">
+                            @foreach($privacies as $privacy)
+                            <option value="{{$privacy->id}}">{{$privacy->name}}</option>
+                            @endforeach
+
+                        </select>
+                        <input type="submit" value="Đăng">
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            {{Form::close()}}
+			@include('frontend/blogs/index',array('blogs' => $blogs))
 		</div>
 	</div>
 @stop

@@ -1,3 +1,4 @@
+@if($post)
 <article class="col-md-12 item border">
     <div class="p_post">
         <img class="ava radius_50 left" src="{{url($post->user->getAvatar())}}" alt="test">
@@ -10,3 +11,4 @@
         <p>{{$post->content}}
     </div>
 </article>
+@endif($post)
