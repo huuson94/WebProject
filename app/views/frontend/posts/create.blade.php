@@ -1,6 +1,6 @@
 <article class="col-md-12 item border up-post">
     <div class="top">
-        <p class="bold"><i class="glyphicon glyphicon-pencil"></i><a href="{{'blog/create'}}">Blog</a></p>
+        <p class="bold"><i class="glyphicon glyphicon-pencil"></i><a href="{{url('blog?user_id='.Session::get('user')['id'])}}">Blog</a></p>
         <p class="bold"><i class="glyphicon glyphicon-camera"></i><a href="#">Add Photo</a></p>
     </div>
     

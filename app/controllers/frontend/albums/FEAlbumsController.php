@@ -14,11 +14,12 @@ class FEAlbumsController extends BaseController{
         
     }
 
-    public function index($account) {
-        $user = User::where('account',$account)->get()->first();
-        if ($user && FEUsersHelper::isCurrentUser($user->id)) {
+    public function index() {
+        $user_id = Input::get('user_id');
+        $user = User::find($user_id);
+        if ($user) {
             $albums = Album::where('user_id','=',$user->id)->get();
-            return View::make('frontend/photo/photo')
+            return View::make('frontend/albums/index')
                             ->with('user', $user)
                             ->with('albums', $albums);
         } else {
