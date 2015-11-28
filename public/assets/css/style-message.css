@@ -1,0 +1,241 @@
+.ncc_message-box{
+	margin: 20px auto;
+	background-color: #fff;
+    width: 830px;
+}
+.ncc_left-box{
+	width:245px;
+	float: left;
+	border-radius: 3px 3px 0 0;
+	border: 1px solid #d8d8d8;
+}
+.ncc_right-box{
+	float: left;
+	width: 572px;
+	margin-left: 13px;
+	border-radius: 3px 3px 0 0;
+	border:1px solid #d8d8d8;
+}
+.ncc_box-top{
+	border-bottom: 1px solid #d8d8d8;
+	background-color: #f5f4f2;
+	padding: 10px 8px;
+	margin: 0;
+}
+.ncc_search-box{
+	border-bottom: 1px solid #d8d8d8;
+	background-color: #f5f4f2;
+	padding: 10px 8px;
+}
+.ncc_box{
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	position: relative;
+}
+.ncc_search{
+	margin: 0 30px 0 0;
+	border-right: 1px solid #ccc;
+}
+input{
+	border: 0 none;
+	padding: 5px 12px;
+}
+.ncc_box span{
+	position: absolute;
+	top: 8px;
+	right: 8px;
+}
+.ncc_friend-list{
+	height: 414px;
+	background-color: #fff;
+}
+.ncc_friend{
+	background-color: #fff;
+	height: 70px;
+	position: relative;
+	border-bottom: 1px solid #d8d8d8;
+}
+.ncc_chatting{
+	background-color: #3097D1;
+}
+.ncc_chatting .ncc_info{
+	color: #fff;
+}
+.ncc_chatting h5{
+	color: #fff;
+}
+.ncc_friend:not(.ncc_chatting):hover{
+	background-color: #ECECEC;
+}
+.ncc_avatar{
+	float: left;
+	height: 100%;
+}
+.ncc_avatar img{
+	height: 80%;
+	border-radius: 50%;
+	position: absolute;
+	top: 6px;
+	left: 10px;
+	cursor: pointer;
+}
+.ncc_info{
+	float: left;
+	position: absolute;
+	font-size: 12px;
+	color: #324B59;
+	top: 13px;
+	left:75px;
+}
+.ncc_info p, .ncc_info h5{
+	margin: 0;
+}
+.ncc_info h5{
+	font-weight: bold;
+	font-size: 13px;
+}
+.ncc_r{
+	float: right;
+	text-decoration: none;
+}
+.ncc_r span{
+	font-weight: bold;
+	font-size: 13px;
+}
+.ncc_r .ncc_tn{
+	color: #ccc;
+}
+a:hover{
+	text-decoration: none;
+	color: #404040;
+	cursor:pointer;
+}
+a:hover .ncc_tn{
+	color: #404040;
+}
+
+.ncc_message{
+	background-color: #fff;
+	height: 302px;
+	border-bottom: 1px solid #d8d8d8;
+}
+.ncc_ymd{
+	height: 27px;
+	border-bottom: 1px solid #d8d8d8;
+}
+.ncc_ymd p{
+	color: #d8d8d8;
+	background-color: #fff;
+	width:155px;
+	margin: 0 auto;
+	padding:16px 0 0 5px;
+}
+.ncc_message-me:nth-child(2n){
+	position: relative;
+	margin-top: 20px;
+}
+.ncc_message-me:nth-child(2n) img{
+	height: 100%;
+	top: 0px;
+}
+.ncc_message-me:nth-child(2n) .ncc_me-l{
+	margin-left: 65px;
+}
+.ncc_message-me:nth-child(2n) .ncc_name-time h5{
+	font-weight: bold;
+	color: #337ab7;
+	font-size: 12px;
+	display: inline;
+}
+.ncc_message-me:nth-child(2n) .ncc_name-time p{
+	font-size: 12px;
+	color: #d8d8d8;
+	float: right;
+	padding-right: 10px;
+}
+
+.ncc_message-me:nth-child(2n+1) .ncc_avatar{
+	float: right;
+}
+.ncc_message-me:nth-child(2n+1){
+	position: relative;
+	margin-top: 20px;
+}
+.ncc_message-me:nth-child(2n+1) img{
+	position: absolute;
+	height: 80%;
+	top: 0px;
+	left: 522px;
+}
+.ncc_message-me:nth-child(2n+1) .ncc_me-l{
+	margin-right: 65px;
+	padding-right: 0;
+}
+.ncc_message-me:nth-child(2n+1) .ncc_name-time h5{
+	font-weight: bold;
+	color: #337ab7;
+	font-size: 12px;
+	display: inline;
+	float: right;
+}
+.ncc_message-me:nth-child(2n+1) .ncc_name-time p{
+	font-size: 12px;
+	color: #d8d8d8;
+	float: left;
+	padding-left: 10px;
+	padding-top: 3px;
+}
+.ncc_message-me:nth-child(2n+1) .ncc_me-content{
+	text-align: right;
+	padding-top: 33px;
+}
+.ncc_message-me:nth-child(2n+1) .ncc_me-content p{
+	padding-left: 70px;
+}
+.ncc_chat-box{
+	padding: 2px;
+	background-color: #fff;
+}
+.ncc_b1{
+	height: 16px;
+	padding: 8px;
+}
+.ncc_toolbar{
+	background-image: url("http://css.me.zdn.vn/v4/images/chat_sprt-1.05.png");
+	background-repeat:no-repeat;
+	cursor: pointer;
+	height: 16px;
+	margin-left: 10px;
+	width: 16px;
+	float: right;
+}
+.ncc_btn-icon{
+	background-position: 0 -96px;
+}
+.ncc_btn-color{
+	background-position: 0 -112px;
+}
+.ncc_btn-buzz{
+	background-position: 0 -128px;
+}
+.ncc_b2{
+	margin: 20px 10px 0 10px;
+	border: 1px solid #d7d7d7;
+	height: 73px;
+}
+.ncc_b2 textarea{
+	width: 100%;
+	padding: 5px;
+	border: 0 none;
+	resize:none;
+	height: 100%;
+}
+.ncc_b3{
+	padding: 15px 12px;
+}
+
+.ncc_b3 button{
+	font-size: 12px;
+	float: right;
+}

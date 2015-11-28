@@ -14,10 +14,17 @@
 	<div class="col-md-12" id="photo-upload">
 			<!-- Large modal -->
 		@if(Session::get('user')['account']==$user['account'])
-			<button type="button" class="btn" data-toggle="modal" data-target=".bs-example-modal-lg">Tạo Album mới</button>
-			<h4>Ảnh của bạn</h4>
+			<div class="link-photo">
+				<a href="{{url(Session::get('user')['account'].'/photo')}}">Ảnh của bạn</a>
+				<a href="{{url(Session::get('user')['account'].'/photo/album')}}" class="active">Album của bạn</a>
+
+				<button type="button" class="btn right" data-toggle="modal" data-target=".bs-example-modal-lg">Tạo Album mới</button>
+			</div>
 		@else
-			<h3>Ảnh của {{$user['fullname']}}</h3>
+			<div class="link-photo">
+				<a href="{{url($user['account'].'/photo')}}">Ảnh của {{$user['fullname']}}</a>
+				<a href="{{url($user['account'].'/photo/album')}}" class="active">Album của {{$user['fullname']}}</a>
+			</div>
 		@endif
 		<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
 			<div class="modal-dialog modal-lg">
@@ -45,7 +52,9 @@
 		<ul class="wrapper flex-images">
 			@foreach($albums as $album)
 				<li class="item" data-w="{{$album->images()->first()['width']}}" data-h="{{$album->images()->first()['height']}}">
-				    <img src="{{url('upload/'.$user['account'].'/'.$album['album_img'])}}" alt="test">
+				    <a href="{{url($user['account'].'/photo/album/'.$album['id'])}}">
+				    	<img src="{{url('public/upload/'.$user['account'].'/'.$album['album_img'])}}" alt="test">
+				    </a>
 				</li>
 			@endforeach
 			<li class="item hide"></li>
