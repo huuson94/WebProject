@@ -10,19 +10,13 @@ class SessionsController extends BaseController {
         }
     }
     
-    /**
-	 * Create a new session
-	 *
-	 * @param name of key
-     * @param value of key
-	 * @return void
-	 */
-    public static function  store($key, $value){
-        Session::put($key, $value);
+    public function destroy(){
+        if(FEUsersHelper::isLogged()){
+            Session::flush('user');
+        }
+        return Redirect::to('/');
     }
-    
-    
-	public function postDoLogin(){
+	public function store(){
 		$data=Input::all();
 		$validator=Validator::make(
 			array(

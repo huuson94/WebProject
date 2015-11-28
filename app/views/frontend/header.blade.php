@@ -20,7 +20,7 @@
 			        <li><a href="{{url('/'.Session::get('user')['account'])}}">Profile</a></li>
 			        <li><a href="#">Messages</a></li> 
 			        <li><a href="{{url('/'.Session::get('user')['account'].'/photo')}}">Photo</a></li> 
-			        <li class=""><a href="{{url('session/logout')}}">Log-Out</a></li>
+			        <li class=""><a href="{{url('logout')}}">Log-Out</a></li>
 				@else
 					<li class="active"><a href="{{url('/login')}}">Đăng nhập</a></li>
 			        <li><a href="{{url('/signup')}}">Đăng ký</a></li>

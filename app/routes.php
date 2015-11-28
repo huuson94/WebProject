@@ -2,7 +2,7 @@
 
 Route::get('login', 'SessionsController@create');
 Route::post('login', 'SessionsController@store');
-Route::post('logout', 'SessionsController@destroy');
+Route::get('logout', 'SessionsController@destroy');
 Route::get('signup', 'FEUsersController@create');
 Route::resource('user','FEUsersController');
 Route::group(array('prefix' => '{user}', 'before' => 'isLogged'),function(){

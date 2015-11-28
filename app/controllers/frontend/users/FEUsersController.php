@@ -17,24 +17,23 @@ class FEUsersController extends ResourceBaseController{
         if ($validator->fails()) {
             $messages = $validator->messages();
             echo json_encode($messages);
+        } elseif(FEUsersHelper::isExistedUser('account')) {
+            echo 'fail: exists account';
+        }elseif(FEUsersHelper::isExistedUser('email')) {
+            echo 'fail: exists email';
+        }elseif ($data['password'] != $data['passwordcheck']) {
+            echo 'fail: password check';
         } else {
-            $user = Users::where('account', $data['account'])->first();
-            if ($user) {
-                echo 'fail: exists account';
-            } elseif ($data['password'] != $data['passwordcheck']) {
-                echo 'fail: password check';
-            } else {
-                $user = new Users;
-                $user['fullname'] = $data['fullname'];
-                $user['account'] = $data['account'];
-                $user['password'] = md5($data['password']);
-                $user['email'] = $data['email'];
-                $user['avatar'] = 'public/assets/images/ava_default.jpg';
-                $user['phone'] = $data['phone'];
-                $user->save();
-                SessionsController::store('user', $user);
-                echo 'success';
-            }
+            $user = new Users;
+            $user['fullname'] = $data['fullname'];
+            $user['account'] = $data['account'];
+            $user['password'] = md5($data['password']);
+            $user['email'] = $data['email'];
+            $user['avatar'] = 'public/assets/images/ava_default.jpg';
+            $user['phone'] = $data['phone'];
+            $user->save();
+            Session::put('user', $user);
+            echo 'success';
         }
     }
     

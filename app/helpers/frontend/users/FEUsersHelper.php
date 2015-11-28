@@ -35,4 +35,20 @@ class FEUsersHelper{
         );
         return $validator;
     }
+    
+    /**
+     * 
+     * @param string $field field in table to check. Default is account
+     * @return boolean
+     */
+    public static function isExistedUser($field = 'account'){
+        $data = Input::all();
+        $user = Users::where($field, $data["$field"])->first();
+        if ($user) {
+                return true;
+        }else{
+            return false;
+        }
+    }
+    
 }
