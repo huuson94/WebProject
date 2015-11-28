@@ -36,4 +36,41 @@ class AlbumController extends BaseController {
 		$data=Input::all();
 		echo json_encode($file);
 	}
+
+	public function Photo($user){
+		$this_user=Users::where('account',$user)->first();
+		$album=Albums::where('user_id',$this_user['id'])->orderBy('created_at','desc')->get();
+		if ($this_user) {
+			return View::make('frontend/profile/photo/photo')
+						->with('user',$this_user)
+						->with('albums',$album);
+		}else{
+			return 'ko có user '.$user;
+		}
+	}
+
+	public function Album($user){
+		$this_user=Users::where('account',$user)->first();
+		$album=Albums::where('user_id',$this_user['id'])->orderBy('created_at','desc')->get();
+		if ($this_user) {
+			return View::make('frontend/profile/photo/album')
+						->with('user',$this_user)
+						->with('albums',$album);
+		}else{
+			return 'ko có user '.$user;
+		}
+	}
+
+	public function Album_detail($user,$album_id){
+		$this_user=Users::where('account',$user)->first();
+		$this_album=Albums::where('id',$album_id)->first();
+		$image=Images::where('album_id',$album_id)->orderBy('created_at','desc')->get();
+		if ($this_user) {
+			return View::make('frontend/profile/photo/album-detail')
+						->with('user',$this_user)
+						->with('images',$image)->with('album',$this_album);
+		}else{
+			return 'ko có user '.$user;
+		}
+	}
 }

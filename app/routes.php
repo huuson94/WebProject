@@ -21,11 +21,9 @@ Route::group(array('prefix' => '{user}', 'before' => 'isLogged'),function(){
 //Route::resource('session','FESessionsController');
 Route::resource('album','FEAlbumsController');
 
-// Route::filter('check-user',function(){
-// 	if (!Session::has($user)) {
-// 		return Redirect::to('/');
-// 	}
-// })
-// Route::group(array('before' => 'check-user'),function(){})
+Route::get('{user}/photo', 'AlbumController@Photo');
+Route::get('{user}/photo/album', 'AlbumController@Album');
+Route::get('{user}/photo/album/{album_id}', 'AlbumController@Album_detail');
+
 Route::controller('/','FEViewController');
 
