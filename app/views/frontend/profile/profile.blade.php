@@ -15,7 +15,14 @@
 	</div>
 	<div class="col-md-9 list-post">
 		<div class="row">
-			@include('frontend/posts/index',array('posts' => array()))
+            @include('frontend/posts/create')
+            @foreach($entries as $entry)
+            @if(get_class($entry) == "Post")
+            @include('frontend/posts/_post', array('post' => $entry))
+            @elseif(get_class(entry) == "Blog")
+            @include('frontend/posts/_blog', array('blog' => $entry))
+            @endif
+            @endforeach
         </div>
 	</div>
 @stop

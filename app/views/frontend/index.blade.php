@@ -19,7 +19,14 @@
 				<div class="col-md-6 list-post">
 					<div class="row">
 						@include('frontend/posts/create')
-                        @include('frontend/posts/index', array('posts' => $datas['posts']))
+                        @foreach($entries as $entry)
+                            @if(get_class($entry) == "Post")
+                                @include('frontend/posts/_post', array('post' => $entry))
+                            @elseif(get_class(entry) == "Blog")
+                                @include('frontend/posts/_blog', array('blog' => $entry))
+                            @endif
+                        @endforeach
+                        
 					</div>
 				</div>
 				@include('frontend/right-content')

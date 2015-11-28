@@ -8,11 +8,12 @@ Route::resource('user','FEUsersController');
 Route::group(array('prefix' => '{user}', 'before' => 'isLogged'),function(){
 //    Route::get('{user}', 'UserController@Profile');
 //    Route::get('{user}/info', 'UsersController@info');
-    Route::get('/','FEViewController@getIndex');
+    Route::get('/','FEViewController@getProfile');
+    Route::get('profile','FEViewController@getProfile');
     Route::get('edit','FEUsersController@edit');
 //    Route::resource('info','FEUserInformationsController');
     
-    Route::get('profile','FEUserProfileController@show');
+    
 //    Route::get('profile/edit','FEUserProfileController@edit');
     Route::resource('post', 'FEPostsController');
     Route::resource('album', 'FEAlbumsController');
