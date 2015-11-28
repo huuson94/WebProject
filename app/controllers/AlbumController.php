@@ -4,7 +4,7 @@ class AlbumController extends BaseController {
 
 	public function postDoUpload(){
 		$data=Input::all();
-		$album=new Albums;
+		$album=new Album;
 		$album['title']=$data['title'];
 		$album['user_id']=Session::get('user')['id'];
 		$album['public']=$data['public'];
@@ -39,9 +39,9 @@ class AlbumController extends BaseController {
 
 	public function Photo($user){
 		$this_user=Users::where('account',$user)->first();
-		$album=Albums::where('user_id',$this_user['id'])->orderBy('created_at','desc')->get();
+		$album=Album::where('user_id',$this_user['id'])->orderBy('created_at','desc')->get();
 		if ($this_user) {
-			return View::make('frontend/profile/photo/photo')
+			return View::make('frontend/photo/photo')
 						->with('user',$this_user)
 						->with('albums',$album);
 		}else{
@@ -51,9 +51,9 @@ class AlbumController extends BaseController {
 
 	public function Album($user){
 		$this_user=Users::where('account',$user)->first();
-		$album=Albums::where('user_id',$this_user['id'])->orderBy('created_at','desc')->get();
+		$album=Album::where('user_id',$this_user['id'])->orderBy('created_at','desc')->get();
 		if ($this_user) {
-			return View::make('frontend/profile/photo/album')
+			return View::make('frontend/photo/album')
 						->with('user',$this_user)
 						->with('albums',$album);
 		}else{
@@ -63,10 +63,10 @@ class AlbumController extends BaseController {
 
 	public function Album_detail($user,$album_id){
 		$this_user=Users::where('account',$user)->first();
-		$this_album=Albums::where('id',$album_id)->first();
+		$this_album=Album::where('id',$album_id)->first();
 		$image=Images::where('album_id',$album_id)->orderBy('created_at','desc')->get();
 		if ($this_user) {
-			return View::make('frontend/profile/photo/album-detail')
+			return View::make('frontend/photo/album-detail')
 						->with('user',$this_user)
 						->with('images',$image)->with('album',$this_album);
 		}else{

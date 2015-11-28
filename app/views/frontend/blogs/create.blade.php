@@ -16,11 +16,7 @@
 	</div>
 	<div class="col-md-9 list-post list-blog">
 		<div class="row">
-            {{Form::open(array(
-                            'url' => Session::get('user')['account']."/blog", 
-                            'method' => 'POST'
-                        )
-            )}}
+            {{Form::open(array('url' => "blog", 'method' => 'POST'))}}
                 <div class="item border">
                     <textarea id="edit-blog" name="content" required="true"></textarea>
                 </div>

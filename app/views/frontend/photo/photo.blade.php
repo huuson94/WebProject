@@ -32,11 +32,11 @@
 			    	<div class="modal-header">
 				        <h4 class="modal-title">Tên Album</h4>
 				        <input id="title" type="text" name="title" placeholder="Nhập tên album ...">
-				        <select name="public" id="public">
-				        	<option value="public">Public</option>
-				        	<option value="friend">Friend</option>
-				        	<option value="private">Private</option>
-				        </select>
+				        <select name="privacy" id="privacy">
+                                @foreach($privacies as $privacy)
+                                <option value="{{$privacy->id}}">{{$privacy->name}}</option>
+                                @endforeach
+                        </select>
 			      	</div>
 			      	<div class="modal-body">
 				        <div class="form-group">
@@ -73,7 +73,7 @@
 		    uploadExtraData: function(){
 		    	return {
 		    		'title':$('#title').val(),
-		    		'public':$('#public').val()
+		    		'privacy':$('#privacy').val()
 		    	}
 		    }
 		    // maxFileCount: 5

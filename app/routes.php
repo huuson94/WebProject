@@ -15,15 +15,12 @@ Route::group(array('prefix' => '{user}'),function(){
     
     
 //    Route::get('profile/edit','FEUserProfileController@edit');
-    Route::resource('post', 'FEPostsController');
-    Route::resource('photo', 'FEAlbumsController');
-    Route::resource('message', 'FEMessagesController');
-    Route::resource('blog', 'FEBlogsController');
+   
 });
-//Route::resource('session','FESessionsController');
-
-
-Route::get('{user}/photo', 'AlbumController@Photo');
+Route::resource('post', 'FEPostsController');
+Route::resource('photo', 'FEAlbumsController');
+Route::resource('message', 'FEMessagesController');
+Route::resource('blog', 'FEBlogsController');
 Route::get('{user}/photo/album', 'AlbumController@Album');
 Route::get('{user}/photo/album/{album_id}', 'AlbumController@Album_detail');
 

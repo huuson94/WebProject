@@ -18,8 +18,8 @@
 			        <li class="active"><a href="{{url('/')}}">Home</a></li>
 			        <li class="visible-xs-block"><a href="#">Notification</a></li>
 			        <li><a href="{{url('/'.Session::get('user')['account'].'/profile')}}">Profile</a></li>
-			        <li><a href="{{url('/'.Session::get('user')['account'].'/message')}}">Messages</a></li> 
-			        <li><a href="{{url('/'.Session::get('user')['account'].'/photo')}}">Photo</a></li> 
+			        <li><a href="{{url('/message')}}">Messages</a></li> 
+			        <li><a href="{{url('/photo')}}">Photo</a></li> 
 			        <li class=""><a href="{{url('logout')}}">Log-Out</a></li>
 				@else
 					<li class="active"><a href="{{url('/login')}}">Đăng nhập</a></li>
