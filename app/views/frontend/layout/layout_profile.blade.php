@@ -8,8 +8,7 @@
 			<div class="bh_bgr text-center">
 				<div class="wrapper">
 					<div class="img">
-                        
-						<img src="{{url($user['avatar'])}}" alt="avatar">
+                        <img src="{{url($user['avatar'])}}" alt="avatar">
 					</div>
 					<h3>{{ $user['fullname']}}</h3>
 					<p>I wish i was a little bit taller, wish i was a baller, wish i had a girl… also.</p>

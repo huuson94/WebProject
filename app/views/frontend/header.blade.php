@@ -17,7 +17,7 @@
 				@if(Session::has('user'))
 			        <li class="active"><a href="{{url('/')}}">Home</a></li>
 			        <li class="visible-xs-block"><a href="#">Notification</a></li>
-			        <li><a href="{{url('/'.Session::get('user')['account'])}}">Profile</a></li>
+			        <li><a href="{{url('/'.Session::get('user')['account'].'/profile')}}">Profile</a></li>
 			        <li><a href="#">Messages</a></li> 
 			        <li><a href="{{url('/'.Session::get('user')['account'].'/photo')}}">Photo</a></li> 
 			        <li class=""><a href="{{url('logout')}}">Log-Out</a></li>
