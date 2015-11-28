@@ -7,7 +7,8 @@ Route::get('signup', 'FEUsersController@create');
 Route::resource('user','FEUsersController');
 
 Route::resource('post', 'FEPostsController');
-Route::resource('photo', 'FEAlbumsController');
+Route::resource('image', 'FEImagesController');
+Route::resource('album', 'FEAlbumsController');
 Route::resource('message', 'FEMessagesController');
 Route::resource('blog', 'FEBlogsController');
 Route::get('{user}/photo/album', 'AlbumController@Album');

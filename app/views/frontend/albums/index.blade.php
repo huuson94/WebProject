@@ -49,16 +49,17 @@
 			    </div>
 			</div>
 		</div>
+        @foreach($albums as $album)
 		<ul class="wrapper flex-images">
-			@foreach($albums as $album)
-				@foreach($album->images()->get() as $image)
+                @foreach($album->images as $image)
 				<li class="item" data-w="{{$image['width']}}" data-h="{{$image['height']}}">
 				    <img src="{{url('public/upload/'.$user['account'].'/'.$image['path'])}}" alt="test">
 				</li>
 				@endforeach
-			@endforeach
+			
 			<li class="item hide"></li>
 		</ul>
+        @endforeach
 	</div>
 @stop
 
@@ -68,7 +69,7 @@
 	<script type="text/javascript">
 		$('.flex-images').flexImages({rowHeight: 250});
 		$("#file").fileinput({
-		    uploadUrl: "{{url('album/do-upload')}}", // server upload action
+		    uploadUrl: "{{url('album')}}", // server upload action
 		    uploadAsync: false,
 		    uploadExtraData: function(){
 		    	return {

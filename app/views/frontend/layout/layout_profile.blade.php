@@ -15,7 +15,7 @@
 				</div>
 				<ul class="bh_link-list">
 					<li class="@yield('Photos')">
-						<a href="{{url('/photo?user_id='.$user['id'])}}">Photos</a>
+						<a href="{{url('/album?user_id='.$user['id'])}}">Photos</a>
 					</li>
 					<li class="@yield('Blog')">
 						<a href="{{url('/blog?user_id='.$user['id'])}}">Blog</a>

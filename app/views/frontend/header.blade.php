@@ -19,7 +19,7 @@
 			        <li class="visible-xs-block"><a href="#">Notification</a></li>
 			        <li><a href="{{url('/'.Session::get('user')['account'].'/profile')}}">Profile</a></li>
 			        <li><a href="{{url('/message')}}">Messages</a></li> 
-			        <li><a href="{{url('/photo?user_id='.Session::get('user')['id'])}}">Photo</a></li> 
+			        <li><a href="{{url('/album?user_id='.Session::get('user')['id'])}}">Photo</a></li> 
 			        <li class=""><a href="{{url('logout')}}">Log-Out</a></li>
 				@else
 					<li class="active"><a href="{{url('/login')}}">Đăng nhập</a></li>
