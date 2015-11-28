@@ -24,7 +24,11 @@ $('#sign-up').on('submit',function(event){
 			if (data=='fail: exists account'){
 				myError('account','Tài khoản này đã có người sử dụng');
 			}
-
+                        
+                        if (data=='fail: exists email'){
+				myError('email','Email này đã có người sử dụng');
+			}
+                        
 			// fail: password check
 			else if(data=='fail: password check'){
 				myError('passwordcheck','Mật khẩu không khớp');
