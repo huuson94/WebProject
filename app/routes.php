@@ -5,7 +5,7 @@ Route::post('login', 'SessionsController@store');
 Route::get('logout', 'SessionsController@destroy');
 Route::get('signup', 'FEUsersController@create');
 Route::resource('user','FEUsersController');
-Route::group(array('prefix' => '{user}', 'before' => 'isLogged'),function(){
+Route::group(array('prefix' => '{user}'),function(){
 //    Route::get('{user}', 'UserController@Profile');
 //    Route::get('{user}/info', 'UsersController@info');
     Route::get('/','FEViewController@getProfile');
@@ -16,11 +16,12 @@ Route::group(array('prefix' => '{user}', 'before' => 'isLogged'),function(){
     
 //    Route::get('profile/edit','FEUserProfileController@edit');
     Route::resource('post', 'FEPostsController');
-    Route::resource('album', 'FEAlbumsController');
+    Route::resource('photo', 'FEAlbumsController');
+    Route::resource('message', 'FEMessagesController');
     Route::resource('blog', 'FEBlogsController');
 });
 //Route::resource('session','FESessionsController');
-Route::resource('album','FEAlbumsController');
+
 
 // Route::filter('check-user',function(){
 // 	if (!Session::has($user)) {
