@@ -9,7 +9,7 @@ class FEUsersHelper{
         }
     }
     
-    public static function isValidatedSignupInfo(){
+    public static function validatedSignupInfo(){
         $data = Input::all();
         $validator = Validator::make(
                         array(
@@ -51,4 +51,22 @@ class FEUsersHelper{
         }
     }
     
+    
+    public static function validateLoginInfo(){
+        $data=Input::all();
+		$validator=Validator::make(
+			array(
+				'account'=>$data['account'],
+				'password'=>$data['password']
+			),
+			array(
+				'account'=>'required',
+				'password'=>'required'
+			),
+			array(
+				'required'=>'Yêu cầu thông tin đăng nhập',
+			)
+		);
+        return $validator;
+    }
 }

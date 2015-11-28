@@ -6,7 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'ActionBaseController' => $baseDir . '/app/controllers/ResourceBaseController.php',
     'ActionInterface' => $baseDir . '/app/controllers/ActionInterface.php',
     'AlbumController' => $baseDir . '/app/controllers/AlbumController.php',
     'Albums' => $baseDir . '/app/models/Albums.php',
@@ -18,6 +17,7 @@ return array(
     'IlluminateQueueClosure' => $vendorDir . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
     'Images' => $baseDir . '/app/models/Images.php',
     'Normalizer' => $vendorDir . '/patchwork/utf8/src/Normalizer.php',
+    'ResourceBaseController' => $baseDir . '/app/controllers/ResourceBaseController.php',
     'SessionHandlerInterface' => $vendorDir . '/symfony/http-foundation/Symfony/Component/HttpFoundation/Resources/stubs/SessionHandlerInterface.php',
     'SessionsController' => $baseDir . '/app/controllers/frontend/users/SessionsController.php',
     'TestCase' => $baseDir . '/app/tests/TestCase.php',

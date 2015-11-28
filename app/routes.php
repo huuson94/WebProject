@@ -11,7 +11,7 @@ Route::group(array('prefix' => '{user}', 'before' => 'isLogged'),function(){
     Route::resource('album', 'FEAlbumsController');
     Route::resource('blog', 'FEBlogsController');
 });
-Route::resource('session','FESessionsController');
+//Route::resource('session','FESessionsController');
 Route::resource('album','FEAlbumsController');
 
 // Route::filter('check-user',function(){

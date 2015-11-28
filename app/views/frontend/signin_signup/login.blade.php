@@ -8,7 +8,7 @@
 		<a href="{{url('/')}}"><img src="{{url('public/assets/images/brand.png')}}"></a>
 	</div>
 	<div class="td-login-card">
-		<form action="{{url('session/create')}}" method="POST" id="login">
+		<form action="{{url('login')}}" method="POST" id="login">
 			<div class="td-input-id-pass has-feedback">
 				<input class="td-input form-control" name="account" type="text" placeholder="Username">
 				<div class="error"></div>

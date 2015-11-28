@@ -13,7 +13,7 @@ class FEUsersController extends ResourceBaseController{
     
     public function store(){
         $data = Input::all();
-        $validator = FEUsersHelper::isValidatedSignupInfo();
+        $validator = FEUsersHelper::validatedSignupInfo();
         if ($validator->fails()) {
             $messages = $validator->messages();
             echo json_encode($messages);

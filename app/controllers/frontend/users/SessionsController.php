@@ -18,19 +18,7 @@ class SessionsController extends BaseController {
     }
 	public function store(){
 		$data=Input::all();
-		$validator=Validator::make(
-			array(
-				'account'=>$data['account'],
-				'password'=>$data['password']
-			),
-			array(
-				'account'=>'required',
-				'password'=>'required'
-			),
-			array(
-				'required'=>'Yêu cầu thông tin đăng nhập',
-			)
-		);
+		$validator = FEUsersHelper::validateLoginInfo();
 		if ($validator->fails()) {
 			$messages = $validator->messages();
 			echo json_encode($messages);
