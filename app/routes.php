@@ -14,6 +14,7 @@ Route::group(array('prefix' => '{user}', 'before' => 'isLogged'),function(){
     
     Route::get('profile','FEUserProfileController@show');
 //    Route::get('profile/edit','FEUserProfileController@edit');
+    Route::resource('post', 'FEPostsController');
     Route::resource('album', 'FEAlbumsController');
     Route::resource('blog', 'FEBlogsController');
 });

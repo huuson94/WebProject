@@ -24,7 +24,7 @@ class FEUsersController extends ResourceBaseController{
         }elseif ($data['password'] != $data['passwordcheck']) {
             echo 'fail: password check';
         } else {
-            $user = new Users;
+            $user = new User;
             $user['fullname'] = $data['fullname'];
             $user['account'] = $data['account'];
             $user['password'] = md5($data['password']);
@@ -85,10 +85,10 @@ class FEUsersController extends ResourceBaseController{
     }
 
     
-	// Process Sign Up Form
-	public function postDoSignUp(){
-		
-	}
+//	// Process Sign Up Form
+//	public function postDoSignUp(){
+//		
+//	}
 
 //	//Process Update User Infomation
 //	public function postUpdateInfo(){
@@ -135,12 +135,7 @@ class FEUsersController extends ResourceBaseController{
 	}
 
 	public function Blog($user){
-		$this_user=Users::where('account',$user)->first();
-		if ($this_user) {
-			return View::make('frontend/profile/blog')->with('user',$this_user);
-		}else{
-			return 'ko có user '.$user;
-		}
+		
 	}
 
     

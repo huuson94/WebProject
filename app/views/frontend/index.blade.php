@@ -18,7 +18,7 @@
 				</div>
 				<div class="col-md-6 list-post">
 					<div class="row">
-						@include('frontend/list-post')
+						@include('frontend/posts/list-post')
 					</div>
 				</div>
 				@include('frontend/right-content')

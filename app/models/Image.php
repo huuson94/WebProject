@@ -1,5 +1,5 @@
 <?php
-class Images extends Eloquent {
+class Image extends Eloquent {
 	protected $table = 'images';
 
 	public function album(){

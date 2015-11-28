@@ -16,7 +16,14 @@
 	</div>
 	<div class="col-md-9 list-post list-blog">
 		<div class="row">
-			@include('frontend/profile/list-blog')
+            <form action="{{url(Session::get('user')['account']."/blog")}}" method="POST">
+            <input type="hidden" v
+            <div class="item border">
+                <textarea id="edit-blog" name="content"></textarea>
+            </div>
+            <button type="submit">Post</button>
+            </form>
+			@include('frontend/blogs/list-blog')
 		</div>
 	</div>
 @stop

@@ -21,7 +21,7 @@
 						<a href="{{url('/'.$user['account'])}}">Timeline</a>
 					</li>
 					<li class="@yield('Blog')">
-						<a href="{{url('/'.$user['account'].'/blog')}}">Blog</a>
+						<a href="{{url('/'.$user['account'].'/blog/create')}}">Blog</a>
 					</li>
 					<li class="@yield('MyInfo')">
 						<a href="{{url('/'.$user['account'].'/info')}}">Info</a>
