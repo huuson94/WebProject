@@ -13,29 +13,7 @@ class FEUsersController extends ResourceBaseController{
     
     public function store(){
         $data = Input::all();
-
-        $validator = Validator::make(
-                        array(
-                    'fullname' => $data['fullname'],
-                    'account' => $data['account'],
-                    'password' => $data['password'],
-                    'passwordcheck' => $data['passwordcheck'],
-                    'email' => $data['email'],
-                    'phone' => $data['phone'],
-                        ), array(
-                    'fullname' => 'min:6|required',
-                    'account' => 'min:6|required',
-                    'password' => 'min:6|required',
-                    'passwordcheck' => 'required',
-                    'email' => 'email|required',
-                    'phone' => 'numeric',
-                        ), array(
-                    'required' => 'Vui lòng nhập thông tin vào trường này',
-                    'min' => 'Tối thiểu 6 ký tự',
-                    'email' => 'Dữ liệu nhập vào có dạng example@domain.com',
-                    'numeric' => 'Dữ liệu nhập vào chỉ gồm chữ số',
-                        )
-        );
+        $validator = FEUsersHelper::isValidatedSignupInfo();
         if ($validator->fails()) {
             $messages = $validator->messages();
             echo json_encode($messages);
@@ -54,6 +32,7 @@ class FEUsersController extends ResourceBaseController{
                 $user['avatar'] = 'public/assets/images/ava_default.jpg';
                 $user['phone'] = $data['phone'];
                 $user->save();
+                SessionsController::store('user', $user);
                 echo 'success';
             }
         }
