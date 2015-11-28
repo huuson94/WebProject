@@ -15,8 +15,8 @@
 	</div>
 	<div class="col-md-9 list-post">
 		<div class="row">
-			@include('frontend/list-post')
-		</div>
+			@include('frontend/posts/index',array('posts' => array()))
+        </div>
 	</div>
 @stop
 

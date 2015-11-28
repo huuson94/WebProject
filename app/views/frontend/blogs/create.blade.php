@@ -23,7 +23,7 @@
             </div>
             <button type="submit">Post</button>
             </form>
-			@include('frontend/blogs/list-blog')
+			@include('frontend/blogs/index')
 		</div>
 	</div>
 @stop

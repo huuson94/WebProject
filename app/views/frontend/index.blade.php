@@ -18,7 +18,8 @@
 				</div>
 				<div class="col-md-6 list-post">
 					<div class="row">
-						@include('frontend/posts/list-post')
+						@include('frontend/posts/create')
+                        @include('frontend/posts/index', array('posts' => $datas['posts']))
 					</div>
 				</div>
 				@include('frontend/right-content')
