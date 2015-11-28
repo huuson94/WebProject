@@ -42,7 +42,11 @@ class FEUsersController extends ResourceBaseController{
     }
 
     public function edit($id) {
-        
+        if (FEUsersHelper::isLogged()) {
+            return View::make('frontend/profile/info')->with('user', Session::get('user'));
+        } else {
+            return Redirect::to('/');
+        }
     }
 
     public function index() {
@@ -54,7 +58,30 @@ class FEUsersController extends ResourceBaseController{
     }
 
     public function update($id) {
-        
+        $data = Input::all();
+        if(FEUsersHelper::isCurrentUser($id)){
+            $validator = FEUsersHelper::validateUpdateInfo();
+            if ($validator->fails()) {
+                $messages = $validator->messages();
+                $errors = json_encode($messages);
+                echo $errors;
+                
+            } else {
+                $user = Users::where('account', $data['account'])->first();
+
+                $user['fullname'] = $data['fullname'];
+                $user['email'] = $data['email'];
+                $user['phone'] = $data['phone'];
+                $user->save();
+                Session::flush('user');
+                Session::put('user',$user);
+                echo json_encode('success');
+                
+            }
+        }else{
+            echo json_encode('fail');
+        }
+//        return false;
     }
 
     
@@ -63,42 +90,24 @@ class FEUsersController extends ResourceBaseController{
 		
 	}
 
-	//Process Update User Infomation
-	public function postUpdateInfo(){
-		$data=Input::all();
-
-		$validator=Validator::make(
-			array(
-				'fullname' => $data['fullname'],
-				'email' => $data['email'],
-				'phone' => $data['phone'],
-			),
-			array(
-				'fullname' => 'min:6|required',
-				'email' => 'email|required',
-				'phone' => 'numeric',
-			),
-			array(
-				'required' => 'Không được bỏ trống thông tin này',
-				'min' => 'Tối thiểu 6 ký tự',
-				'email' => 'Dữ liệu nhập vào có dạng example@domain.com',
-				'numeric' => 'Dữ liệu nhập vào chỉ gồm chữ số',
-			)
-		);
-		
-		if($validator->fails()){
-			$messages = $validator->messages();
-			echo json_encode($messages);
-		}else{
-			$user=Users::where('account',$data['account'])->first();
-
-			$user['fullname']=$data['fullname'];
-			$user['email']=$data['email'];
-			$user['phone']=$data['phone'];
-			$user->save();
-			echo 'success';
-		}
-	}
+//	//Process Update User Infomation
+//	public function postUpdateInfo(){
+//		$data=Input::all();
+//        $validator = FEUsersHelper::validateUpdateInfo();
+//		if($validator->fails()){
+//			$messages = $validator->messages();
+////			echo json_encode($messages);
+//		}else{
+//			$user=Users::where('account',$data['account'])->first();
+//
+//			$user['fullname']=$data['fullname'];
+//			$user['email']=$data['email'];
+//			$user['phone']=$data['phone'];
+//			$user->save();
+////			echo 'success';
+//		}
+//        return Redirect::to('/');
+//	}
 
 	public function Profile($user){
 		

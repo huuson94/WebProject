@@ -18,8 +18,8 @@
 			</div>
 			<div class="col-md-6 td-profile-col-right">
 				<!-- Thong tin co ban -->
-			<form action="{{url('user/update-info')}}">
-				<input type="hidden" name="account" value="{{ $user['account'] }}">
+			{{ Form::open(['method' => 'PATCH', 'route' => ["user.update",$user['id']]]) }}
+                <input type="hidden" name="account" value="{{ $user['account'] }}">
 				<div class="td-profile-col-right-box-1">
 					@if(Session::get('user')['account']==$user['account'])
 						<div class="td-profile-edit">

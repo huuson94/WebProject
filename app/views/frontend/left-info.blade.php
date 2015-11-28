@@ -1,7 +1,7 @@
 	<div class="row visible-md-block visible-lg-block">
 		<div class="col-md-12 item about pad-no-l">
 			<div class="bgr border">
-				<h5>About <small><a href="{{url(Session::get('user')['account'].'/info/edit')}}">· Edit</a></small></h5>
+				<h5>About <small><a href="{{url(Session::get('user')['account'].'/edit')}}">· Edit</a></small></h5>
 				<ul class="light">
 					<li>
 						<i class="glyphicon glyphicon-home"></i>

@@ -1,6 +1,19 @@
 <?php
 
 class FEUsersHelper{
+    /**
+     * 
+     * @param int  $id user_id to check
+     * 
+     */
+    public static function isCurrentUser($id){
+        if($id == Session::get('user')['id']){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
     public static function isLogged(){
         if(Session::has('user') && Session::get('user')){
             return true;
@@ -9,7 +22,40 @@ class FEUsersHelper{
         }
     }
     
-    public static function validatedSignupInfo(){
+    /**
+     * 
+     * @param string $field field in table to check. Default is account
+     * @return boolean
+     */
+    public static function isExistedUser($field = 'account'){
+        $data = Input::all();
+        $user = Users::where($field, $data["$field"])->first();
+        if ($user) {
+                return true;
+        }else{
+            return false;
+        }
+    }
+    
+    public static function validateLoginInfo(){
+        $data=Input::all();
+		$validator=Validator::make(
+			array(
+				'account'=>$data['account'],
+				'password'=>$data['password']
+			),
+			array(
+				'account'=>'required',
+				'password'=>'required'
+			),
+			array(
+				'required'=>'Yêu cầu thông tin đăng nhập',
+			)
+		);
+        return $validator;
+    }
+    
+    public static function validatedSignupInfo() {
         $data = Input::all();
         $validator = Validator::make(
                         array(
@@ -35,38 +81,26 @@ class FEUsersHelper{
         );
         return $validator;
     }
-    
-    /**
-     * 
-     * @param string $field field in table to check. Default is account
-     * @return boolean
-     */
-    public static function isExistedUser($field = 'account'){
+
+    public static function validateUpdateInfo(){
         $data = Input::all();
-        $user = Users::where($field, $data["$field"])->first();
-        if ($user) {
-                return true;
-        }else{
-            return false;
-        }
-    }
-    
-    
-    public static function validateLoginInfo(){
-        $data=Input::all();
-		$validator=Validator::make(
-			array(
-				'account'=>$data['account'],
-				'password'=>$data['password']
-			),
-			array(
-				'account'=>'required',
-				'password'=>'required'
-			),
-			array(
-				'required'=>'Yêu cầu thông tin đăng nhập',
-			)
-		);
+        $validator = Validator::make(
+                        array(
+                    'fullname' => $data['fullname'],
+                    'email' => $data['email'],
+                    'phone' => $data['phone'],
+                        ), array(
+                    'fullname' => 'min:6|required',
+                    'email' => 'email|required',
+                    'phone' => 'numeric',
+                        ), array(
+                    'required' => 'Không được bỏ trống thông tin này',
+                    'min' => 'Tối thiểu 6 ký tự',
+                    'email' => 'Dữ liệu nhập vào có dạng example@domain.com',
+                    'numeric' => 'Dữ liệu nhập vào chỉ gồm chữ số',
+                        )
+        );
         return $validator;
     }
+    
 }
