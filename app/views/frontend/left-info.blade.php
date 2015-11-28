@@ -25,22 +25,22 @@
 				<h5>Photo <small><a href="#">· Edit</a></small></h5>
 				<ul class="wrapper flex-images">
 			     	<li class="item" data-w="219" data-h="180">
-			     		<img src="{{url('assets/images/1.jpg')}}" alt="test">
+			     		<img src="{{url('public/assets/images/1.jpg')}}" alt="test">
 			     	</li>
 		            <li class="item" data-w="279" data-h="180">
-		            	<img src="{{url('assets/images/2.jpg')}}" alt="test">
+		            	<img src="{{url('public/assets/images/2.jpg')}}" alt="test">
 		            </li>
 		            <li class="item" data-w="270" data-h="180">
-		            	<img src="{{url('assets/images/3.jpg')}}" alt="test">
+		            	<img src="{{url('public/assets/images/3.jpg')}}" alt="test">
 		            </li>
 		            <li class="item" data-w="270" data-h="180">
-		            	<img src="{{url('assets/images/4.jpg')}}" alt="test">
+		            	<img src="{{url('public/assets/images/4.jpg')}}" alt="test">
 		            </li>
 		            <li class="item" data-w="147" data-h="180">
-		            	<img src="{{url('assets/images/5.jpg')}}" alt="test">
+		            	<img src="{{url('public/assets/images/5.jpg')}}" alt="test">
 		            </li>
 		            <li class="item" data-w="276" data-h="180">
-		            	<img src="{{url('assets/images/6.jpg')}}" alt="test">
+		            	<img src="{{url('public/assets/images/6.jpg')}}" alt="test">
 		            </li>
 				</ul>
 			</div>

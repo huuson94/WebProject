@@ -1,6 +1,15 @@
 <?php
 
-class SessionController extends BaseController {
+class SessionsController extends BaseController {
+    
+    public function create(){
+        if (!FEUsersHelper::isLogged()) {
+            return View::make('frontend/signin_signup/login');
+        } else {
+            return Redirect::to('/');
+        }
+    }
+    
 
 	public function postDoLogin(){
 		$data=Input::all();

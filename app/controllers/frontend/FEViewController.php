@@ -1,11 +1,11 @@
 <?php
 
-class ViewController extends BaseController {
+class FEViewController extends BaseController {
 
 	public function getIndex(){
 		if (Session::has('user')) {
 			return View::make('frontend/index');
 		}
-		return View::make('frontend/signin_signup/login');
+		return Redirect::to('login');
 	}
 }

@@ -1,10 +1,10 @@
 @extends('frontend/layout/layout_profile')
 @section('title'){{ $user['fullname'] }} | Info @stop
 @section('addcss')
-	<link rel="stylesheet" href="{{url('assets/css/main-style.css')}}">
-	<link rel="stylesheet" href="{{url('assets/css/style-info.css')}}">
-	<link rel="stylesheet" href="{{url('assets/css/flaticon.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{url('assets/css/jquery.flex-images.css')}}">
+	<link rel="stylesheet" href="{{url('public/assets/css/main-style.css')}}">
+	<link rel="stylesheet" href="{{url('public/assets/css/style-info.css')}}">
+	<link rel="stylesheet" href="{{url('public/assets/css/flaticon.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url('public/assets/css/jquery.flex-images.css')}}">
 @stop
 @section('MyInfo')
 	active
@@ -14,7 +14,7 @@
 	<div id="user_info" class="container td-profile">
 		<div class="row">
 			<div class="col-md-6 td-profile-col-left visible-md-block visible-lg-block">
-				<img src="{{url('assets/images/proinf3.png')}}">
+				<img src="{{url('public/assets/images/proinf3.png')}}">
 			</div>
 			<div class="col-md-6 td-profile-col-right">
 				<!-- Thong tin co ban -->
@@ -118,8 +118,8 @@
 @stop
 
 @section('addjs')
-	<script type="text/javascript" src="{{url('assets/js/jquery.flex-images.min.js')}}"></script>
-	<script type="text/javascript" src="{{url('assets/js/ajax/ajax-update.js')}}"></script>
+	<script type="text/javascript" src="{{url('public/assets/js/jquery.flex-images.min.js')}}"></script>
+	<script type="text/javascript" src="{{url('public/assets/js/ajax/ajax-update.js')}}"></script>
 	<script type="text/javascript">
 		$('.flex-images').flexImages({rowHeight: 150});
 	</script>

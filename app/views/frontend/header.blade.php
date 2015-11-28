@@ -9,7 +9,7 @@
 		        <span class="icon-bar"></span> 
 	    	</button>
 			<a class="navbar-brand" href="{{url('/')}}">
-				<img src="{{url('assets/images/brand-white.png')}}" alt="">
+				<img src="{{url('public/assets/images/brand-white.png')}}" alt="">
 			</a>
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">

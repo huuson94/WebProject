@@ -1,5 +1,5 @@
 $('#sign-up').on('submit',function(event){
-	event.preventDefault();
+        event.preventDefault();
 	$.post(
 		$(this).attr('action'),
 		$(this).serialize(),

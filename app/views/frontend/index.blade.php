@@ -3,8 +3,8 @@
 	Hedspi Library
 @stop
 @section('addcss')
-	<link rel="stylesheet" href="{{url('assets/css/main-style.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{url('assets/css/jquery.flex-images.css')}}">
+	<link rel="stylesheet" href="{{url('public/assets/css/main-style.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url('public/assets/css/jquery.flex-images.css')}}">
 @stop
 @section('addcontent')
 	@include('frontend/header')
@@ -27,7 +27,7 @@
 	</section>
 @stop
 @section('addjs')
-	<script type="text/javascript" src="{{url('assets/js/jquery.flex-images.min.js')}}"></script>
+	<script type="text/javascript" src="{{url('public/assets/js/jquery.flex-images.min.js')}}"></script>
 	<script type="text/javascript">
 		$('.flex-images').flexImages({rowHeight: 150});
 

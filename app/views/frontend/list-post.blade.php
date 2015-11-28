@@ -20,7 +20,7 @@
 		</article>
 		<article class="col-md-12 item border">
 			<div class="p_post">
-				<img class="ava radius_50 left" src="{{url('assets/images/avatar-test.png')}}" alt="test">
+				<img class="ava radius_50 left" src="{{url('public/assets/images/avatar-test.png')}}" alt="test">
 				<div class="left">
 					<h5>Trần Bảo Huy</h5>
 					<p class="light">12 min</p>
@@ -31,19 +31,19 @@
 			</div>
 			<ul class="img_post flex-images">
 				<li class="item" data-w="219" data-h="180">
-					<img src="{{url('assets/images/1.jpg')}}" alt="test">
+					<img src="{{url('public/assets/images/1.jpg')}}" alt="test">
 				</li>
 				<li class="item" data-w="279" data-h="180">
-					<img src="{{url('assets/images/2.jpg')}}" alt="test">
+					<img src="{{url('public/assets/images/2.jpg')}}" alt="test">
 				</li>
 				<li class="item" data-w="279" data-h="180">
-					<img src="{{url('assets/images/2.jpg')}}" alt="test">
+					<img src="{{url('public/assets/images/2.jpg')}}" alt="test">
 				</li>
 			</ul>
 		</article>
 		<article class="col-md-12 item border">
 			<div class="p_post">
-				<img class="ava radius_50 left" src="{{url('assets/images/avatar-test.png')}}" alt="test">
+				<img class="ava radius_50 left" src="{{url('public/assets/images/avatar-test.png')}}" alt="test">
 				<div class="left">
 					<h5>Trần Bảo Huy</h5>
 					<p class="light">12 min</p>

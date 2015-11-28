@@ -1,14 +1,14 @@
 @extends('frontend/layout/layout_master')
 @section('title') SIGN UP @stop
 @section('addcss')
-	<link rel="stylesheet" type="text/css" href="{{url('assets/css/style-signup.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url('public/assets/css/style-signup.css')}}">
 @stop
 @section('addcontent')
 	<div class="td-signup-card">
 		<div class="td-logo-signup">
-			<a href="{{url('/')}}"><img src="{{url('assets/images/brand.png')}}"></a>
+			<a href="{{url('/')}}"><img src="{{url('public/assets/images/brand.png')}}"></a>
 		</div>
-		<form id="sign-up" action="{{url('/user/do-sign-up')}}">
+		<form id="sign-up" action="{{url('/user')}}">
 			<div class="td-input-signup has-feedback">
 				<input class="td-input-su form-control" name="fullname" type="text" placeholder="Full name">
 				<div class="error"></div>
@@ -40,5 +40,5 @@
 	</div>
 @stop
 @section('addjs')
-	<script type="text/javascript" src="{{url('assets/js/ajax/ajax-signup.js')}}"></script>
+	<script type="text/javascript" src="{{url('public/assets/js/ajax/ajax-signup.js')}}"></script>
 @stop
