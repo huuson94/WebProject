@@ -8,6 +8,7 @@ Route::resource('user','FEUsersController');
 Route::group(array('prefix' => '{user}', 'before' => 'isLogged'),function(){
 //    Route::get('{user}', 'UserController@Profile');
 //    Route::get('{user}/info', 'UsersController@info');
+    Route::get('/','FEViewController@getIndex');
     Route::resource('album', 'FEAlbumsController');
     Route::resource('blog', 'FEBlogsController');
 });
