@@ -15,16 +15,13 @@
 				</div>
 				<ul class="bh_link-list">
 					<li class="@yield('Photos')">
-						<a href="{{url('/'.$user['account'].'/photo')}}">Photos</a>
-					</li>
-					<li class="@yield('Timeline')">
-						<a href="{{url('/'.$user['account'])}}">Timeline</a>
+						<a href="{{url('/album?user_id='.$user['id'])}}">Photos</a>
 					</li>
 					<li class="@yield('Blog')">
-						<a href="{{url('/'.$user['account'].'/blog/create')}}">Blog</a>
+						<a href="{{url('/blog?user_id='.$user['id'])}}">Blog</a>
 					</li>
 					<li class="@yield('MyInfo')">
-						<a href="{{url('/'.$user['account'].'/info')}}">Info</a>
+						<a href="{{url('/'.$user['account'].'/edit')}}">Info</a>
 					</li>
 					<li class="@yield('Friends')"><a href="#">Friends</a></li>
 				</ul>

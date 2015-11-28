@@ -117,8 +117,16 @@ class BEUsersController extends BaseController{
     public function search(){
         $option = Input::get('search_opt');
         $keyword = Input::get('keyword');
-        $users = User::select('*')->where($option,'LIKE','%'.$keyword.'%')->paginate(8);
-            return View::make('backend.users.index')->with('users', $users);
+        $sortby = Input::get('sortby');
+        $order  = Input::get('order');
+        if($sortby && $order){ 
+        $users = User::select('*')->where($option,'LIKE','%'.$keyword.'%')->orderBy($sortby, $order)->paginate(8);
+    }
+        else{
+            $users = User::select('*')->where($option,'LIKE','%'.$keyword.'%')->paginate(8);
+        }
+            return View::make('backend.users.index',compact('users', 'sortby', 'order'));
+        
     }
 
 }
