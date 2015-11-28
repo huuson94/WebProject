@@ -22,7 +22,7 @@
         <ul>
             <li>
                 <div class="ava">
-                    <img src="{{url('assets/images/ava_default.jpg')}}" alt="">
+                    <img src="{{url('public/assets/images/ava_default.jpg')}}" alt="">
                 </div>
                 <div class="content">
                     <a href=""><h5>Anh Tuấn</h5></a>
@@ -31,7 +31,7 @@
             </li>
             <li>
                 <div class="ava">
-                     <img src="{{url('assets/images/ava_default.jpg')}}" alt="">
+                     <img src="{{url('public/assets/images/ava_default.jpg')}}" alt="">
                 </div>
                 <div class="content">
                     <a href=""><h5>YoYo</h5></a>
@@ -40,7 +40,7 @@
             </li>
             <li>
                 <div class="ava">
-                    <img src="{{url('assets/images/ava_default.jpg')}}" alt="">
+                    <img src="{{url('public/assets/images/ava_default.jpg')}}" alt="">
                 </div>
                 <div class="input">
                     <textarea data-autoresize placeholder="Viết bình luận..."></textarea>

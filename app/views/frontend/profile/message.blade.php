@@ -1,8 +1,8 @@
 @extends('frontend/layout/layout_profile')
 @section('title'){{ $user['fullname'] }} | Info @stop
 @section('addcss')
-	<link rel="stylesheet" href="{{url('assets/css/main-style.css')}}">
-	<link rel="stylesheet" href="{{url('assets/css/style-message.css')}}">
+	<link rel="stylesheet" href="{{url('public/assets/css/main-style.css')}}">
+	<link rel="stylesheet" href="{{url('public/assets/css/style-message.css')}}">
 @stop
 @section('Friend')
 	active
@@ -28,7 +28,7 @@
 			<div class="ncc_friend-list">
 				<div class="ncc_friend ncc_chatting">
 					<div class="ncc_avatar">
-						<img src="{{url('assets/images/ava_default.jpg')}}">
+						<img src="{{url('public/assets/images/ava_default.jpg')}}">
 					</div>
 					<div class="ncc_info">
 						<h5>CÚT KHỎI ĐỜI TAO</h5>
@@ -38,7 +38,7 @@
 				</div>
 				<div class="ncc_friend">
 					<div class="ncc_avatar">
-						<img src="{{url('assets/images/ava_default.jpg')}}">
+						<img src="{{url('public/assets/images/ava_default.jpg')}}">
 					</div>
 					<div class="ncc_info">
 						<h5>BIẾN KHỎI ĐỜI TAO</h5>
@@ -61,7 +61,7 @@
 				</div>
 				<div class="ncc_message-me">
 					<div class="ncc_avatar">
-						<img src="{{url('assets/images/ava_default.jpg')}}">
+						<img src="{{url('public/assets/images/ava_default.jpg')}}">
 					</div>
 					<div class="ncc_me-l">
 						<div class="ncc_name-time">
@@ -75,7 +75,7 @@
 				</div>
 				<div class="ncc_message-me">
 					<div class="ncc_avatar">
-						<img src="{{url('assets/images/ava_default.jpg')}}">
+						<img src="{{url('public/assets/images/ava_default.jpg')}}">
 					</div>
 					<div class="ncc_me-l">
 						<div class="ncc_name-time">

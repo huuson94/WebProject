@@ -1,10 +1,10 @@
 @extends('frontend/layout/layout_profile')
 @section('title') {{ $user['fullname'] }} | Photo @stop
 @section('addcss')
-	<link rel="stylesheet" href="{{url('assets/css/main-style.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{url('assets/css/jquery.flex-images.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{url('assets/css/fileinput.css')}}" media="all" />
-	<link rel="stylesheet" href="{{url('assets/css/font-awesome.min.css')}}">
+	<link rel="stylesheet" href="{{url('public/assets/css/main-style.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url('public/assets/css/jquery.flex-images.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url('public/assets/css/fileinput.css')}}" media="all" />
+	<link rel="stylesheet" href="{{url('public/assets/css/font-awesome.min.css')}}">
 @stop
 @section('Photos')
 	active
@@ -53,7 +53,7 @@
 		<ul class="wrapper flex-images">
 			@foreach($images as $image)
 				<li class="item" data-w="{{$image['width']}}" data-h="{{$image['height']}}">
-				    <img src="{{url('upload/'.$user['account'].'/'.$image['path'])}}" alt="test">
+				    <img src="{{url('public/upload/'.$user['account'].'/'.$image['path'])}}" alt="test">
 				</li>
 			@endforeach
 			<li class="item hide"></li>
@@ -62,8 +62,8 @@
 @stop
 
 @section('addjs')
-	<script src="{{url('assets/js/fileinput.js')}}" type="text/javascript"></script>
-	<script type="text/javascript" src="{{url('assets/js/jquery.flex-images.min.js')}}"></script>
+	<script src="{{url('public/assets/js/fileinput.js')}}" type="text/javascript"></script>
+	<script type="text/javascript" src="{{url('public/assets/js/jquery.flex-images.min.js')}}"></script>
 	<script type="text/javascript">
 		$('.flex-images').flexImages({rowHeight: 250});
 		$("#file").fileinput({

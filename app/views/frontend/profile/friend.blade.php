@@ -1,8 +1,8 @@
 @extends('frontend/layout/layout_profile')
 @section('title'){{ $user['fullname'] }} | Info @stop
 @section('addcss')
-	<link rel="stylesheet" href="{{url('assets/css/main-style.css')}}">
-	<link rel="stylesheet" href="{{url('assets/css/style-friend.css')}}">
+	<link rel="stylesheet" href="{{url('public/assets/css/main-style.css')}}">
+	<link rel="stylesheet" href="{{url('public/assets/css/style-friend.css')}}">
 @stop
 @section('Friend')
 	active
@@ -27,7 +27,7 @@
 					<li class="col-xs-6">
 						<div class="">
 							<a href="#">
-								<img src="{{url('assets/images/ava_default')}}.jpg">
+								<img src="{{url('public/assets/images/ava_default')}}.jpg">
 							</a>
 							<div class="ncc_name">
 								<h5><a href="#">Nguyễn Công Chỉnh</a></h5>	
@@ -45,7 +45,7 @@
 					<li class="col-xs-6">
 						<div class="">
 							<a href="#">
-								<img src="{{url('assets/images/ava_default')}}.jpg">
+								<img src="{{url('public/assets/images/ava_default')}}.jpg">
 							</a>
 							<div class="ncc_name">
 								<h5><a href="#">Nguyễn Công Chỉnh</a></h5>	
@@ -63,7 +63,7 @@
 					<li class="col-xs-6">
 						<div class="">
 							<a href="#">
-								<img src="{{url('assets/images/ava_default')}}.jpg">
+								<img src="{{url('public/assets/images/ava_default')}}.jpg">
 							</a>
 							<div class="ncc_name">
 								<h5><a href="#">Nguyễn Công Chỉnh</a></h5>	
