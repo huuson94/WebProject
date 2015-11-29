@@ -11,7 +11,7 @@
  Target Server Version : 50624
  File Encoding         : utf-8
 
- Date: 11/28/2015 18:17:35 PM
+ Date: 11/29/2015 15:11:49 PM
 */
 
 SET NAMES utf8;
@@ -24,19 +24,19 @@ DROP TABLE IF EXISTS `albums`;
 CREATE TABLE `albums` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
-  `album_img` varchar(255) NOT NULL,
+  `album_img` varchar(255) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
-  `public` varchar(255) DEFAULT NULL,
-  `created_at` varchar(255) DEFAULT NULL,
-  `updated_at` varchar(255) DEFAULT NULL,
+  `privacy_id` tinyint(4) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `albums`
 -- ----------------------------
 BEGIN;
-INSERT INTO `albums` VALUES ('23', '', '56576456cf726.jpg', '15', 'public', '2015-11-27 02:58:14', '2015-11-27 02:58:14'), ('24', '', '56576456d2ade.jpg', '15', 'public', '2015-11-27 02:58:14', '2015-11-27 02:58:14'), ('25', '', '565764867abd6.jpg', '15', 'public', '2015-11-27 02:59:02', '2015-11-27 02:59:02'), ('26', 'OK', '565764ca6e211.jpg', '15', 'private', '2015-11-27 03:00:10', '2015-11-27 03:00:10'), ('27', 'OK', '565764def3f84.jpg', '15', 'private', '2015-11-27 03:00:31', '2015-11-27 03:00:31'), ('28', 'ko đề', '56576557b0206.jpg', '15', 'public', '2015-11-27 03:02:31', '2015-11-27 03:02:31'), ('29', 'ko đề', '5657655a69a74.jpg', '15', 'public', '2015-11-27 03:02:34', '2015-11-27 03:02:34'), ('30', 'vô đề', '565769c9551f4.jpg', '14', 'friend', '2015-11-27 03:21:29', '2015-11-27 03:21:29');
+INSERT INTO `albums` VALUES ('1', '', '565a989aed132.jpg', '18', '1', '2015-11-29 13:18:03', '2015-11-29 13:18:03'), ('2', '1', '565aa06f42f3b.jpg', '18', '1', '2015-11-29 13:51:27', '2015-11-29 13:51:27'), ('3', '2', '565aa08a4e133.jpg', '18', '3', '2015-11-29 13:51:54', '2015-11-29 13:51:54'), ('4', '', '565ab04574b5b.jpg', '19', '1', '2015-11-29 14:59:01', '2015-11-29 14:59:01');
 COMMIT;
 
 -- ----------------------------
@@ -51,7 +51,14 @@ CREATE TABLE `blogs` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Records of `blogs`
+-- ----------------------------
+BEGIN;
+INSERT INTO `blogs` VALUES ('1', '<p>This is test blog</p><p><br></p><p>This is test blog</p><p>This is test blog</p><p>This is test blog</p><p>This is test blog</p><p>This is test blog</p><p>This is test blog</p><p>This is test blog</p><p>This is test blog</p>', '24', '1', '2015-11-28 18:20:03', '2015-11-28 18:20:03'), ('2', '<p style=\"text-align: center;\"><strong>This is styled blog</strong></p><p style=\"text-align: left;\"><span style=\"font-family: Georgia,serif;\"><u>Hà nội, ngày 28/11/2015. Năm 4, bài tập lớn web.</u></span><br><br></p>', '24', '1', '2015-11-28 18:58:19', '2015-11-28 18:58:19'), ('3', '<p style=\"text-align: center;\"><strong>Test image</strong></p><p>&nbsp;<img class=\"fr-dib\" src=\"http://i.froala.com/download/7817244f5c49ee82c57d93a428d2a650f90ca2a3.jpg?1448718555\" style=\"width: 300px;\"></p>', '24', '1', '2015-11-28 20:49:51', '2015-11-28 20:49:51'), ('4', '<p>Test&nbsp;</p>', '24', '1', '2015-11-28 22:13:43', '2015-11-28 22:13:43'), ('5', '<p>asdfds</p>', '24', '1', '2015-11-28 22:32:37', '2015-11-28 22:32:37'), ('6', '<p>adsf</p>', '24', '1', '2015-11-28 22:55:08', '2015-11-28 22:55:08'), ('7', '<p>Đi ngủ. Buồn ngủ voãi <span class=\"fr-emoticon\">&#x1f602;</span></p>', '24', '1', '2015-11-28 23:40:07', '2015-11-28 23:40:07');
+COMMIT;
 
 -- ----------------------------
 --  Table structure for `images`
@@ -68,14 +75,28 @@ CREATE TABLE `images` (
   `created_at` varchar(255) DEFAULT NULL,
   `updated_at` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `images`
 -- ----------------------------
 BEGIN;
-INSERT INTO `images` VALUES ('1', 'ava_default.jpg', '0', null, null, '0', null, null, null), ('27', '56576456cf726.jpg', '15', '23', null, '1262', '791', '2015-11-27 02:58:15', '2015-11-27 02:58:15'), ('28', '56576456d2ade.jpg', '15', '24', null, '1920', '1080', '2015-11-27 02:58:15', '2015-11-27 02:58:15'), ('29', '565764867abd6.jpg', '15', '25', null, '1920', '1080', '2015-11-27 02:59:02', '2015-11-27 02:59:02'), ('30', '56576486e0a02.jpg', '15', '25', null, '1262', '791', '2015-11-27 02:59:02', '2015-11-27 02:59:02'), ('31', '565764ca6e211.jpg', '15', '26', null, '1266', '792', '2015-11-27 03:00:10', '2015-11-27 03:00:10'), ('32', '565764caa656d.jpg', '15', '26', null, '1600', '899', '2015-11-27 03:00:10', '2015-11-27 03:00:10'), ('33', '565764caf09ee.jpg', '15', '26', null, '500', '313', '2015-11-27 03:00:10', '2015-11-27 03:00:10'), ('34', '565764cb121ae.jpg', '15', '26', null, '1920', '1200', '2015-11-27 03:00:11', '2015-11-27 03:00:11'), ('35', '565764cb250b0.jpg', '15', '26', null, '640', '426', '2015-11-27 03:00:11', '2015-11-27 03:00:11'), ('36', '565764cb312ad.jpg', '15', '26', null, '640', '360', '2015-11-27 03:00:11', '2015-11-27 03:00:11'), ('37', '565764cb3d58e.jpg', '15', '26', null, '640', '470', '2015-11-27 03:00:11', '2015-11-27 03:00:11'), ('38', '565764cb497a7.jpg', '15', '26', null, '948', '600', '2015-11-27 03:00:11', '2015-11-27 03:00:11'), ('39', '565764def3f84.jpg', '15', '27', null, '1920', '1080', '2015-11-27 03:00:31', '2015-11-27 03:00:31'), ('40', '56576557b0206.jpg', '15', '28', null, '1366', '768', '2015-11-27 03:02:31', '2015-11-27 03:02:31'), ('41', '5657655a69a74.jpg', '15', '29', null, '1366', '768', '2015-11-27 03:02:34', '2015-11-27 03:02:34'), ('42', '565769c9551f4.jpg', '14', '30', null, '1366', '768', '2015-11-27 03:21:29', '2015-11-27 03:21:29'), ('43', '565769c999454.jpg', '14', '30', null, '1366', '768', '2015-11-27 03:21:29', '2015-11-27 03:21:29'), ('44', '565769c9ac48a.jpg', '14', '30', null, '1366', '768', '2015-11-27 03:21:29', '2015-11-27 03:21:29'), ('45', '565769c9f16a3.jpg', '14', '30', null, '1366', '768', '2015-11-27 03:21:29', '2015-11-27 03:21:29'), ('46', '565769ca1010c.jpg', '14', '30', null, '1366', '768', '2015-11-27 03:21:30', '2015-11-27 03:21:30'), ('47', '565769ca22e46.jpg', '14', '30', null, '1366', '768', '2015-11-27 03:21:30', '2015-11-27 03:21:30'), ('48', '565769ca2f1b4.jpg', '14', '30', null, '1366', '768', '2015-11-27 03:21:30', '2015-11-27 03:21:30'), ('49', '565769ca3b385.jpg', '14', '30', null, '1366', '768', '2015-11-27 03:21:30', '2015-11-27 03:21:30');
+INSERT INTO `images` VALUES ('1', '565a989aed132.jpg', '18', '1', null, '238', '238', '2015-11-29 13:18:03', '2015-11-29 13:18:03'), ('2', '565a989b2346e.jpg', '18', '1', null, '266', '147', '2015-11-29 13:18:03', '2015-11-29 13:18:03'), ('3', '565aa06f42f3b.jpg', '18', '2', null, '500', '333', '2015-11-29 13:51:27', '2015-11-29 13:51:27'), ('4', '565aa06f5ea51.jpg', '18', '2', null, '194', '259', '2015-11-29 13:51:27', '2015-11-29 13:51:27'), ('5', '565aa08a4e133.jpg', '18', '3', null, '238', '238', '2015-11-29 13:51:54', '2015-11-29 13:51:54'), ('6', '565aa08a59c05.jpg', '18', '3', null, '266', '147', '2015-11-29 13:51:54', '2015-11-29 13:51:54'), ('7', '565ab04574b5b.jpg', '19', '4', null, '1364', '584', '2015-11-29 14:59:01', '2015-11-29 14:59:01'), ('8', '565ab045a40ca.jpg', '19', '4', null, '238', '238', '2015-11-29 14:59:01', '2015-11-29 14:59:01');
 COMMIT;
+
+-- ----------------------------
+--  Table structure for `messages`
+-- ----------------------------
+DROP TABLE IF EXISTS `messages`;
+CREATE TABLE `messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `s_user_id` int(11) DEFAULT NULL,
+  `r_user_id` int(11) DEFAULT NULL,
+  `content` text,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `mst_privacies`
@@ -86,6 +107,7 @@ CREATE TABLE `mst_privacies` (
   `name` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
+  `is_deleted` tinyint(4) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
@@ -93,7 +115,7 @@ CREATE TABLE `mst_privacies` (
 --  Records of `mst_privacies`
 -- ----------------------------
 BEGIN;
-INSERT INTO `mst_privacies` VALUES ('1', 'Công khai', '2015-11-28 15:51:58', '2015-11-28 15:52:00'), ('2', 'Bạn bè', '2015-11-28 15:52:52', '2015-11-28 15:52:54'), ('3', 'Riêng tư', '2015-11-28 15:53:02', '2015-11-28 15:53:04');
+INSERT INTO `mst_privacies` VALUES ('1', 'Công khai', '2015-11-28 15:51:58', '2015-11-28 15:52:00', '0'), ('2', 'Bạn bè', '2015-11-28 15:52:52', '2015-11-28 15:52:54', '1'), ('3', 'Riêng tư', '2015-11-28 15:53:02', '2015-11-28 15:53:04', '0');
 COMMIT;
 
 -- ----------------------------
@@ -108,13 +130,13 @@ CREATE TABLE `posts` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `posts`
 -- ----------------------------
 BEGIN;
-INSERT INTO `posts` VALUES ('1', 'status 1 ', '24', '1', '2015-11-28 17:12:42', '2015-11-28 17:12:42'), ('2', 'status 2 ', '24', '1', '2015-11-28 18:04:17', '2015-11-28 18:04:17');
+INSERT INTO `posts` VALUES ('1', 'status 1 ', '24', '1', '2015-11-28 17:12:42', '2015-11-28 17:12:42'), ('2', 'status 2 ', '24', '1', '2015-11-28 18:04:17', '2015-11-28 18:04:17'), ('3', 'asd', '24', '1', '2015-11-28 22:11:22', '2015-11-28 22:11:22'), ('4', 'test ', '24', '1', '2015-11-28 22:11:31', '2015-11-28 22:11:31'), ('5', 'asdf', '24', '1', '2015-11-28 22:32:29', '2015-11-28 22:32:29'), ('6', 'adsf', '24', '1', '2015-11-28 22:55:16', '2015-11-28 22:55:16'), ('7', 'ádf', '24', '1', '2015-11-28 23:39:48', '2015-11-28 23:39:48'), ('8', 'fdsdf', '18', '1', '2015-11-29 12:09:45', '2015-11-29 12:09:45');
 COMMIT;
 
 -- ----------------------------
