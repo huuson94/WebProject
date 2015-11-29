@@ -11,8 +11,8 @@ Route::resource('image', 'FEImagesController');
 Route::resource('album', 'FEAlbumsController');
 Route::resource('message', 'FEMessagesController');
 Route::resource('blog', 'FEBlogsController');
-Route::get('{user}/photo/album', 'AlbumController@Album');
-Route::get('{user}/photo/album/{album_id}', 'AlbumController@Album_detail');
+//Route::get('{user}/photo/album', 'AlbumController@Album');
+//Route::get('{user}/photo/album/{album_id}', 'AlbumController@Album_detail');
 
 
 Route::group(array('prefix' => '{user}'),function(){

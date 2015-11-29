@@ -17,7 +17,7 @@ class BaseController extends Controller {
     
     
     public function __construct() {
-        $privacies = Privacy::all();
+        $privacies = Privacy::where('is_deleted',0)->get();
         return View::share('privacies',$privacies);
     }
 }
