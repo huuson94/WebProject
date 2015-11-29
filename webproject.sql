@@ -11,7 +11,7 @@
  Target Server Version : 50624
  File Encoding         : utf-8
 
- Date: 11/29/2015 15:11:49 PM
+ Date: 11/29/2015 15:28:44 PM
 */
 
 SET NAMES utf8;
@@ -59,6 +59,19 @@ CREATE TABLE `blogs` (
 BEGIN;
 INSERT INTO `blogs` VALUES ('1', '<p>This is test blog</p><p><br></p><p>This is test blog</p><p>This is test blog</p><p>This is test blog</p><p>This is test blog</p><p>This is test blog</p><p>This is test blog</p><p>This is test blog</p><p>This is test blog</p>', '24', '1', '2015-11-28 18:20:03', '2015-11-28 18:20:03'), ('2', '<p style=\"text-align: center;\"><strong>This is styled blog</strong></p><p style=\"text-align: left;\"><span style=\"font-family: Georgia,serif;\"><u>Hà nội, ngày 28/11/2015. Năm 4, bài tập lớn web.</u></span><br><br></p>', '24', '1', '2015-11-28 18:58:19', '2015-11-28 18:58:19'), ('3', '<p style=\"text-align: center;\"><strong>Test image</strong></p><p>&nbsp;<img class=\"fr-dib\" src=\"http://i.froala.com/download/7817244f5c49ee82c57d93a428d2a650f90ca2a3.jpg?1448718555\" style=\"width: 300px;\"></p>', '24', '1', '2015-11-28 20:49:51', '2015-11-28 20:49:51'), ('4', '<p>Test&nbsp;</p>', '24', '1', '2015-11-28 22:13:43', '2015-11-28 22:13:43'), ('5', '<p>asdfds</p>', '24', '1', '2015-11-28 22:32:37', '2015-11-28 22:32:37'), ('6', '<p>adsf</p>', '24', '1', '2015-11-28 22:55:08', '2015-11-28 22:55:08'), ('7', '<p>Đi ngủ. Buồn ngủ voãi <span class=\"fr-emoticon\">&#x1f602;</span></p>', '24', '1', '2015-11-28 23:40:07', '2015-11-28 23:40:07');
 COMMIT;
+
+-- ----------------------------
+--  Table structure for `follows`
+-- ----------------------------
+DROP TABLE IF EXISTS `follows`;
+CREATE TABLE `follows` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `follower_id` int(11) DEFAULT NULL,
+  `followed_id` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `images`

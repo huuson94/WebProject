@@ -21,6 +21,7 @@ Route::group(array('prefix' => '{user}'),function(){
     Route::get('/','FEViewController@getProfile');
     Route::get('profile','FEViewController@getProfile');
     Route::get('edit','FEUsersController@edit');
+    Route::get('following','FEViewController@getFollowing');
 //    Route::resource('info','FEUserInformationsController');
     
     
