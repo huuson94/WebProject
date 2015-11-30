@@ -41,5 +41,11 @@ class FEViewController extends BaseController {
         return View::make('frontend/profile/profile')->with('entries',$entries)->with('user',$user);
         
     }
+
+    public function getFollowing($account){
+        $user = User::where('account',$account)->get()->first();
+        $entries = $this->getViewDatas($user->id);
+        return View::make('frontend/profile/following')->with('entries',$entries)->with('user',$user);
+    }
     
 }

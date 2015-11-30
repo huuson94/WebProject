@@ -20,7 +20,9 @@
     <!-- Include jQuery (required) and the JS -->
     <script src="{{url('public/assets/js/jquery-2.1.4.min.js')}}"></script>
     <script src="{{url('public/assets/js/bootstrap.min.js')}}"></script>
-    <script src="{{url('public/assets/js/myScript.js')}}"></script>
+    <script src="{{url('public/assets/js/fileinput.js')}}" type="text/javascript"></script>
+	<script src="{{url('public/assets/js/myScript.js')}}"></script>
+    <script type="text/javascript" src="{{url('public/assets/js/jquery.flex-images.js')}}"></script>
     @yield('addjs')
 </body>
 </html>

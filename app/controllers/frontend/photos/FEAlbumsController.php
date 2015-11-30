@@ -17,18 +17,28 @@ class FEAlbumsController extends BaseController{
     public function index() {
         $user_id = Input::get('user_id');
         $user = User::find($user_id);
-        if ($user) {
-            $albums = Album::where('user_id','=',$user->id)->get();
-            return View::make('frontend/albums/index')
-                            ->with('user', $user)
-                            ->with('albums', $albums);
-        } else {
+        if($user){
+            if (FEUsersHelper::isCurrentUser($user->id)) {
+                $albums_d = Album::where('user_id','=',$user->id);
+            } else {
+                $albums_d = Album::where('user_id','=',$user->id)->where('privacy_id',  PrivaciesHelper::getId("Công khai"));
+            }
+
+            return View::make('frontend/photos/albums/index')
+                                ->with('user', $user)
+                                ->with('albums', $albums_d->get());
+        }else{
             return Redirect::to('/');
         }
     }
 
     public function show($id) {
-        
+        $album = Album::find($id);
+        if($album->privacy->name != "Riêng tư" || FEUsersHelper::isCurrentUser($album->user->id)){
+            return View::make('frontend/photos/albums/show')->with('album',$album)->with('user',$album->user);
+        }else{
+            return Redirect::to('/');
+        }
     }
 
     public function store() {
@@ -36,7 +46,7 @@ class FEAlbumsController extends BaseController{
         $album = new Album;
         $album['title'] = $data['title'];
         $album['user_id'] = Session::get('user')['id'];
-        $album['privacy'] = $data['privacy'];
+        $album['privacy_id'] = $data['privacy'];
 
         $file = Input::file('img');
         $folder_user = Session::get('user')['account'];

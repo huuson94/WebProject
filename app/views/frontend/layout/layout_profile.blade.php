@@ -23,7 +23,7 @@
 					<li class="@yield('MyInfo')">
 						<a href="{{url('/'.$user['account'].'/edit')}}">Info</a>
 					</li>
-					<li class="@yield('Friends')"><a href="#">Friends</a></li>
+					<!-- <li class="@yield('Friends')"><a href="#">Friends</a></li> -->
 				</ul>
 			</div>
 		</div>
