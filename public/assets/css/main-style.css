@@ -136,6 +136,8 @@ section.bh_banner .bh_bgr .wrapper p{
 	font-family: 'OpenSans-Light';
 	font-size: 14px;
 }
+
+
 section.bh_banner .bh_link-list{
 	position: absolute;
     bottom: 0;
@@ -170,6 +172,9 @@ section.bh_banner .bh_link-list li.active:after{
 	transform: rotate(45deg);
 	-moz-transform: rotate(45deg);
 	-webkit-transform: rotate(45deg);
+}
+section.bh_banner h3{
+  color: #fff;
 }
 @media only screen and (max-width: 768px){
 	header .navbar-right li.bh_search input{
