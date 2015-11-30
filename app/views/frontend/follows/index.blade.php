@@ -17,10 +17,10 @@
 					<i class="glyphicon glyphicon-user"></i>
 					Danh sách đã follow
 				</h3>
-				<div class="ncc_search-box">
+<!--				<div class="ncc_search-box">
 					<input type="text" placeholder="Tìm kiếm bạn bè">
 					<button class="glyphicon glyphicon-search" type="submit"></button>
-				</div>	
+				</div>	-->
 			</div>
 			<div class="ncc_friend-list">
 				<ul class="ncc_friends row">

@@ -30,7 +30,7 @@
 		   	<ul class="nav navbar-nav navbar-right">
 		        <li class="bh_search">
                     <form action="{{url('user')}}" method="GET">
-                        <input type="text" placeholder="Search" name="fullname">
+                        <input type="text" placeholder="Search user" name="fullname">
                     </form>
 		        </li>
 		        @if(Session::has('user'))

@@ -1,6 +1,6 @@
 @extends('frontend/layout/layout_master')
 @section('title')
-	Hedspi Library
+	Hedspi Social
 @stop
 @section('addcss')
 	<link rel="stylesheet" href="{{url('public/assets/css/main-style.css')}}">
