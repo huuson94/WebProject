@@ -39,6 +39,5 @@
 @stop
 
 @section('addjs')
-	<script type="text/javascript">
-	</script>
+@include('frontend/users/_ajax_follow')
 @stop
