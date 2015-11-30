@@ -12,6 +12,6 @@ class FEEntriesHelper {
     }
     
     public static function getId($entry_type){
-        return EntryType::where('name',$entry_type)->get()->first()->id;
+        return EntryType::where('type',$entry_type)->get()->first()->id;
     }
 }
