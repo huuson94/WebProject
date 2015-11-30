@@ -16,13 +16,13 @@
 		@include('frontend/photos/albums/_tab_link',array('user',$user))
 		@include('frontend/photos/albums/_upload',array('privacies',$privacies))
         <ul class="wrapper flex-images">
+        <li class="item hide"></li>
         @foreach($albums as $album)
 		<li class="item" data-w="{{$album->images->first()->width}}" data-h="{{$album->images->first()->height}}">
             <a href="{{url('album/'.$album->id)}}">
                 <img src="{{url('public/upload/'.$user['account'].'/'.$album->images->first()->path)}}" alt="test">
             </a>
         </li>
-        <li class="item hide"></li>
         @endforeach
         </ul>
 

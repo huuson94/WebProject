@@ -14,4 +14,18 @@ class User extends Eloquent {
             return AVATAR_DEFAULT_PATH;
         }
     }
+    /**
+     * Get following user list of current user
+     * @return array Array of following user_id
+     */
+    public function getFollowingUsersId(){
+        $result = array();
+        $follows = Follow::where('follower_id',$this->id)->where('is_deleted',0)->get();
+        
+        foreach($follows as $follow){
+            $result[] = $follow->followed_id;
+        }
+        return $result;
+        
+    }
 }

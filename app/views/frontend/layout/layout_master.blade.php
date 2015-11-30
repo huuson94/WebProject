@@ -22,7 +22,7 @@
     <script src="{{url('public/assets/js/bootstrap.min.js')}}"></script>
     <script src="{{url('public/assets/js/fileinput.js')}}" type="text/javascript"></script>
 	<script src="{{url('public/assets/js/myScript.js')}}"></script>
-    <script type="text/javascript" src="{{url('public/assets/js/jquery.flex-images.js')}}"></script>
+    <script type="text/javascript" src="{{url('public/assets/js/jquery.flex-images.min.js')}}"></script>
     @yield('addjs')
 </body>
 </html>

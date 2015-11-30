@@ -3,9 +3,13 @@
 class FEViewController extends BaseController {
 
 	public function getIndex(){
-		$entries = $this->getViewDatas($user_id = null, "Công khai");
-        
-        return View::make('frontend/index')->with('entries',$entries);
+        if(FEUsersHelper::isLogged()){
+            $entries = $this->getViewDatas($user_id = null, "Công khai");
+
+            return View::make('frontend/index')->with('entries',$entries);
+        }else{
+            return Redirect::to('login');
+        }
     }
     
     private function getViewDatas($user_id = null,$name = "Công khai"){
@@ -43,9 +47,7 @@ class FEViewController extends BaseController {
     }
 
     public function getFollowing($account){
-        $user = User::where('account',$account)->get()->first();
-        $entries = $this->getViewDatas($user->id);
-        return View::make('frontend/profile/following')->with('entries',$entries)->with('user',$user);
+        
     }
     
 }

@@ -19,9 +19,9 @@
 			        <li class="visible-xs-block"><a href="#">Notification</a></li>
 			        <li><a href="{{url('/'.Session::get('user')['account'].'/profile')}}">Profile</a></li>
 			        <li><a href="{{url('/message?user_id='.Session::get('user')['id'])}}">Messages</a></li> 
-			        <li><a href="{{url('/'.Session::get('user')['account'].'/following')}}">Follow</a></li>
+			        <li><a href="{{url('/follow?follower_id='.Session::get('user')['id'])}}">Follow</a></li>
 			        <li><a href="{{url('/album?user_id='.Session::get('user')['id'])}}">Photo</a></li> 
-			        <li class=""><a href="{{url('logout')}}">Log-Out</a></li>
+			        <li class=""><a href="{{url('logout')}}">Logout</a></li>
 				@else
 					<li class="active"><a href="{{url('/login')}}">Đăng nhập</a></li>
 			        <li><a href="{{url('/signup')}}">Đăng ký</a></li>
@@ -29,7 +29,9 @@
 		   	</ul>
 		   	<ul class="nav navbar-nav navbar-right">
 		        <li class="bh_search">
-					<input type="text" placeholder="Search">
+                    <form action="{{url('user')}}" method="GET">
+                        <input type="text" placeholder="Search" name="fullname">
+                    </form>
 		        </li>
 		        @if(Session::has('user'))
 		        <li class="bh_notifi visible-sm-block visible-md-block visible-lg-block">

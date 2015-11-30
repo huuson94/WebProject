@@ -50,7 +50,11 @@ class FEUsersController extends ResourceBaseController{
     }
 
     public function index() {
-        
+        $fullname = Input::get('fullname');
+        if($fullname){
+            $users = User::where('fullname','LIKE',"%$fullname%")->where('id','!=',Session::get('user')['id'])->get();
+            return View::make('frontend/users/index')->with('users',$users)->with('user',User::find(Session::get('user')['id']));
+        }
     }
 
     public function show($id) {
