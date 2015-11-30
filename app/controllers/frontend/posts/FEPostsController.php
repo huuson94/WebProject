@@ -29,6 +29,7 @@ class FEPostsController extends ResourceBaseController{
         $post->user_id = Session::get('user')['id'];
         $post->privacy = $datas['privacy'];
         $post->save();
+        FEEntriesHelper::save($post->id, FEEntriesHelper::getId("Post"), $post->user_id, $post->privacy);
         return Redirect::back()->with('message','Đăng thành công!');
     }
 

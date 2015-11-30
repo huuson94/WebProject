@@ -21,8 +21,8 @@
             @foreach($entries as $entry)
                 @if(get_class($entry) == "Post")
                     @include('frontend/posts/_post', array('post' => $entry))
-                @elseif(get_class(entry) == "Blog")
-                    @include('frontend/posts/_blog', array('blog' => $entry))
+                @elseif(get_class($entry) == "Blog")
+                    @include('frontend/blogs/_blog', array('blog' => $entry))
                 @endif
             @endforeach
         </div>

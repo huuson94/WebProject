@@ -30,6 +30,7 @@ class FEBlogsController extends ResourceBaseController{
         $blog->user_id = Session::get('user')['id'];
         $blog->privacy = $datas['privacy'];
         $blog->save();
+        FEEntriesHelper::save($blog->id, FEEntriesHelper::getId("Blog"), $blog->user_id, $blog->privacy);
         return Redirect::back();
     }
 
