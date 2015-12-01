@@ -21,7 +21,7 @@ class FEAlbumsController extends BaseController{
             if (FEUsersHelper::isCurrentUser($user->id)) {
                 $albums_d = Album::where('user_id','=',$user->id);
             } else {
-                $albums_d = Album::where('user_id','=',$user->id)->where('privacy_id',  PrivaciesHelper::getId("Công khai"));
+                $albums_d = Album::where('user_id','=',$user->id)->where('privacy',  PrivaciesHelper::getId("Công khai"));
             }
 
             return View::make('frontend/photos/albums/index')
@@ -34,11 +34,13 @@ class FEAlbumsController extends BaseController{
 
     public function show($id) {
         $album = Album::find($id);
-        if($album->privacy->name != "Riêng tư" || FEUsersHelper::isCurrentUser($album->user->id)){
+        if(FEUsersHelper::isCurrentUser($album->user->id)){
             return View::make('frontend/photos/albums/show')->with('album',$album)->with('user',$album->user);
         }else{
             return Redirect::to('/');
         }
+        
+
     }
 
     public function store() {
@@ -46,8 +48,8 @@ class FEAlbumsController extends BaseController{
         $album = new Album;
         $album['title'] = $data['title'];
         $album['user_id'] = Session::get('user')['id'];
-        $album['privacy_id'] = $data['privacy'];
-
+        $album['privacy'] = $data['privacy'];
+        
         $file = Input::file('img');
         $folder_user = Session::get('user')['account'];
         $x = 1;
@@ -58,8 +60,9 @@ class FEAlbumsController extends BaseController{
                 $album['album_img'] = $name;
                 $x = 0;
                 $album->save();
+                FEEntriesHelper::save($album->id, FEEntriesHelper::getId("Album"), $album->user_id, $album->privacy);
             }
-
+            
             list($width, $height) = getimagesize('public/upload/' . $folder_user . '/' . $name);
 
             $image = new Image;

@@ -15,16 +15,19 @@
 				
 				<div class="col-md-3 bh_left_info">
 					@include('frontend/child-info')
-					@include('frontend/left-info')
+					@include('frontend/images-left')
 				</div>
 				<div class="col-md-6 list-post">
 					<div class="row">
 						@include('frontend/posts/create')
                         @foreach($entries as $entry)
+                            
                             @if(get_class($entry) == "Post")
                                 @include('frontend/posts/_post', array('post' => $entry))
-                            @elseif(get_class(entry) == "Blog")
-                                @include('frontend/posts/_blog', array('blog' => $entry))
+                            @elseif(get_class($entry) == "Blog")
+                                @include('frontend/blogs/_blog_preview', array('blog' => $entry))
+                            @elseif(get_class($entry) == "Album")
+                                @include('frontend/photos/albums/_album', array('album' => $entry))
                             @endif
                         @endforeach
                         
@@ -39,6 +42,6 @@
 	<script type="text/javascript" src="{{url('public/assets/js/jquery.flex-images.min.js')}}"></script>
 	<script type="text/javascript">
 		$('.flex-images').flexImages({rowHeight: 150});
-
-	</script>
+    </script>
+    <script type="text/javascript" src="{{url('public/assets/js/index/ajax_delete_post.js')}}"></script>
 @stop

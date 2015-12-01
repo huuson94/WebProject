@@ -6,7 +6,13 @@ class FEPostsController extends ResourceBaseController{
     }
 
     public function destroy($id) {
-        
+        $post = Post::find($id);
+        if($post && FEUsersHelper::isCurrentUser($post->user->id)){
+            $post->delete();
+            echo 'true';
+        }else{
+            echo 'false';
+        }
     }
 
     public function edit($id) {
@@ -29,6 +35,7 @@ class FEPostsController extends ResourceBaseController{
         $post->user_id = Session::get('user')['id'];
         $post->privacy = $datas['privacy'];
         $post->save();
+        FEEntriesHelper::save($post->id, FEEntriesHelper::getId("Post"), $post->user_id, $post->privacy);
         return Redirect::back()->with('message','Đăng thành công!');
     }
 

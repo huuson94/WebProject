@@ -18,7 +18,7 @@
 			</div>
 			<div class="col-md-6 td-profile-col-right">
 				<!-- Thong tin co ban -->
-			{{ Form::open(['method' => 'PATCH', 'route' => ["user.update",$user['id']]]) }}
+			{{ Form::open(['id' =>'user-info-form', 'files' => true, 'method' => 'PATCH', 'route' => ["user.update",$user['id']]]) }}
                 <input type="hidden" name="account" value="{{ $user['account'] }}">
 				<div class="td-profile-col-right-box-1">
 					@if(Session::get('user')['account']==$user['account'])
@@ -67,14 +67,17 @@
 								<div class="error"></div>
 							</div>
 						</li>
-						<li class="td-finish">
-							<div class="td-profile-infor">
+                        <li>
+							<div class="td-profile-infor has-feedback">
 								<label class="td-form-label text-right">
-									<strong>Số CMND</strong>
+									<strong>Avatar</strong>
 								</label>
-								<span></span>
+                                <img src="{{ url($user->getAvatar()) }}" class="img-rounded avatar" style="width: 20%">
+								<input type="file" class='hidden avatar' name="avatar" value="">
+								<div class="error"></div>
 							</div>
 						</li>
+						
 					</ul>
 					
 				</div>
@@ -90,6 +93,7 @@
 								<label class="td-form-label text-right">
 									<strong>Địa chỉ</strong>
 								</label>
+                                <input type="hidden" name="address" value="{{ $user['address'] }}">
 								<span></span>
 							</div>
 						</li><li class="td-finish">
@@ -109,6 +113,16 @@
 				<div class="td-profile-col-right-box-3">
 					<h1>Tự bạch</h1>
 					<i class="flaticon-text150"></i>
+                    
+                    <div class="td-profile-infor">
+                        <label class="td-form-label text-right">
+                            <strong>Châm ngôn</strong>
+                        </label>
+                        <span>{{$user->about}}</span>
+                        <textarea name="about" class="hidden" value="">{{$user->about}}</textarea>
+                        <span></span>
+                    </div>
+                    
 				</div>
 			</form>
 			</div>

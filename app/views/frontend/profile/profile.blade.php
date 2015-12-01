@@ -18,15 +18,25 @@
             @if(FEUsersHelper::isCurrentUser($user->id))
             @include('frontend/posts/create')
             @endif
+            
             @foreach($entries as $entry)
                 @if(get_class($entry) == "Post")
                     @include('frontend/posts/_post', array('post' => $entry))
-                @elseif(get_class(entry) == "Blog")
-                    @include('frontend/posts/_blog', array('blog' => $entry))
+                @elseif(get_class($entry) == "Blog")
+                    @include('frontend/blogs/_blog_preview', array('blog' => $entry))
+                @elseif(get_class($entry) == "Album")
+                @include('frontend/photos/albums/_album', array('album' => $entry))
                 @endif
             @endforeach
         </div>
 	</div>
+    <div class="box-footer clearfix">
+        <div class="box-tools">
+            <div class="col-md-9 text-right">
+                
+            </div>
+        </div>
+    </div>
 @stop
 
 @section('addjs')
@@ -34,4 +44,5 @@
 	<script type="text/javascript">
 		$('.flex-images').flexImages({rowHeight: 150});
 	</script>
+    <script type="text/javascript" src="{{url('public/assets/js/index/ajax_delete_post.js')}}"></script>
 @stop

@@ -10,6 +10,6 @@ class Album extends Eloquent {
 	}
     
     public function privacy(){
-        return $this->belongsTo('Privacy','privacy_id');
+        return $this->belongsTo('Privacy','privacy');
     }
 }

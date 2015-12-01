@@ -20,7 +20,7 @@
         @foreach($albums as $album)
 		<li class="item" data-w="{{$album->images->first()->width}}" data-h="{{$album->images->first()->height}}">
             <a href="{{url('album/'.$album->id)}}">
-                <img src="{{url('public/upload/'.$user['account'].'/'.$album->images->first()->path)}}" alt="test">
+                <img src="{{url('public/upload/'.$album->user['account'].'/'.$album->images->first()->path)}}" alt="test">
             </a>
         </li>
         @endforeach

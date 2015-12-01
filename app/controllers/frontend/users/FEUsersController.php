@@ -41,12 +41,14 @@ class FEUsersController extends ResourceBaseController{
         
     }
 
-    public function edit($id) {
-        if (FEUsersHelper::isLogged()) {
-            return View::make('frontend/profile/info')->with('user', Session::get('user'));
-        } else {
-            return Redirect::to('/');
-        }
+    public function edit($account) {
+//        if (FEUsersHelper::isLogged()) {
+//            return View::make('frontend/profile/info')->with('user', Session::get('user'));
+//        } else {
+//            return Redirect::to('/');
+//        }
+        $user = User::where('account',$account)->get()->first();
+        return View::make('frontend/profile/info')->with('user', $user);
     }
 
     public function index() {
@@ -63,19 +65,27 @@ class FEUsersController extends ResourceBaseController{
 
     public function update($id) {
         $data = Input::all();
+        $avatar = Input::file('avatar');
         if(FEUsersHelper::isCurrentUser($id)){
             $validator = FEUsersHelper::validateUpdateInfo();
             if ($validator->fails()) {
                 $messages = $validator->messages();
                 $errors = json_encode($messages);
                 echo $errors;
-                
             } else {
                 $user = Users::where('account', $data['account'])->first();
 
                 $user['fullname'] = $data['fullname'];
                 $user['email'] = $data['email'];
                 $user['phone'] = $data['phone'];
+                $user['address'] = $data['address'];
+                $user['about'] = $data['about'];
+                if($avatar){
+                    $upload_avatar_folder = 'avatar/'.$user->account."/";
+                    $name= $avatar->getFilename().uniqid().".".$avatar->getClientOriginalExtension();
+                    $avatar->move(public_path() ."/". $upload_avatar_folder,$name);
+                    $user->avatar= 'public/'.$upload_avatar_folder."/".$name;
+                }
                 $user->save();
                 Session::flush('user');
                 Session::put('user',$user);
