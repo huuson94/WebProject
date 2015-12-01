@@ -20,7 +20,7 @@
                         <p class='blog-time'>
                             <i class='glyphicon glyphicon-time'></i>
                             <span>{{$blog->updated_at}} bởi</span>
-                            <a href="{{url($blog->user->fullname).'/profile'}}">{{$blog->user->fullname}}</a>
+                            <a href="{{url($blog->user->account).'/profile'}}">{{$blog->user->fullname}}</a>
                         </p>
                     </header>
                     <div class='content'>

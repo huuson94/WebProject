@@ -12,7 +12,7 @@
                             @endforeach
                         @endif
                     @endforeach
-                    <li class="item"></li>
+                    <li class="item hidden" ></li>
 			    </ul>
 			</div>
 		</div>
