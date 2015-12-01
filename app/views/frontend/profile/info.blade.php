@@ -93,6 +93,7 @@
 								<label class="td-form-label text-right">
 									<strong>Địa chỉ</strong>
 								</label>
+                                <input type="hidden" name="address" value="{{ $user['address'] }}">
 								<span></span>
 							</div>
 						</li><li class="td-finish">

@@ -9,11 +9,11 @@
     @if(FEUsersHelper::isLogged())
     <div class="ncc_op">
         @if(in_array($_user->id,$user->getFollowingUsersId()))
-        <button type="button" class="btn btn-default unfollow" itemprop="{{FEFollowsHelper::getId($user->id, $_user->id)}}"><a href="#">Unfollow</a></button>
-        <button type="button" class="btn btn-default follow hidden"  itemid='{{$user->id}}' itemref="{{$_user->id}}"><a href="#">Follow</a></button>
+        <button type="button" class="btn btn-default unfollow" itemprop="{{FEFollowsHelper::getId($user->id, $_user->id)}}">Unfollow</button>
+        <button type="button" class="btn btn-default follow hidden"  itemid='{{$user->id}}' itemref="{{$_user->id}}">Follow</button>
         @else
-        <button type="button" class="btn btn-default unfollow hidden" itemprop=""><a href="#">Unfollow</a></button>
-        <button type="button" class="btn btn-default follow" itemid='{{$user->id}}' itemref="{{$_user->id}}" ><a href="#">Follow</a></button>
+        <button type="button" class="btn btn-default unfollow hidden" itemprop="">Unfollow</button>
+        <button type="button" class="btn btn-default follow" itemid='{{$user->id}}' itemref="{{$_user->id}}" >Follow</button>
         @endif
 
     </div>

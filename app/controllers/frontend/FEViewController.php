@@ -21,7 +21,7 @@ class FEViewController extends BaseController {
         $owners_id[] = $current_user_id;
         $privacy = Privacy::where('name',"Công khai")->get()->first();
         $entries = Entry::whereIn('user_id',$owners_id)
-                        ->orderBy('updated_at', 'DESC')->paginate(3);
+                        ->orderBy('updated_at', 'DESC')->get();
         $datas = array();
         
         foreach ($entries as $index => $entry) {
@@ -39,14 +39,14 @@ class FEViewController extends BaseController {
         $datas = array();
         if (FEUsersHelper::isCurrentUser($user_id)) {
             $entries = Entry::where('user_id',$user_id)
-                        ->orderBy('updated_at', 'DESC')->paginate(3);
+                        ->orderBy('updated_at', 'DESC')->get();
             
             foreach ($entries as $index => $entry) {
                 $datas[] = $this->getEntry($entry->entry_id, $entry->type, null);
             }
         } else {
             $entries = Entry::where('user_id',$user_id)->where('privacy',$privacy->id)
-                        ->orderBy('updated_at', 'DESC')->paginate(3);
+                        ->orderBy('updated_at', 'DESC')->get();
             
             foreach ($entries as $index => $entry) {
                 $datas[] = $this->getEntry($entry->entry_id, $entry->type, $privacy->id);

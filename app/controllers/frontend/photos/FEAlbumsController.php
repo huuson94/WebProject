@@ -34,11 +34,13 @@ class FEAlbumsController extends BaseController{
 
     public function show($id) {
         $album = Album::find($id);
-        if($album->privacy->name != "Riêng tư" || FEUsersHelper::isCurrentUser($album->user->id)){
+        if(FEUsersHelper::isCurrentUser($album->user->id)){
             return View::make('frontend/photos/albums/show')->with('album',$album)->with('user',$album->user);
         }else{
             return Redirect::to('/');
         }
+        
+
     }
 
     public function store() {

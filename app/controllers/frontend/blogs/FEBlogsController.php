@@ -20,12 +20,23 @@ class FEBlogsController extends ResourceBaseController{
     }
 
     public function show($id) {
-        
+        $blog = Blog::find($id);
+        if($blog->privacy == 3 && !FEUsersHelper::isCurrentUser($blog->user->id)){
+            return Redirect::to('blog?user_id='.$blog->user->id);
+        }else{
+            $blogs = Blog::where('user_id',$blog->user->id)->get();
+            return View::make('frontend/blogs/show')->with('blog',$blog)->with('blogs',$blogs)->with('user',$blog->user);
+        }
     }
 
     public function store() {
         $datas = Input::all();
         $blog = new Blog;
+        if($datas['title']){
+            $blog->title = $datas['title'];
+        }else{
+            $blog->title = "Không tiêu đề";
+        }
         $blog->content = $datas['content'];
         $blog->user_id = Session::get('user')['id'];
         $blog->privacy = $datas['privacy'];

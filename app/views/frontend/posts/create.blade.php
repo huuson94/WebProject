@@ -1,7 +1,7 @@
 <article class="col-md-12 item border up-post">
     <div class="top">
         <p class="bold"><i class="glyphicon glyphicon-pencil"></i><a href="{{url('blog?user_id='.Session::get('user')['id'])}}">Blog</a></p>
-        <p class="bold"><i class="glyphicon glyphicon-camera"></i><a href="#">Add Photo</a></p>
+        <p class="bold"><i class="glyphicon glyphicon-camera"></i><a href="{{url('album?user_id='.Session::get('user')['id'])}}">Add Photo</a></p>
     </div>
     
     {{Form::open(array('url' => 'post', 'method' => 'POST'))}}

@@ -14,7 +14,7 @@
 				
 				<div class="col-md-3 bh_left_info">
 					@include('frontend/child-info')
-					@include('frontend/left-info')
+					@include('frontend/images-left')
 				</div>
 				<div class="col-md-6 list-post">
 					<div class="row">

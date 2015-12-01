@@ -7,6 +7,7 @@
 			<p class="light">{{$blog->updated_at}}</p>
 		</div>
 	</div>
+    <h5>{{$blog->title}}</h5>
     <div class="bh_text light">
 		{{$blog->content}}
 	</div>

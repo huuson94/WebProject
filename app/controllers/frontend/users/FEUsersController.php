@@ -78,6 +78,7 @@ class FEUsersController extends ResourceBaseController{
                 $user['fullname'] = $data['fullname'];
                 $user['email'] = $data['email'];
                 $user['phone'] = $data['phone'];
+                $user['address'] = $data['address'];
                 $user['about'] = $data['about'];
                 if($avatar){
                     $upload_avatar_folder = 'avatar/'.$user->account."/";

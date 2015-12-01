@@ -12,12 +12,13 @@
 
 @section('profile_content')
 	<div class="col-md-3 bh_left_info">
-		@include('frontend/left-info')
+		@include('frontend/blogs/_list', array('blogs',$blogs))
 	</div>
 	<div class="col-md-9 list-post list-blog">
 		<div class="row">
             {{Form::open(array('url' => "blog", 'method' => 'POST'))}}
                 <div class="item border">
+                    <h5><input type='text' class='form-control'  name='title'></h5>
                     <textarea id="edit-blog" name="content" required="true"></textarea>
                 </div>
                 <div class="up-button">
@@ -33,7 +34,7 @@
                     <div class="clearfix"></div>
                 </div>
             {{Form::close()}}
-			@include('frontend/blogs/index',array('blogs' => $blogs))
+			
 		</div>
 	</div>
 @stop
@@ -44,7 +45,9 @@
 	<script type="text/javascript">
 		$('.flex-images').flexImages({rowHeight: 150});
 		$(function(){
-			$('.list-blog #edit-blog').froalaEditor();
+			$('.list-blog #edit-blog').froalaEditor({
+                height: 400
+            });
 		});
 	</script>
 @stop
