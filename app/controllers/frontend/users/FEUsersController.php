@@ -31,8 +31,10 @@ class FEUsersController extends ResourceBaseController{
             $user['email'] = $data['email'];
             $user['avatar'] = 'public/assets/images/ava_default.jpg';
             $user['phone'] = $data['phone'];
+            $user->about = "";
+            $user->address = "";
             $user->save();
-            Session::put('user', $user->toArray());
+            Session::put('user', $user);
             echo 'success';
         }
     }
