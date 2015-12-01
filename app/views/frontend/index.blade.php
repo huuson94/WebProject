@@ -5,6 +5,7 @@
 @section('addcss')
 	<link rel="stylesheet" href="{{url('public/assets/css/main-style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{url('public/assets/css/jquery.flex-images.css')}}">
+	<link rel="stylesheet" href="{{url('public/assets/css/right-content.css')}}">
 @stop
 @section('addcontent')
 	@include('frontend/header')

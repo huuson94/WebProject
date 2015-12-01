@@ -1,0 +1,69 @@
+.right-content{
+	width: 308px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+.tb1{
+	margin-bottom: 30px;
+	border: 1px solid #d3e0e9;
+	border-radius: 4px;
+	background-color: #fff;
+}
+.az, .b1, .b3{
+	padding: 15px;
+}
+.az h5, .b1 h5{
+	font-weight: 600;
+	margin-top: 0;
+}
+.az p{
+	margin-top: 10px;
+}
+.image img{
+	width: 100%;
+}
+.az button, .friend-like li button{
+	background-color: #fff;
+	border-color: #337ab7;
+	color: #337ab7;
+}
+.az button:hover, .friend-like li button:hover{
+	background-color: #337ab7;
+	color: #fff;
+}
+.b1 h5 a{
+	font-size: 10px;
+	font-weight: 200;
+}
+.friend-like{
+	list-style: none;
+	padding-left: 15px;
+}
+.friend-like li{
+	margin-bottom: 20px;
+	list-style: none;
+}
+.friend-like li a{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	float: left;
+}
+.friend-like li a img{
+	width: 50px;
+	border-radius: 50%;
+}
+.name-like{
+	padding-left: 60px;
+}
+.friend-like li button{
+	margin-left: 10px;
+	padding:3px 10px;
+}
+.b2{
+	padding: 10px 15px;
+	background-color: #f5f8fa;
+	border-top: 1px solid #d3e0e9;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
