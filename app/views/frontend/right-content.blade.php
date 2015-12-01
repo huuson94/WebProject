@@ -16,31 +16,31 @@
 		</div>
 		<div class="tb1">
 			<div class="b1">
-				<h5>Likes . <a href="#">View All</a></h5>
+				<h5>Gợi ý follow</h5>
 				<ul class="friend-like">
-					<li class="row">
-						<a href="#">
-							<img src="http://bootstrap-themes.github.io/application/assets/img/instagram_2.jpg">
-						</a>
-						<div class="name-like">
-							<strong>chinhnc</strong> @fat
-						</div>
-						<button class="btn">Follow</button>
-					</li>
-					<li class="row">
-						<a href="#">
-							<img src="http://bootstrap-themes.github.io/application/assets/img/instagram_2.jpg">
-						</a>
-						<div class="name-like">
-							<strong>nguyen cong chinh</strong> @abc
-						</div>
-						<button class="btn">Follow</button>
-					</li>
+                    @foreach($suggestes as $index => $suggest)
+                        @if($index <=1 && in_array($suggest->followed->id,$user->getFollowingUsersId()))
+                        
+                        <li class="row">
+                            <a href="{{url($suggest->followed->account.'/profile')}}">
+                                <img src="{{url($suggest->followed->avatar)}}">
+                            </a>
+                            <div class="name-like">
+                                <strong>{{$suggest->followed->fullname}}</strong>
+                            </div>
+                            @if(FEUsersHelper::isLogged())
+                            <div class="ncc_op">
+                                <button type="button" class="btn btn-default unfollow hidden" itemprop="">Unfollow</button>
+                                <button type="button" class="btn btn-default follow" itemid='{{$user->id}}' itemref="{{$suggest->followed->id}}" >Follow</button>
+                            </div>
+                            @endif
+                        </li>
+                        @endif
+                    @endforeach
+					
 				</ul>
 			</div>
-			<div class="b2">
-				Dave really likes these nerds, no one knows why though.
-			</div>
+			
 		</div>
 		<div class="tb1">
 			<div class="b3">
@@ -56,3 +56,4 @@
 		</div>
 	</div>
 </div>
+@include('frontend/users/_ajax_follow')
