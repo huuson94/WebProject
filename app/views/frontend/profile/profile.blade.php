@@ -23,7 +23,7 @@
                 @if(get_class($entry) == "Post")
                     @include('frontend/posts/_post', array('post' => $entry))
                 @elseif(get_class($entry) == "Blog")
-                    @include('frontend/blogs/_blog', array('blog' => $entry))
+                    @include('frontend/blogs/_blog_preview', array('blog' => $entry))
                 @elseif(get_class($entry) == "Album")
                 @include('frontend/photos/albums/_album', array('album' => $entry))
                 @endif

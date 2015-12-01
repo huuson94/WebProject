@@ -14,10 +14,10 @@
 
 	<div class="col-md-12 list-post list-blog">
 		<div class="row">
-            {{Form::open(array('url' => "blog", 'method' => 'POST'))}}
+            {{Form::open(array('url' => "blog/".$blog->id, 'method' => 'PATCH'))}}
                 <div class="item border">
-                    <h5><input type='text' class='form-control'  name='title'></h5>
-                    <textarea id="edit-blog" name="content" required="true"></textarea>
+                    <h5><input type='text' class='form-control'  name='title' value="{{$blog->title}}"></h5>
+                    <textarea id="edit-blog" name="content"></textarea>
                 </div>
                 <div class="up-button">
                     <div class="right bold">
@@ -27,7 +27,7 @@
                             @endforeach
 
                         </select>
-                        <input type="submit" value="Đăng">
+                        <input type="submit" value="Lưu">
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -46,6 +46,7 @@
 			$('.list-blog #edit-blog').froalaEditor({
                 height: 400
             });
+           $('.list-blog #edit-blog').froalaEditor('html.set', '{{$blog->content}}');
 		});
 	</script>
 @stop

@@ -6,7 +6,7 @@
     
     {{Form::open(array('url' => 'post', 'method' => 'POST'))}}
     <div class="content">
-        <textarea name="content" placeholder="Bạn đang nghĩ gì?" data-autoresize spellcheck="false"></textarea>
+        <textarea name="content" placeholder="Bạn đang nghĩ gì?" data-autoresize spellcheck="false" required="true"></textarea>
     </div>
     <div class="up-button">
         <div class="right bold">

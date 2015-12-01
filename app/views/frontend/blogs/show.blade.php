@@ -11,19 +11,15 @@
 @stop
 
 @section('profile_content')
-	<div class="col-md-3 bh_left_info">
-        <a class='btn btn-default' href='{{url('blog?user_id='.$blog->user->id)}}'>Đăng bài mới</a>
-		@include('frontend/blogs/_list', array('blogs',$blogs))
-	</div>
-	<div class="col-md-9 list-post list-blog">
+	<div class="col-md-12 list-post list-blog">
 		<div class="row">
             {{Form::open(array('url' => "blog/".$blog->id, 'method' => 'DELETE'))}}
                 <div class="item border">
-                    <h5>{{$blog->title}}</h5>
+                    <h1>{{$blog->title}}</h1>
                     <hr/>
-                    <span>
+                    <div>
                         {{$blog->content}}
-                    </span>
+                    </div>
                 </div>
                 <div class="up-button">
                     <div class="right bold">

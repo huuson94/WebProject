@@ -11,7 +11,7 @@
                         <img src="{{url($user['avatar'])}}" alt="avatar">
 					</div>
 					<h3>{{ $user['fullname']}}</h3>
-					<p>{{$user->about}}</p>
+					<p>{{$user['about']}}</p>
 				</div>
 				<ul class="bh_link-list">
 					<li class="@yield('Photos')">
