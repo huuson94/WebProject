@@ -79,10 +79,12 @@ class FEUsersController extends ResourceBaseController{
                 $user['email'] = $data['email'];
                 $user['phone'] = $data['phone'];
                 $user['about'] = $data['about'];
-                $upload_avatar_folder = 'avatar/'.$user->account."/";
-                $name= $avatar->getFilename().uniqid().".".$avatar->getClientOriginalExtension();
-                $avatar->move(public_path() ."/". $upload_avatar_folder,$name);
-                $user->avatar= 'public/'.$upload_avatar_folder."/".$name;
+                if($avatar){
+                    $upload_avatar_folder = 'avatar/'.$user->account."/";
+                    $name= $avatar->getFilename().uniqid().".".$avatar->getClientOriginalExtension();
+                    $avatar->move(public_path() ."/". $upload_avatar_folder,$name);
+                    $user->avatar= 'public/'.$upload_avatar_folder."/".$name;
+                }
                 $user->save();
                 Session::flush('user');
                 Session::put('user',$user);
