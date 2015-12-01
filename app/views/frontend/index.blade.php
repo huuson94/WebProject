@@ -41,6 +41,6 @@
 	<script type="text/javascript" src="{{url('public/assets/js/jquery.flex-images.min.js')}}"></script>
 	<script type="text/javascript">
 		$('.flex-images').flexImages({rowHeight: 150});
-
-	</script>
+    </script>
+    <script type="text/javascript" src="{{url('public/assets/js/index/ajax_delete_post.js')}}"></script>
 @stop

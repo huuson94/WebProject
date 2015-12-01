@@ -23,7 +23,11 @@
                     <div class="right bold">
                         <select name="privacy">
                             @foreach($privacies as $privacy)
-                            <option value="{{$privacy->id}}">{{$privacy->name}}</option>
+                            <option value="{{$privacy->id}}"
+                                    @if($privacy->id == $blog->privacy)
+                                    selected='true'
+                                    @endif
+                                    >{{$privacy->name}}</option>
                             @endforeach
 
                         </select>
