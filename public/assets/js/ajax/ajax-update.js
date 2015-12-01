@@ -7,7 +7,12 @@ $(document).on('click', '.edit-button', function (event) {
     $('#user_info form li>div').each(function () {
         $(this).find('span').hide();
         $(this).find('input').attr('type', 'text');
-    })
+    });
+    $("div.td-profile-infor span").addClass('hidden');
+    $("div.td-profile-infor textarea").removeClass('hidden');
+    $('#user_info form li>div img.avatar').addClass('hidden');
+    $('#user_info form li>div input.avatar').removeClass('hidden');
+    $('#user_info form li>div input.avatar').attr('type','file');
 })
 $('.cancle-button').on('click', function (event) {
     event.preventDefault();
@@ -15,12 +20,17 @@ $('.cancle-button').on('click', function (event) {
 })
 $(document).on('click', '.save-button', function (event) {
     event.preventDefault();
+    var data = new FormData($("#user_info form")[0]);
+    
     $.ajax({
-        url: $('#user_info form').attr('action'),
-        data: $('#user_info form').serialize(),
-        type: 'PATCH',
+        url: $('#user-info-form').attr('action'),
+        data: data,
+        type: 'POST',
         dataType: 'JSON',
-        success: function(data){
+        processData: false,
+        contentType: false,
+        cache: false,
+        success: function(data, textStatus, jqXHR){
             var fail = '<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>';
             //reset message error
             $('.error').html('');
@@ -52,6 +62,9 @@ $(document).on('click', '.save-button', function (event) {
                         adderror('phone');
                 })
             }
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            //if fails     
         }
     });
 });
