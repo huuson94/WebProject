@@ -5,7 +5,7 @@
 			<div class="az">
 				<h5>Sponsored</h5>
 				<div class="image">
-					<img src="http://bootstrap-themes.github.io/application/assets/img/instagram_2.jpg">	
+					<img src="">	
 				</div>
 				<p>
 					<strong>It might be time to visit Iceland.</strong>

@@ -201,7 +201,7 @@ section.bh_main_content{
 	margin-top: 50px;
 	padding-top: 30px;
 	background-color: #F5F8FA;
-	height: 3000px;
+	height: auto;
 }
 .bh_left_info .item img{
 	width: 100%;
