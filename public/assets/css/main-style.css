@@ -852,3 +852,9 @@ div.conversation div.message-me div.message-content{
 div.conversation div.message-friend div.message-content{
     padding-right: 25px;
 }
+div.action-btn div.privacy{
+    margin-bottom: 37px;
+}
+#photo-upload input{
+    width: 300px;
+}
