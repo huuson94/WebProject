@@ -11,8 +11,8 @@
 @stop
 @section('profile_content')
 @if(FEUsersHelper::isCurrentUser($user['id']))
-<div class="pull-right col-md-2" >
-    <a href="{{url('blog/create')}}">Viết blog</a>
+<div class="pull-right col-md-2 new-blog" >
+</i><a class="" href="{{url('blog/create')}}" ><i class="glyphicon glyphicon-pencil">Viết blog</i></a>
 </div>
 @endif
 <div>

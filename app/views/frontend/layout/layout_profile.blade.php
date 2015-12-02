@@ -8,10 +8,10 @@
 			<div class="bh_bgr text-center">
 				<div class="wrapper">
 					<div class="img">
-                        <img src="{{url($user['avatar'])}}" alt="avatar">
+                        <img src="{{url($user->avatar)}}" alt="avatar">
 					</div>
 					<h3>{{ $user['fullname']}}</h3>
-					<p>{{$user['about']}}</p>
+					<p>{{$user->about}}</p>
 				</div>
 				<ul class="bh_link-list">
 					<li class="@yield('Photos')">

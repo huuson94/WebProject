@@ -4,8 +4,11 @@ class FEViewController extends BaseController {
 
 	public function getIndex(){
         if(FEUsersHelper::isLogged()){
-            $entries = $this->getViewIndexDatas();
-            return View::make('frontend/index')->with('entries',$entries);
+            $entries = $this->getViewIndexDatas()['datas'];
+            $suggests = $this->getViewIndexDatas()['suggestes'];
+            $user = User::find(Session::get('user')['id']);
+            return View::make('frontend/index')->with('entries',$entries)->with('suggestes',$suggests)
+                ->with('user',$user);
         }else{
             return Redirect::to('login');
         }
@@ -31,7 +34,9 @@ class FEViewController extends BaseController {
                 $datas[] = $this->getEntry($entry->entry_id, $entry->type, $privacy->id);
             } 
         }
-        return $datas;
+        
+        $suggests = FEUsersHelper::getSuggestes();
+        return array('datas' => $datas, 'suggestes' => $suggests);
     }
     
     private function getViewProfileDatas($user_id) {
@@ -71,6 +76,8 @@ class FEViewController extends BaseController {
             return null;
         }
     }
+    
+  
         
 //    private function getPost($post_id,  $privacy = 1){
 //        if($privacy == null){

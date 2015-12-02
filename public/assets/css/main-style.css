@@ -786,3 +786,38 @@ article.item>blockquote ul li h5{
   display: inline-block;
   margin: 0 5px 0 0;
 }
+
+div.blog-content{
+    padding-left: 18px;
+    background-color: white;
+}
+
+div.blog-content header h1, article.blog header h1{
+    font-family: "Varela Round",​sans-serif;
+    font-size: 54px;
+    font-weight: 400;
+    color: rgb(71,71,71);
+    margin: 18px 0px;
+}
+div.blog-content header p.blog-time, article.blog header p.blog-time{
+    font-family: "Open Sans",​​Arial,​sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #54C1E6;
+    margin-bottom: 64px;
+}
+
+div.list-blog div.action-btn a{
+    background-color: #78D2ED;
+}
+ul.flex-images{
+    width: calc(100% + 2px);
+}
+
+div.new-blog i {
+    word-spacing: -10px;
+    left: 103px;
+}
+article.blog div.pull-right{
+    border-left: 1px solid #A2DAEC;
+}

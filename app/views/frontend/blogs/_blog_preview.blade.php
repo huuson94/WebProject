@@ -1,5 +1,5 @@
 @if($blog)
-<article class="col-md-12 item border">
+<article class="col-md-12 item border blog-preview">
 	<div class="p_post">
 		<img class="ava radius_50 left" src="{{url($blog->user->getAvatar())}}" alt="test">
 		<div class="left">
