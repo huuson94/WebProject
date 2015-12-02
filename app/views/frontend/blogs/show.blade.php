@@ -11,27 +11,28 @@
 @stop
 
 @section('profile_content')
-	<div class="col-md-3 bh_left_info">
-        <a class='btn btn-default' href='{{url('blog?user_id='.$blog->user->id)}}'>Đăng bài mới</a>
-		@include('frontend/blogs/_list', array('blogs',$blogs))
-	</div>
-	<div class="col-md-9 list-post list-blog">
+	<div class="col-md-12 list-post list-blog">
 		<div class="row">
             {{Form::open(array('url' => "blog/".$blog->id, 'method' => 'DELETE'))}}
-                <div class="item border">
-                    <h5>{{$blog->title}}</h5>
-                    <hr/>
-                    <span>
+                <div class="item border blog-content">
+                    <header class='blog-header'>
+                        <h1 class='title'>{{$blog->title}}</h1>
+                        <p class='blog-time'>
+                            <i class='glyphicon glyphicon-time'></i>
+                            <span>{{$blog->updated_at}} bởi</span>
+                            <a href="{{url($blog->user->account).'/profile'}}">{{$blog->user->fullname}}</a>
+                        </p>
+                    </header>
+                    <div class='content'>
                         {{$blog->content}}
-                    </span>
-                </div>
-                <div class="up-button">
-                    <div class="right bold">
-                        <a href='{{url('blog/'.$blog->id.'/edit')}}'>Sửa</a>
-                        <input type="submit" value="Xóa">
                     </div>
-                    <div class="clearfix"></div>
                 </div>
+                @if(FEUsersHelper::isCurrentUser($blog->user->id))
+                <div class="action-btn right bold">
+                    <a class="btn btn-default" href='{{url('blog/'.$blog->id.'/edit')}}'>Sửa</a>
+                    <input type="submit" class="btn btn-danger" value="Xóa">
+                </div>
+                @endif
             {{Form::close()}}
 			
 		</div>

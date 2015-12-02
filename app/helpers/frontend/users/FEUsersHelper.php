@@ -103,4 +103,21 @@ class FEUsersHelper{
         return $validator;
     }
     
+    
+    public static function getSuggestes(){
+        $user_id = User::find(Session::get('user')['id'])->id;
+        $following =  Follow::where('follower_id',$user_id)->where('is_deleted',0)->orderBy('updated_at','DESC')->get();
+        $suggestes = array();
+        foreach($following as $follow){
+            $suggest_d =  Follow::where('follower_id',$follow->followed->id)->where('is_deleted',0)->orderBy('updated_at','DESC')->get();
+            if($suggest_d->count() > 0){
+                foreach($suggest_d as $suggest){
+                    $suggestes[] =$suggest;
+                }
+            }
+        }
+        
+        return $suggestes;
+        
+    }
 }

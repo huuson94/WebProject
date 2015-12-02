@@ -6,6 +6,12 @@
             <h5><a href="{{url($post->user->account.'/profile')}}">{{$post->user->fullname}}</a></h5>
             <p class="light">{{$post->updated_at}}</p>
         </div>
+        @if(FEUsersHelper::isCurrentUser($post->user->id))
+        <div class='pull-right'>
+            <input type='hidden' class='post-id' value='{{$post->id}}' itemref="{{url('post/'.$post->id)}}">
+            <a><span class='glyphicon glyphicon-remove-circle delete-post'></span></a>
+        </div>
+        @endif
     </div>
     <div class="bh_text light">
         <p>{{$post->content}}

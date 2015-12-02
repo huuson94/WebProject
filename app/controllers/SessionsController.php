@@ -23,7 +23,7 @@ class SessionsController extends BaseController {
 			$messages = $validator->messages();
 			echo json_encode($messages);
 		}else{
-			$user=Users::where('account',$data['account'])->first();
+			$user=Users::where('account',$data['account'])->get()->first();
 			if (!$user){
 				echo "fail: Not exists user";
 			}else{
@@ -31,7 +31,7 @@ class SessionsController extends BaseController {
 				if (!$user) {
 					echo "fail: incorrect password";
 				}else{
-					Session::put('user',$user->toArray());
+					Session::put('user',$user);
 					echo "success";
 				}
 			}

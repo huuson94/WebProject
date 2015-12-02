@@ -20,6 +20,7 @@
 			        <li><a href="{{url('/'.Session::get('user')['account'].'/profile')}}">Profile</a></li>
 			        <li><a href="{{url('/message?user_id='.Session::get('user')['id'])}}">Messages</a></li> 
 			        <li><a href="{{url('/follow?follower_id='.Session::get('user')['id'])}}">Follow</a></li>
+                    <li><a href="{{url('/blog?user_id='.Session::get('user')['id'])}}">Blog</a></li> 
 			        <li><a href="{{url('/album?user_id='.Session::get('user')['id'])}}">Photo</a></li> 
 			        <li class=""><a href="{{url('logout')}}">Logout</a></li>
 				@else
