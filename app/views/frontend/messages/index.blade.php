@@ -60,7 +60,7 @@
 					<p> 10 tháng 10 năm 2010	</p>
 				</div>
 				<div class="ncc_message-me">
-					<div class="ncc_avatar">
+					<div class="ncc_avatar1">
 						<img src="{{url('public/assets/images/ava_default.jpg')}}">
 					</div>
 					<div class="ncc_me-l">
@@ -69,12 +69,12 @@
 							<p>10:10 pm </p>
 						</div>
 						<div class="ncc_me-content">
-							<p>Hello</p>
+							<p>Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello </p>
 						</div>
 					</div>
 				</div>
 				<div class="ncc_message-me">
-					<div class="ncc_avatar">
+					<div class="ncc_avatar1">
 						<img src="{{url('public/assets/images/ava_default.jpg')}}">
 					</div>
 					<div class="ncc_me-l">
@@ -83,7 +83,7 @@
 							<p>10:10 pm </p>
 						</div>
 						<div class="ncc_me-content">
-							<p>Hello</p>
+							<p>Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello </p>
 						</div>
 					</div>
 				</div>
