@@ -8,6 +8,12 @@
         <span class="sr-only">Toggle navigation</span>
         </a>
         <div class="navbar-custom-menu">
+            <div class="dropdown user user-menu" style="margin-right: 30px;">
+                    <a href="{{ url('blog?user_id='.Session::get('user')['id']) }}"style="padding-top: 10px;padding-bottom: 7px; display: inline-block;">
+                    <span style= "color:#333; line-height: 28px; margin-right: 20px">{{User::find(Session::get('user')['id'])->fullname}}</span>
+                    <img src="{{url(User::find(Session::get('user')['id'])->avatar)}}" class="user-image" alt="User Image" style="    float: right;width: 35px;height: 35px;border-radius: 50%;margin-right: 10px;margin-top: -2px;" />
+                    </a>
+            </div>
         </div>
     </nav>
 </header>

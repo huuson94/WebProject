@@ -12,17 +12,19 @@
                 </a>
             </li>
 
-            {{-- <li class="treeview">
-                <a href="#">
+            <li class="treeview">
+                <a href="{{route('admin.album.index')}}">
                     <i class="fa fa-user text-red"></i>
-                    <span>Category</span>
-                    <i class="fa fa-angle-left pull-right"></i>
+                    <span>Album</span>
                 </a>
-                <ul class="treeview-menu">
-                    <li><a href="{{route('admin.category.index')}}"><i class="fa fa-angle-double-right"></i> Lists</a></li>
-                    <li><a href="{{route('admin.category.create')}}"><i class="fa fa-angle-double-right"></i> Create</a></li>
-                </ul>
-            </li> --}}
+            </li>
+
+            <li class="treeview">
+                <a href="{{route('admin.image.index')}}">
+                    <i class="fa fa-user text-red"></i>
+                    <span>Image</span>
+                </a>
+            </li>
 
         </ul>
     </section>

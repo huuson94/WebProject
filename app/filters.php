@@ -89,7 +89,7 @@ Route::filter('csrf', function()
 	}
 });
 Route::filter('checkAdmin', function()
-{   if(BEUsersHelper::isAdmin()){
+{   if(!BEUsersHelper::isAdmin()){
         $messages = array();
         $status = false;
         $messages[] = "Bạn không có quyền vào trang này";

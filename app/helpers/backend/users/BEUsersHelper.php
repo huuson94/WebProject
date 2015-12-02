@@ -47,7 +47,7 @@ class BEUsersHelper {
     }
 
     public static function isLogged() {
-        if (Session::has('current_user')) {
+        if (Session::has('user')) {
             return true;
         } else {
             return false;
@@ -56,7 +56,7 @@ class BEUsersHelper {
 
     public static function isAdmin() {
         if(BEUsersHelper::isLogged()){
-            $currrent_user_id = Session::get('current_user');
+            $currrent_user_id = Session::get('user')['id'];
             $current_user = User::find($currrent_user_id);
             if ($current_user->is_admin == 1) {
                 return true;
