@@ -823,3 +823,32 @@ article.blog div.pull-right{
 div.ncc_friend-list, div.ncc_message {
     overflow: auto;
 }
+div.conversation{
+    background-color: white;
+}
+div.conversation div.message-me{
+    padding-left: 6px;
+    float: left;
+    width: 400px;
+}
+div.conversation div.message-friend{
+    padding-right: 6px;
+    float: right;
+    width: 400px;
+    text-align: right;
+}
+div.conversation img.avatar{
+    width: 28px;
+    border-radius: 50%;
+    
+}
+div.conversation p.content{
+    background-color: #AEE2F0;
+    border-radius: 8px;
+}
+div.conversation div.message-me div.message-content{
+    padding-left: 25px;
+}
+div.conversation div.message-friend div.message-content{
+    padding-right: 25px;
+}
