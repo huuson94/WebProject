@@ -17,6 +17,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'checkAdmin'), function(){
 	Route::resource('user', 'BEUsersController');
     Route::resource('album', 'BEAlbumController');
     Route::resource('image', 'BEImageController');
+    Route::resource('post' , 'BEPostController');
 });
 
 Route::group(array('prefix' => '{user}'),function(){

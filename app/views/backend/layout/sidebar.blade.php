@@ -26,6 +26,12 @@
                 </a>
             </li>
 
+            <li class="treeview">
+                <a href="{{route('admin.post.index')}}">
+                    <i class="fa fa-user text-red"></i>
+                    <span>Post</span>
+                </a>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->
