@@ -19,7 +19,7 @@
 				<h5>Gợi ý follow</h5>
 				<ul class="friend-like">
                     @foreach($suggestes as $index => $suggest)
-                        @if(in_array($suggest->followed->id,$user->getFollowingUsersId()))
+                        @if(!in_array($suggest->followed->id,$user->getFollowingUsersId()))
                         
                         <li class="row">
                             <a href="{{url($suggest->followed->account.'/profile')}}">
