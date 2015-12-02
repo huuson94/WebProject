@@ -32,11 +32,84 @@
 					</div>
 					<div class="ncc_info">
 						<h5>CÚT KHỎI ĐỜI TAO</h5>
-						<p>Hello</p>
+						<p>
+                            Hello
+                        
+                        </p>
 						<p>10/10/2010</p>
 					</div>
 				</div>
 				<div class="ncc_friend">
+					<div class="ncc_avatar">
+						<img src="{{url('public/assets/images/ava_default.jpg')}}">
+					</div>
+					<div class="ncc_info">
+						<h5>BIẾN KHỎI ĐỜI TAO</h5>
+						<p>Hello</p>
+						<p>10/10/2010</p>
+					</div>
+				</div>
+                <div class="ncc_friend">
+					<div class="ncc_avatar">
+						<img src="{{url('public/assets/images/ava_default.jpg')}}">
+					</div>
+					<div class="ncc_info">
+						<h5>BIẾN KHỎI ĐỜI TAO</h5>
+						<p>Hello</p>
+						<p>10/10/2010</p>
+					</div>
+				</div>
+                <div class="ncc_friend">
+					<div class="ncc_avatar">
+						<img src="{{url('public/assets/images/ava_default.jpg')}}">
+					</div>
+					<div class="ncc_info">
+						<h5>BIẾN KHỎI ĐỜI TAO</h5>
+						<p>Hello</p>
+						<p>10/10/2010</p>
+					</div>
+				</div>
+                <div class="ncc_friend">
+					<div class="ncc_avatar">
+						<img src="{{url('public/assets/images/ava_default.jpg')}}">
+					</div>
+					<div class="ncc_info">
+						<h5>BIẾN KHỎI ĐỜI TAO</h5>
+						<p>Hello</p>
+						<p>10/10/2010</p>
+					</div>
+				</div>
+                <div class="ncc_friend">
+					<div class="ncc_avatar">
+						<img src="{{url('public/assets/images/ava_default.jpg')}}">
+					</div>
+					<div class="ncc_info">
+						<h5>BIẾN KHỎI ĐỜI TAO</h5>
+						<p>Hello</p>
+						<p>10/10/2010</p>
+					</div>
+				</div>
+                <div class="ncc_friend">
+					<div class="ncc_avatar">
+						<img src="{{url('public/assets/images/ava_default.jpg')}}">
+					</div>
+					<div class="ncc_info">
+						<h5>BIẾN KHỎI ĐỜI TAO</h5>
+						<p>Hello</p>
+						<p>10/10/2010</p>
+					</div>
+				</div>
+                <div class="ncc_friend">
+					<div class="ncc_avatar">
+						<img src="{{url('public/assets/images/ava_default.jpg')}}">
+					</div>
+					<div class="ncc_info">
+						<h5>BIẾN KHỎI ĐỜI TAO</h5>
+						<p>Hello</p>
+						<p>10/10/2010</p>
+					</div>
+				</div>
+                <div class="ncc_friend">
 					<div class="ncc_avatar">
 						<img src="{{url('public/assets/images/ava_default.jpg')}}">
 					</div>
@@ -60,6 +133,20 @@
 					<p> 10 tháng 10 năm 2010	</p>
 				</div>
 				<div class="ncc_message-me">
+					<div class="ncc_avatar1">
+						<img src="{{url('public/assets/images/ava_default.jpg')}}">
+					</div>
+					<div class="ncc_me-l">
+						<div class="ncc_name-time">
+							<h5>CÚT KHỎI ĐỜI TAO</h5>
+							<p>10:10 pm </p>
+						</div>
+						<div class="ncc_me-content">
+							<div>Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello </div>
+						</div>
+					</div>
+				</div>
+                <div class="ncc_message-me">
 					<div class="ncc_avatar">
 						<img src="{{url('public/assets/images/ava_default.jpg')}}">
 					</div>
@@ -69,24 +156,11 @@
 							<p>10:10 pm </p>
 						</div>
 						<div class="ncc_me-content">
-							<p>Hello</p>
+							<div>Hello</div>
 						</div>
 					</div>
 				</div>
-				<div class="ncc_message-me">
-					<div class="ncc_avatar">
-						<img src="{{url('public/assets/images/ava_default.jpg')}}">
-					</div>
-					<div class="ncc_me-l">
-						<div class="ncc_name-time">
-							<h5>BIẾN KHỎI ĐỜI TAO</h5>
-							<p>10:10 pm </p>
-						</div>
-						<div class="ncc_me-content">
-							<p>Hello</p>
-						</div>
-					</div>
-				</div>
+				
 			</div>
 			<div class="ncc_chat-box">
 				<div class="ncc_b1">

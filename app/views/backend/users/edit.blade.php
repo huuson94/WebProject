@@ -32,6 +32,13 @@
 </div>
 
 <div class="form-group">
+	<label class="control-label col-sm-2" for="description">Giới thiệu</label>
+	<div class="col-sm-10">
+		{{Form::textarea('about', null, array('class'=>'form-control', 'id'=>'about','placeholder'=>'Giới thiệu'))}}
+	</div>
+</div>
+
+<div class="form-group">
 	<label class="control-label col-sm-2" for="is_admin">Admin</label>
 	<div class="col-sm-10">
 		<select name="is_admin">

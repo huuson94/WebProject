@@ -9,12 +9,23 @@ class BEUsersController extends BaseController{
         //
         $sortby = Input::get('sortby');
         $order  = Input::get('order');
-        if($sortby && $order){
-            $users = User::select('*')->orderBy($sortby, $order)->paginate(8);
-        }else{
-        $users = User::select('*')->paginate(8);
-    }
-            return View::make('backend.users.index',compact('users', 'sortby', 'order'));
+        $option = Input::get('search_opt');
+        $keyword = Input::get('keyword');
+        if($sortby && $order && $keyword && $option){
+            $users = User::select('*')->where($option,'LIKE','%'.$keyword.'%')->orderBy($sortby, $order)->paginate(5);
+        }
+        elseif($sortby && $order){
+
+            $users = User::select('*')->orderBy($sortby, $order)->paginate(5);
+        }
+        elseif($keyword && $option){
+            $users = User::select('*')->where($option,'LIKE','%'.$keyword.'%')->paginate(5);
+        }
+        else{
+        $users = User::select('*')->paginate(5);
+        }
+
+            return View::make('backend.users.index',compact('users', 'sortby', 'order','keyword','option'));
 
     }
 
@@ -76,9 +87,11 @@ class BEUsersController extends BaseController{
             $name = Input::get('fullname');
             $phone = Input::get('phone');
             $is_admin = Input::get('is_admin');
+            $about = Input::get('about');
 
             $user->fullname = $name;
             $user->phone = $phone;
+            $user->about = $about;
             $user->is_admin = $is_admin;
 
             $user->save();
@@ -102,9 +115,10 @@ class BEUsersController extends BaseController{
     public function destroy($id) {
         //
         $user = User::find($id);
-        // foreach($user->products as $product){
-        //     $product->delete();
+        // foreach($user->albums as $album){
+        //     $album->delete();
         // }
+
         if(BEUsersHelper::isCurrentUser($id)){
             Session::flush('current_user');
         }
@@ -114,19 +128,5 @@ class BEUsersController extends BaseController{
         return Redirect::route('admin.user.index');
     }
 
-    public function search(){
-        $option = Input::get('search_opt');
-        $keyword = Input::get('keyword');
-        $sortby = Input::get('sortby');
-        $order  = Input::get('order');
-        if($sortby && $order){ 
-        $users = User::select('*')->where($option,'LIKE','%'.$keyword.'%')->orderBy($sortby, $order)->paginate(8);
-    }
-        else{
-            $users = User::select('*')->where($option,'LIKE','%'.$keyword.'%')->paginate(8);
-        }
-            return View::make('backend.users.index',compact('users', 'sortby', 'order'));
-        
-    }
 
 }
