@@ -811,7 +811,7 @@ div.list-blog div.action-btn a{
     background-color: #78D2ED;
 }
 ul.flex-images{
-    width: calc(100% + 1px);
+    width: calc(100% + 2px);
 }
 
 div.new-blog i {
