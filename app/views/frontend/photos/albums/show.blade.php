@@ -30,6 +30,11 @@
 			@endforeach
 			<li class="item hide"></li>
 		</ul>
+        {{Form::open(['method' => 'DELETE', 'url' => 'album/'.$album->id])}}
+        <div class='action-btn'>
+            <input type='submit' class='btn btn-danger' value='Xóa album này'>
+        </div>
+        {{Form::close()}}
 	</div>
 
 @stop

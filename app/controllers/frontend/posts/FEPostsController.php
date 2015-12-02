@@ -10,6 +10,7 @@ class FEPostsController extends ResourceBaseController{
         if($post && FEUsersHelper::isCurrentUser($post->user->id)){
             $post->entry()->delete();
             $post->delete();
+            FEEntriesHelper::delete($post->id, 1);
             echo 'true';
         }else{
             echo 'false';

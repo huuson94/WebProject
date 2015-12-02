@@ -12,7 +12,7 @@ class FEBlogsController extends ResourceBaseController{
     public function destroy($id) {
         $blog = Blog::find($id);
         if($blog && FEUsersHelper::isCurrentUser($blog->user->id)){
-            $blog->entry()->delete();
+            FEEntriesHelper::delete($blog->id, 2);
             $blog->delete();
             return Redirect::to('blog?user_id='.$blog->user->id);
         }
@@ -62,6 +62,7 @@ class FEBlogsController extends ResourceBaseController{
         $blog->user_id = Session::get('user')['id'];
         $blog->privacy = $datas['privacy'];
         $blog->save();
+        
         FEEntriesHelper::save($blog->id, FEEntriesHelper::getId("Blog"), $blog->user_id, $blog->privacy);
         return Redirect::back();
     }
@@ -73,6 +74,7 @@ class FEBlogsController extends ResourceBaseController{
             $blog->content = Input::get('content');
             $blog->privacy = Input::get('privacy');
             $blog->save();
+            FEEntriesHelper::updatePrivacy($blog->id, 2, $blog->privacy);
             return Redirect::back();
         } else {
             return Redirect::to('/');

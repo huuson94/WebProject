@@ -7,7 +7,19 @@ class FEAlbumsController extends BaseController{
     }
 
     public function destroy($id) {
-        
+        $album = Album::find($id);
+        if (FEUsersHelper::isCurrentUser($album->user->id)) {
+            $user_id =$album->user_id;
+            $album->getEntry()->delete();
+            foreach($album->images as $image){
+                $image->delete();
+            }
+            $album->delete();
+            FEEntriesHelper::delete($album->id, 3);
+            return Redirect::to('album?user_id='.$user_id);
+        } else {
+            return Redirect::to('/');
+        }
     }
 
     public function edit($id) {
@@ -34,13 +46,11 @@ class FEAlbumsController extends BaseController{
 
     public function show($id) {
         $album = Album::find($id);
-        if(FEUsersHelper::isCurrentUser($album->user->id)){
+        if(FEUsersHelper::isCurrentUser($album->user->id) || $album->privacy == 1){
             return View::make('frontend/photos/albums/show')->with('album',$album)->with('user',$album->user);
         }else{
             return Redirect::to('/');
         }
-        
-
     }
 
     public function store() {

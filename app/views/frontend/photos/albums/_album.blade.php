@@ -8,7 +8,11 @@
 		</div>
 	</div>
     <div class="bh_text light">
-        
+        @if($album['title'] != "")
+        <h4 class="album-title"><a href="{{url('album/'.$album->id)}}">Album {{$album['title']}}</a></h4>
+        @else
+        <h4 class="text-center"><a href="{{url('album/'.$album->id)}}">Không tiêu đề</a></h4>
+        @endif
         <ul class="wrapper flex-images">
             @foreach($album->images as $index => $image)
                 @if($index <= 2)

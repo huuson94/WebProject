@@ -13,7 +13,7 @@ class Album extends Eloquent {
         return $this->belongsTo('Privacy','privacy');
     }
     
-    public function entry(){
+    public function getEntry(){
         return Entry::where('entry_id',$this->id)->where('type',3)->get()->first();
     }
 }
