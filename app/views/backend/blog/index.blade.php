@@ -1,9 +1,9 @@
 @extends('backend.layout.main')
 @section('content')
-<h1>Tất cả post</h1>
+<h1>Tất cả blog</h1>
     <div class="box box-primary">
         <div class="box-body">
-            {{ Form::open(array('url' => '/admin/post','method' => 'get')) }}
+        {{ Form::open(array('url' => '/admin/blog','method' => 'get')) }}
             <div class="row">
                 <div class="col-sm-3">
                     
@@ -46,9 +46,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                @if(count($posts) > 0)
+                @if(count($blogs) > 0)
                     <?php $i=1; ?>
-                    @foreach($posts as $item)
+                    @foreach($blogs as $item)
                         <tr>
                             <td class="text-center">{{ $i++ }}.</td>
                             <td>
@@ -65,7 +65,7 @@
                             </td>
                             <td class="text-center">{{ $item->created_at }}</td>
                             <td>
-                                {{ Form::open(array('method' => 'DELETE', 'route' => array('admin.post.destroy', $item->id))) }}   
+                                {{ Form::open(array('method' => 'DELETE', 'route' => array('admin.blog.destroy', $item->id))) }}   
                                 {{ Form::submit('Delete', array('class'=> 'btn btn-danger delete-btn')) }}
                                 {{ Form::close() }}
                             </td>
@@ -84,7 +84,7 @@
         <div class="box-footer clearfix">
             <div class="box-tools">
                 <div class="col-md-9 text-right">
-                    {{ $posts->links()}}
+                    {{ $blogs->links()}}
                     
                 </div>
             </div>
