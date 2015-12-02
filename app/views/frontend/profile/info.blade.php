@@ -1,10 +1,10 @@
 @extends('frontend/layout/layout_profile')
 @section('title'){{ $user['fullname'] }} | Info @stop
 @section('addcss')
-	<link rel="stylesheet" href="{{url('assets/css/main-style.css')}}">
-	<link rel="stylesheet" href="{{url('assets/css/style-info.css')}}">
-	<link rel="stylesheet" href="{{url('assets/css/flaticon.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{url('assets/css/jquery.flex-images.css')}}">
+	<link rel="stylesheet" href="{{url('public/assets/css/main-style.css')}}">
+	<link rel="stylesheet" href="{{url('public/assets/css/style-info.css')}}">
+	<link rel="stylesheet" href="{{url('public/assets/css/flaticon.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url('public/assets/css/jquery.flex-images.css')}}">
 @stop
 @section('MyInfo')
 	active
@@ -14,12 +14,12 @@
 	<div id="user_info" class="container td-profile">
 		<div class="row">
 			<div class="col-md-6 td-profile-col-left visible-md-block visible-lg-block">
-				<img src="{{url('assets/images/proinf3.png')}}">
+				<img src="{{url('public/assets/images/proinf3.png')}}">
 			</div>
 			<div class="col-md-6 td-profile-col-right">
 				<!-- Thong tin co ban -->
-			<form action="{{url('user/update-info')}}">
-				<input type="hidden" name="account" value="{{ $user['account'] }}">
+			{{ Form::open(['id' =>'user-info-form', 'files' => true, 'method' => 'PATCH', 'route' => ["user.update",$user['id']]]) }}
+                <input type="hidden" name="account" value="{{ $user['account'] }}">
 				<div class="td-profile-col-right-box-1">
 					@if(Session::get('user')['account']==$user['account'])
 						<div class="td-profile-edit">
@@ -67,14 +67,17 @@
 								<div class="error"></div>
 							</div>
 						</li>
-						<li class="td-finish">
-							<div class="td-profile-infor">
+                        <li>
+							<div class="td-profile-infor has-feedback">
 								<label class="td-form-label text-right">
-									<strong>Số CMND</strong>
+									<strong>Avatar</strong>
 								</label>
-								<span></span>
+                                <img src="{{ url($user->getAvatar()) }}" class="img-rounded avatar" style="width: 20%">
+								<input type="file" class='hidden avatar' name="avatar" value="">
+								<div class="error"></div>
 							</div>
 						</li>
+						
 					</ul>
 					
 				</div>
@@ -90,6 +93,7 @@
 								<label class="td-form-label text-right">
 									<strong>Địa chỉ</strong>
 								</label>
+                                <input type="hidden" name="address" value="{{ $user['address'] }}">
 								<span></span>
 							</div>
 						</li><li class="td-finish">
@@ -109,6 +113,16 @@
 				<div class="td-profile-col-right-box-3">
 					<h1>Tự bạch</h1>
 					<i class="flaticon-text150"></i>
+                    
+                    <div class="td-profile-infor">
+                        <label class="td-form-label text-right">
+                            <strong>Châm ngôn</strong>
+                        </label>
+                        <span>{{$user->about}}</span>
+                        <textarea name="about" class="hidden" value="">{{$user->about}}</textarea>
+                        <span></span>
+                    </div>
+                    
 				</div>
 			</form>
 			</div>
@@ -118,8 +132,8 @@
 @stop
 
 @section('addjs')
-	<script type="text/javascript" src="{{url('assets/js/jquery.flex-images.min.js')}}"></script>
-	<script type="text/javascript" src="{{url('assets/js/ajax/ajax-update.js')}}"></script>
+	<script type="text/javascript" src="{{url('public/assets/js/jquery.flex-images.min.js')}}"></script>
+	<script type="text/javascript" src="{{url('public/assets/js/ajax/ajax-update.js')}}"></script>
 	<script type="text/javascript">
 		$('.flex-images').flexImages({rowHeight: 150});
 	</script>

@@ -14,5 +14,10 @@ class BaseController extends Controller {
 			$this->layout = View::make($this->layout);
 		}
 	}
-
+    
+    
+    public function __construct() {
+        $privacies = Privacy::where('is_deleted',0)->get();
+        return View::share('privacies',$privacies);
+    }
 }

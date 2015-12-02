@@ -12,15 +12,15 @@
 				<a href="{{url('/'.Session::get('user')['account'])}}">
 					<h3>{{Session::get('user')['fullname']}}</h3>
 				</a>
-				<p class="light">I wish i was a little bit taller, wish i was a baller, wish i had a girl… also.</p>
+                <p class="light">{{User::find(Session::get('user')['id'])->about}}</p>
 				<ul>
 					<li>
-						<p class="light">Friends</p>
-						<p class="bold">12M</p>
+						<p class="light">Follower</p>
+						<p class="bold">{{FEFollowsHelper::countFollower(Session::get('user')['id'])}}</p>
 					</li>
 					<li>
-						<p class="light">Follow</p>
-						<p class="bold">40</p>
+						<p class="light">Following</p>
+						<p class="bold">{{FEFollowsHelper::countFollowing(Session::get('user')['id'])}}</p>
 					</li>
 				</ul>
 			</div>

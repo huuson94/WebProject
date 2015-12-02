@@ -1,0 +1,99 @@
+.ncc_friend-list-box{
+	width: 850px;
+	margin: 10px auto;
+}
+.ncc_friend-list-head{
+	background-color: #f6f7f8;
+	border: 1px solid #d3d6db;
+	border-radius: 2px 2px 0 0;
+	padding: 15px;
+}
+
+.ncc_friend-list-head h3, .ncc_friend-list-head .ncc_search-box{
+	display: inline;
+}
+
+.ncc_friend-list-head h3 a{
+	font-weight: bold;
+	font-size: 22px;
+	color: #373E4D;
+}
+
+.ncc_search-box{
+	float: right;
+	border: 1px solid #ded6db;
+	background-color: #fff;
+}
+.ncc_search-box input{
+	border: 0 none;
+	padding: 2px;
+}
+.ncc_search-box button{
+	height: 13px;
+	width: 20px;
+	background-color: #fff;
+	border: 0 none;
+	border-left: 1px solid #ded6db;
+	padding: 0;
+	color: #ded6db;
+}
+
+.ncc_search-box button img{
+	height: 100%;
+}
+.ncc_friend-list{
+	width: 100%;
+	background-color: #fff;
+	border: 1px solid #ded6db;
+	border-top: 0 none;
+	padding: 20px 15px;
+}
+.ncc_friends{
+	padding: 0
+}
+.ncc_friends li{
+	height: 100px;
+	float: left;
+	display: block;
+	position: relative;
+    margin-bottom: 25px;
+}
+.ncc_friends li>div{
+	border: 1px solid #ded6db;
+	height: 100%;
+}
+.ncc_friends li a img{
+	height: 98px;
+	width: 98px;
+	float: left;
+}
+.ncc_name{
+    float: left;
+    margin-top: 35px;
+    margin-left: 25px;
+}
+.ncc_name h5{
+	font-weight: bold;
+	font-size: 13px;
+	margin: 0;
+}
+.ncc_name h5 a:hover{
+	color: #337ab7;
+}
+.ncc_name p{
+	margin: 0;
+}
+.ncc_name p a{
+	color: #9EA4C2;
+	font-size: 12px;
+}
+.ncc_op{
+    float: right;
+}
+.ncc_op select{
+    margin-top: 30px;
+    border: 1px solid #ddd;
+    padding: 6px 11px;
+    margin-right: 16px;
+    border-radius: 3px;
+}

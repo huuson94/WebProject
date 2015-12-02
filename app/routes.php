@@ -1,17 +1,28 @@
 <?php
 
-Route::controller('/user','UserController');
-Route::controller('/session','SessionController');
-Route::controller('/album','AlbumController');
-// Route::filter('check-user',function(){
-// 	if (!Session::has($user)) {
-// 		return Redirect::to('/');
-// 	}
-// })
-// Route::group(array('before' => 'check-user'),function(){})
-Route::get('{user}', 'UserController@Profile');
-Route::get('{user}/info', 'UserController@Info');
-Route::get('{user}/photo', 'UserController@Photo');
-Route::get('{user}/blog', 'UserController@Blog');
-Route::controller('/','ViewController');
+Route::get('login', 'SessionsController@create');
+Route::post('login', 'SessionsController@store');
+Route::get('logout', 'SessionsController@destroy');
+Route::get('signup', 'FEUsersController@create');
+Route::resource('user','FEUsersController');
+Route::resource('post', 'FEPostsController');
+Route::resource('image', 'FEImagesController');
+Route::resource('album', 'FEAlbumsController');
+Route::resource('message', 'FEMessagesController');
+Route::resource('blog', 'FEBlogsController');
+Route::resource('follow', 'FEFollowsController');
+
+Route::group(array('prefix' => 'admin', 'before' => 'checkAdmin'), function(){
+    Route::get('/','BEUsersController@index');
+	Route::resource('user', 'BEUsersController');
+    Route::post('/user/search','BEUsersController@search');
+});
+
+Route::group(array('prefix' => '{user}'),function(){
+    Route::get('/','FEViewController@getProfile');
+    Route::get('profile','FEViewController@getProfile');
+    Route::get('edit','FEUsersController@edit');
+    
+});
+Route::controller('/','FEViewController');
 
