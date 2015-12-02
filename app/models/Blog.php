@@ -10,4 +10,8 @@ class Blog extends Eloquent{
     public function privacy(){
         return $this->belongsTo('Privacy','privacy');
     }
+    
+    public function entry(){
+        return Entry::where('entry_id',$this->id)->where('type',2)->get()->first();
+    }
 }

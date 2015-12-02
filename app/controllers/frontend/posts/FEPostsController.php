@@ -8,6 +8,7 @@ class FEPostsController extends ResourceBaseController{
     public function destroy($id) {
         $post = Post::find($id);
         if($post && FEUsersHelper::isCurrentUser($post->user->id)){
+            $post->entry()->delete();
             $post->delete();
             echo 'true';
         }else{
