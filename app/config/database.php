@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'webproject',
 			'username'  => 'root',
-			'password'  => '12345678',
+			'password'  => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

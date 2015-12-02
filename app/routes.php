@@ -15,7 +15,8 @@ Route::resource('follow', 'FEFollowsController');
 Route::group(array('prefix' => 'admin', 'before' => 'checkAdmin'), function(){
     Route::get('/','BEUsersController@index');
 	Route::resource('user', 'BEUsersController');
-    Route::post('/user/search','BEUsersController@search');
+    Route::resource('album', 'BEAlbumController');
+    Route::resource('image', 'BEImageController');
 });
 
 Route::group(array('prefix' => '{user}'),function(){

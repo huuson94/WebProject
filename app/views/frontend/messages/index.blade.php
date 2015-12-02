@@ -133,7 +133,7 @@
 					<p> 10 tháng 10 năm 2010	</p>
 				</div>
 				<div class="ncc_message-me">
-					<div class="ncc_avatar">
+					<div class="ncc_avatar1">
 						<img src="{{url('public/assets/images/ava_default.jpg')}}">
 					</div>
 					<div class="ncc_me-l">

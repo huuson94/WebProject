@@ -9,6 +9,8 @@ return array(
     'ActionInterface' => $baseDir . '/app/controllers/ActionInterface.php',
     'Album' => $baseDir . '/app/models/Album.php',
     'AlbumController' => $baseDir . '/app/controllers/AlbumController.php',
+    'BEAlbumController' => $baseDir . '/app/controllers/backend/album/BEAlbumController.php',
+    'BEImageController' => $baseDir . '/app/controllers/backend/image/BEImageController.php',
     'BEUsersController' => $baseDir . '/app/controllers/backend/users/BEUsersController.php',
     'BEUsersHelper' => $baseDir . '/app/helpers/backend/users/BEUsersHelper.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',

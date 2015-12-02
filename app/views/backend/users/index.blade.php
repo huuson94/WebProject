@@ -3,7 +3,7 @@
 <h1>Tất cả người dùng</h1>
     <div class="box box-primary">
         <div class="box-body">
-            {{ Form::open(array('url' => '/admin/user/search')) }}
+            {{ Form::open(array('url' => '/admin/user','method' => 'get')) }}
             <div class="row">
                 <div class="col-sm-3">
                     
@@ -42,23 +42,25 @@
                 <thead>
                 <tr>
                     <th class="text-center row-number">#</th>
-                    <th width="200">
-                        @if ($sortby == 'email' && $order == 'asc')
-                        {{ link_to_action('BEUsersController@index','Email',array('sortby' => 'email','order' => 'desc')) }}
+                    <th>
+                    @if ($sortby == 'email' && $order == 'asc')
+                        {{ link_to_action('BEUsersController@index','Email',array('sortby' => 'email','order' => 'desc','keyword' => $keyword,'search_opt' => $option)) }}
                     @else
-                        {{ link_to_action('BEUsersController@index','Email',array('sortby' => 'email','order' => 'asc')) }}
+                        {{ link_to_action('BEUsersController@index','Email',array('sortby' => 'email','order' => 'asc','keyword' => $keyword,'search_opt' => $option)) }}
                     @endif
                     </th>
                     <th width="200">
                     @if ($sortby == 'account' && $order == 'asc')
-                        {{ link_to_action('BEUsersController@index','Tài Khoản',array('sortby' => 'account','order' => 'desc')) }}
+                        {{ link_to_action('BEUsersController@index','Account',array('sortby' => 'account','order' => 'desc','keyword' => $keyword,'search_opt' => $option)) }}
                     @else
-                        {{ link_to_action('BEUsersController@index','Tài Khoản',array('sortby' => 'account','order' => 'asc')) }}
+                        {{ link_to_action('BEUsersController@index','Account',array('sortby' => 'account','order' => 'asc','keyword' => $keyword,'search_opt' => $option)) }}
                     @endif
                     </th>
                     <th width="200">Tên</th>
-                    <th>Điện thoại</th>
-                    <th width="200">Admin</th>
+                    <th width="200">Avatar</th>
+                    <th width="100">Điện thoại</th>
+                    <th width="300">Admin</th>
+                    <th width="500">Giới thiệu</th>
                     <th class="text-center" width="200">Ngày đăng ký</th>
                     <th class="action" width="150">Action</th>
 
@@ -80,12 +82,18 @@
                                 {{$item->fullname}}
                             </td>
                             <td>
+                                 <img src="{{url($item->avatar)}}" width="64" height="64" class="img-thumbnail" /> 
+                            </td>
+                            <td>
                                 {{ $item->phone}}
                             </td>
                             <td>
                                  @if($item->is_admin == 1) Có
                                  @else Không là Admin
                                  @endif
+                            </td>
+                            <td>
+                                {{ $item->about }}
                             </td>
                             <td>{{ $item->created_at }}</td>
                             <td>
@@ -110,7 +118,7 @@
         <div class="box-footer clearfix">
             <div class="box-tools">
                 <div class="col-md-9 text-right">
-                    {{$users->links()}}
+                    {{ $users->appends(array('keyword' => $keyword,'search_opt' => $option,'sortby' => $sortby,'order' => $order))->links() }}
                 </div>
             </div>
         </div>
@@ -119,7 +127,7 @@
         $(document).ready(function(){
             $(".delete-btn").click(function(e){
                 
-                if(confirm("Xoa khong?")){
+                if(confirm("Bạn có muốn xóa không?")){
 
                 }else{
                     e.preventDefault();
