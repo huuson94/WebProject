@@ -10,6 +10,7 @@ return array(
     'Album' => $baseDir . '/app/models/Album.php',
     'AlbumController' => $baseDir . '/app/controllers/AlbumController.php',
     'BEAlbumController' => $baseDir . '/app/controllers/backend/album/BEAlbumController.php',
+    'BEBlogController' => $baseDir . '/app/controllers/backend/blog/BEBlogController.php',
     'BEImageController' => $baseDir . '/app/controllers/backend/image/BEImageController.php',
     'BEPostController' => $baseDir . '/app/controllers/backend/post/BEPostController.php',
     'BEUsersController' => $baseDir . '/app/controllers/backend/users/BEUsersController.php',
