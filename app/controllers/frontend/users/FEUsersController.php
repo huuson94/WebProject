@@ -59,6 +59,22 @@ class FEUsersController extends ResourceBaseController{
             $users = User::where('fullname','LIKE',"%$fullname%")->where('id','!=',Session::get('user')['id'])->get();
             return View::make('frontend/users/index')->with('users',$users)->with('user',User::find(Session::get('user')['id']));
         }
+        $fullname = Input::get('term');
+        if($fullname){
+            $users = User::where('fullname','LIKE',"%$fullname%")->get();
+            $users_array = $users->toArray();
+            array_walk($users_array, function(&$value, &$key){
+                if($value['fullname']){
+                    $value['label'] = $value['fullname'];
+                    unset($value['fullname']);
+                }
+                if($value['id']){
+                    $value['value'] = $value['id'];
+                    unset($value['id']);
+                }
+            });
+            echo json_encode($users_array);
+        }
     }
 
     public function show($id) {

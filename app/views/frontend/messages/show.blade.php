@@ -14,19 +14,17 @@ active
         <div class="col-md-10 col-md-offset-1">
             <div class="ncc_message-box">
                 @include('frontend/messages/_conversations_list',array('conversations', $conversations))
-                <?php $conversation = $conversations->first()?>
                 <div class="ncc_right-box">
                     <div class="ncc_box-top row">
                         @if(FEUsersHelper::isCurrentUser($user->id))
-                            @include('frontend/messages/_conversation_info',array('conversation',$conversation))
+                        @include('frontend/messages/_conversation_info',array('conversation',$conversation))
                         @endif
                     </div>
                     @include('frontend/messages/_conversation',array('conversation',$conversation))
-                </div>
+                    
             </div>
         </div>
     </div>
 </div>
 
 @stop
-

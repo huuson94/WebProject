@@ -845,6 +845,8 @@ div.conversation img.avatar{
 div.conversation p.content{
     background-color: #AEE2F0;
     border-radius: 8px;
+    padding: 5px 15px;
+    display: inline-block;
 }
 div.conversation div.message-me div.message-content{
     padding-left: 25px;
@@ -857,4 +859,14 @@ div.action-btn div.privacy{
 }
 #photo-upload input{
     width: 300px;
+}
+
+div.conversation{
+    overflow: auto;
+    max-height: 304px;
+    min-height: 304px;
+}
+
+div.ncc_message-box div.ncc_search-box div.ncc_box{
+    height: 35px;
 }
