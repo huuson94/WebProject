@@ -5,13 +5,14 @@
 			<div class="az">
 				<h5>Sponsored</h5>
 				<div class="image">
-					<img src="">	
+					<img src="{{url('public/assets/logo.png')}}">	
 				</div>
 				<p>
-					<strong>It might be time to visit Iceland.</strong>
-					Iceland is so chill, and everything looks cool here. Also, we heard the people are pretty nice. What are you waiting for?
+					<strong>Project Lập trình web </strong>
+                    Sản phẩm cho bài tập lớn môn Thực Hành Lập Trình Web.
+                    
 				</p>
-				<button class="btn">Buy a ticket</button>
+                <button class="btn"><a href='https://github.com/huuson94/WebProject'>Đến website mã nguồn</a></button>
 			</div>
 		</div>
 		<div class="tb1">
