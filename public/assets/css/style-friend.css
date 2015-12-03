@@ -91,6 +91,8 @@
     position: relative;
     top: 26px;
     left: 20px;
+    display: table;
+    
 }
 .ncc_op button{
     color: #337ab7;
