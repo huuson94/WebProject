@@ -88,7 +88,13 @@
 	font-size: 12px;
 }
 .ncc_op{
-    float: right;
+    position: relative;
+    top: 26px;
+    left: 20px;
+}
+.ncc_op button{
+    color: #337ab7;
+    border-color: #337ab7;
 }
 .ncc_op select{
     margin-top: 30px;
