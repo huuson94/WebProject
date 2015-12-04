@@ -10,6 +10,7 @@ Route::resource('image', 'FEImagesController');
 Route::resource('album', 'FEAlbumsController');
 Route::resource('message', 'FEMessagesController');
 Route::resource('blog', 'FEBlogsController');
+Route::resource('comment', 'FECommentsController');
 Route::resource('follow', 'FEFollowsController');
 
 Route::group(array('prefix' => 'admin', 'before' => 'checkAdmin'), function(){

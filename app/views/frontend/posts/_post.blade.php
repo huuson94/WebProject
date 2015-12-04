@@ -24,35 +24,6 @@
             <a href="#"><i class="glyphicon glyphicon-comment"></i> Bình luận</a>
         </div>
     </div>
-    <blockquote class="comment">
-        <ul>
-            <li>
-                <div class="ava">
-                    <img src="{{url('public/assets/images/ava_default.jpg')}}" alt="">
-                </div>
-                <div class="content">
-                    <a href=""><h5>Anh Tuấn</h5></a>
-                       <span class="light">Donec id elit non mi porta gravida at eget metus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.Donec id elit non mi porta gravida at eget metus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet</span>
-                </div>
-            </li>
-            <li>
-                <div class="ava">
-                     <img src="{{url('public/assets/images/ava_default.jpg')}}" alt="">
-                </div>
-                <div class="content">
-                    <a href=""><h5>YoYo</h5></a>
-                    <span class="light">Donec id elit non mi porta gravida at eget metus!!</span>
-                </div>
-            </li>
-            <li>
-                <div class="ava">
-                    <img src="{{url('public/assets/images/ava_default.jpg')}}" alt="">
-                </div>
-                <div class="input">
-                    <textarea data-autoresize placeholder="Viết bình luận..."></textarea>
-                </div>
-            </li>
-        </ul>
-    </blockquote>
+    @include('frontend/comments/_comments',array('comment',null))
 </article>
 @endif($post)

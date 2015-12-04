@@ -45,8 +45,8 @@
 	@include('frontend/layout/wysiwyg-editor-js')
 	<script type="text/javascript" src="{{url('public/assets/js/jquery.flex-images.min.js')}}"></script>
 	<script type="text/javascript">
-		$('.flex-images').flexImages({rowHeight: 150});
 		$(function(){
+            $('.flex-images').flexImages({rowHeight: 150});
 			$('.list-blog #edit-blog').froalaEditor({
                 height: 400
             });

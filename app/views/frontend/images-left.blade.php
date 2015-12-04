@@ -6,7 +6,7 @@
 				<ul class="wrapper flex-images">
                     @foreach($left_albums as $index => $album)    
                         @if($index < 6)
-                        <li class="item" data-w="219" data-h="180">
+                        <li class="item">
                             <a href="{{url('album/'.$album->id)}}">
                                 <img src="{{url('public/upload/'.$album->user['account'].'/'.$album->images->first()->path)}}" alt="test">
                             </a>
