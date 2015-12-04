@@ -20,7 +20,7 @@
 
                             <div class="col-sm12">
                                 <p class="helper-block">
-                                    <label class="checkbox-inline" style="padding-left: 45px">Tìm kiếm theo: </label>
+                                    <label class="checkbox-inline" style="padding-left: 50px">Tìm kiếm theo: </label>
                                         <label class="checkbox-inline">
                                             {{ Form::radio('search_opt','email',true) }} Email
                                         </label>
@@ -42,18 +42,18 @@
                 <thead>
                 <tr>
                     <th class="text-center row-number">#</th>
-                    <th>
+                    <th class="email">
                     @if ($sortby == 'email' && $order == 'asc')
-                        {{ link_to_action('BEUsersController@index','Email',array('sortby' => 'email','order' => 'desc','keyword' => $keyword,'search_opt' => $option)) }}
+                        {{ link_to_action('BEUsersController@index','Email',array('sortby' => 'email','order' => 'desc','keyword' => $keyword,'search_opt' => $option)) }}<i class="fa fa-sort-asc" style="color:#3c8dbc;"></i>
                     @else
-                        {{ link_to_action('BEUsersController@index','Email',array('sortby' => 'email','order' => 'asc','keyword' => $keyword,'search_opt' => $option)) }}
+                        {{ link_to_action('BEUsersController@index','Email',array('sortby' => 'email','order' => 'asc','keyword' => $keyword,'search_opt' => $option)) }}<i class="fa fa-sort-desc" style="color:#3c8dbc;"></i>
                     @endif
                     </th>
-                    <th width="200">
+                    <th width="200" class="account">
                     @if ($sortby == 'account' && $order == 'asc')
-                        {{ link_to_action('BEUsersController@index','Account',array('sortby' => 'account','order' => 'desc','keyword' => $keyword,'search_opt' => $option)) }}
+                        {{ link_to_action('BEUsersController@index','Account',array('sortby' => 'account','order' => 'desc','keyword' => $keyword,'search_opt' => $option)) }}<i class="fa fa-sort-asc up" style="color:#3c8dbc;"></i>
                     @else
-                        {{ link_to_action('BEUsersController@index','Account',array('sortby' => 'account','order' => 'asc','keyword' => $keyword,'search_opt' => $option)) }}
+                        {{ link_to_action('BEUsersController@index','Account',array('sortby' => 'account','order' => 'asc','keyword' => $keyword,'search_opt' => $option)) }}<i class="fa fa-sort-desc down" style="color:#3c8dbc;"></i>
                     @endif
                     </th>
                     <th width="200">Tên</th>
@@ -133,6 +133,12 @@
                     e.preventDefault();
                 }
             });
+               if($('.account > i').hasClass('down')){
+                $('.account > i').css('display', 'none');
+               }
+               else if($('.account > i').hasClass('up')){
+                $('.account > i').css('display', 'inline-block');
+               }
         });
     </script>
 @stop

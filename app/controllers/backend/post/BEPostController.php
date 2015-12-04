@@ -87,7 +87,9 @@ class BEPostController extends BaseController{
      */
     public function destroy($id) {
         //
-        DB::table('posts')->where('id', '=', $id)->delete();
+        $post = Post::find($id);
+        $post->entry()->delete();
+        $post->delete();
         Session::flash('status',true);
         Session::flash('messages',array('Đã xóa ảnh'));
         return Redirect::route('admin.post.index');

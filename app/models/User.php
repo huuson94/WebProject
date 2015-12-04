@@ -3,11 +3,29 @@ define('AVATAR_DEFAULT_PATH','public/assets/images/ava_default.jpg');
 class User extends Eloquent {
 	protected $table = 'users';
 
-	public function album(){
+	public function albums(){
 		return $this->hasMany('Album','user_id');
 	}
+    public function images(){
+        return $this->hasMany('Image','user_id');
+    }
 
+    public function blogs(){
+        return $this->hasMany('Blog','user_id');
+    }
     
+    public function entries(){
+        return $this->hasMany('Entry','user_id');
+    }
+
+    public function posts(){
+        return $this->hasMany('Post','user_id');
+    }
+
+    public function follows(){
+        return $this->hasmany('Follow','follower_id');
+    }
+
     public function getAvatar(){
         if($this->avatar){
             return $this->avatar;
