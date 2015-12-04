@@ -32,6 +32,13 @@
                     <span>Post</span>
                 </a>
             </li>
+            
+            <li class="treeview">
+                <a href="{{route('admin.blog.index')}}">
+                    <i class="fa fa-user text-red"></i>
+                    <span>Blog</span>
+                </a>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->

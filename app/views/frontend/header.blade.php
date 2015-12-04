@@ -18,7 +18,7 @@
 			        <li class="active"><a href="{{url('/')}}">Home</a></li>
 			        <li class="visible-xs-block"><a href="#">Notification</a></li>
 			        <li><a href="{{url('/'.Session::get('user')['account'].'/profile')}}">Profile</a></li>
-			        <li><a href="{{url('/message?user_id='.Session::get('user')['id'])}}">Messages</a></li> 
+			        <li><a href="{{url('/message')}}">Messages</a></li> 
 			        <li><a href="{{url('/follow?follower_id='.Session::get('user')['id'])}}">Follow</a></li>
                     <li><a href="{{url('/blog?user_id='.Session::get('user')['id'])}}">Blog</a></li> 
 			        <li><a href="{{url('/album?user_id='.Session::get('user')['id'])}}">Photo</a></li> 

@@ -1,5 +1,5 @@
 <?php
-class BEPostController extends BaseController{
+class BEBlogController extends BaseController{
     /**
      * Display a listing of the resource.
      *
@@ -16,15 +16,15 @@ class BEPostController extends BaseController{
             foreach ($users as $key => $user) {
                 $users_id[] = $user->id;
             }
-             $posts = Post::whereIn('user_id',$users_id)->paginate(5);
+             $blogs = Blog::whereIn('user_id',$users_id)->paginate(3);
         }
         if($keyword && $option == "content"){
-            $posts = Post::select('*')->where($option,'LIKE',"%$keyword%")->paginate(5);
+            $blogs = Blog::select('*')->where($option,'LIKE',"%$keyword%")->paginate(3);
         }
         else{
-        $posts = Post::select('*')->paginate(5);
+        $blogs = Blog::select('*')->paginate(3);
         }
-        return View::make('backend.post.index',compact('posts'));
+        return View::make('backend.blog.index',compact('blogs'));
     }
 
     /**
@@ -86,12 +86,10 @@ class BEPostController extends BaseController{
      * @return Response
      */
     public function destroy($id) {
-        $post = Post::find($id);
-        $post->entry()->delete();
-        $post->delete();
+        DB::table('blogs')->where('id', '=', $id)->delete();
         Session::flash('status',true);
-        Session::flash('messages',array('Đã xóa ảnh'));
-        return Redirect::route('admin.post.index');
+        Session::flash('messages',array('Đã xóa blog'));
+        return Redirect::route('admin.blog.index');
         
     }
 

@@ -16,11 +16,12 @@
 		@include('frontend/photos/albums/_tab_link',array('user',$user))
 		@include('frontend/photos/albums/_upload',array('privacies',$privacies))
 		@if($album['title'] != "")
-        <h4 class="text-center">{{$album['title']}}</h4>
+        {{Form::open(['url' => 'album/'.$album->id,'method' => 'PATCH' ])}}
+        <h4 class=""><input class='form-control' name='title' value='{{$album['title']}}'></input></h4>
         @else
-        <h4 class="text-center">Không tiêu đề</h4>
+        <h4 class=""><input class='form-control' name='title' value='Không tiêu đề'></input></h4>
         @endif
-        <a href="{{url('album/'.$album->id.'/edit')}}"><i class='glyphicon glyphicon-pencil'>Sửa</i></a>
+        
 		<ul class="wrapper flex-images">
 			@foreach($album->images as $image)
 				<li class="item" data-w="{{$image['width']}}" data-h="{{$image['height']}}">
@@ -31,9 +32,20 @@
 			@endforeach
 			<li class="item hide"></li>
 		</ul>
-        {{Form::open(['method' => 'DELETE', 'url' => 'album/'.$album->id])}}
+        
         <div class='action-btn'>
-            <input type='submit' class='btn btn-danger' value='Xóa album này'>
+            <div class='privacy'>
+                <select name="privacy" id="privacy">
+                    @foreach($privacies as $privacy)
+                    <option value="{{$privacy->id}}"
+                            @if($privacy->id == $album->privacy)
+                            selected='true'
+                            @endif
+                            >{{$privacy->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <input type='submit' class='btn btn-danger' value='Update'>
         </div>
         {{Form::close()}}
 	</div>

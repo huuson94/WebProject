@@ -243,3 +243,18 @@ a:hover .ncc_tn{
 	font-size: 12px;
 	float: right;
 }
+
+div.new-conversation{
+    float:left;
+}
+div.conversation-info{
+    float: right;
+}
+form button.remove-conversation{
+    border:none;
+    float:right;
+    margin-right:2px;
+    width: 17px;
+    background-color: #AEE2F0;
+    border-radius: 50%;
+}

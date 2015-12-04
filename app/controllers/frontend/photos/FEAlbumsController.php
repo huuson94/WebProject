@@ -23,7 +23,12 @@ class FEAlbumsController extends BaseController{
     }
 
     public function edit($id) {
-        
+        $album = Album::find($id);
+        if (FEUsersHelper::isCurrentUser($album->user->id)) {
+            return View::make('frontend/photos/albums/edit')->with('album', $album)->with('user', $album->user);
+        } else {
+            return Redirect::to('/');
+        }
     }
 
     public function index() {
@@ -88,7 +93,14 @@ class FEAlbumsController extends BaseController{
     }
 
     public function update($id) {
-        
+        $album = Album::find($id);
+        if(FEUsersHelper::isCurrentUser($album->id)){
+            $album->title = Input::get('title');
+            $album->privacy = Input::get('privacy');
+            $album->save();
+            FEEntriesHelper::updatePrivacy($album->id, 2, Input::get('privacy'));
+        }
+        return Redirect::back();
     }
 
 }

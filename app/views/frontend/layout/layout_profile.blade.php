@@ -23,7 +23,9 @@
 					<li class="@yield('MyInfo')">
 						<a href="{{url('/'.$user['account'].'/edit')}}">Info</a>
 					</li>
-					<!-- <li class="@yield('Friends')"><a href="#">Friends</a></li> -->
+					 <li class="@yield('Friends')">
+                         <a href="{{url('follow?follower_id='.$user['id'])}}">Follow</a>
+                     </li> 
 				</ul>
 			</div>
 		</div>
