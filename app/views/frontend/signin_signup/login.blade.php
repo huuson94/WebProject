@@ -22,7 +22,7 @@
 				<a href="{{url('/signup')}}" class="td-button-signup">Sign up</a>
 			</div>
 		</form>
-		<p class="td-fogot"><a href="#">Forgot password</a><p>
+<!--		<p class="td-fogot"><a href="#">Forgot password</a><p>-->
 	</div>
 @stop
 @section('addjs')
