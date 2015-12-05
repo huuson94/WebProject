@@ -870,6 +870,12 @@ div.conversation{
 div.ncc_message-box div.ncc_search-box div.ncc_box{
     height: 35px;
 }
+
+div.like a, div.comment a{
+    cursor: pointer; 
+    cursor: hand;
+}
+
 blockquote.comment{
     background-color: #f6f7f8 !important;
 }
@@ -882,3 +888,14 @@ div.comment span.count-comment {
     position: relative;
     bottom: 2px;
 }
+
+div.like span.count-like {
+    position: relative;
+    bottom: 2px;
+    color: #4c7992;
+}
+div.like i {
+    position: relative;
+    top: 0px;
+}
+

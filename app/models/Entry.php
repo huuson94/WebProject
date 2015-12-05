@@ -18,4 +18,12 @@ class Entry extends Eloquent{
     public function comments(){
         return $this->hasMany('Comment','entry_id');
     }
+    
+    public function likes(){
+        return $this->hasMany('Like','entry_id');
+    }
+    
+    public function notDeteletedLikes(){
+        return $this->hasMany('Like','entry_id')->where('is_deleted',0);
+    }
 }
