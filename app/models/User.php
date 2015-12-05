@@ -21,7 +21,9 @@ class User extends Eloquent {
      */
     public function getFollowingUsersId(){
         $result = array();
-        $follows = Follow::where('follower_id',$this->id)->where('is_deleted',0)->get();
+        $follows = Follow::where('follower_id',$this->id)->where('is_deleted',0)
+                ->where('followed_id','!=',$this->id)
+                ->get();
         
         foreach($follows as $follow){
             $result[] = $follow->followed_id;

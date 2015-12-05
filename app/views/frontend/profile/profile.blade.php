@@ -47,6 +47,7 @@
         });
 		
 	</script>
+    <script type="text/javascript" src="{{url('public/assets/js/ajax/ajax-follow.js')}}"></script>
     <script type="text/javascript" src="{{url('public/assets/js/ajax/ajax-comment.js')}}"></script>
     <script type="text/javascript" src="{{url('public/assets/js/ajax/ajax_delete_post.js')}}"></script>
     <script type="text/javascript" src="{{url('public/assets/js/ajax/ajax-like.js')}}"></script>

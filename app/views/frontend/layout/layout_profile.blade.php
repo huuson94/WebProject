@@ -12,6 +12,19 @@
 					</div>
 					<h3>{{ $user['fullname']}}</h3>
 					<p>{{$user->about}}</p>
+                    @if(!FEUsersHelper::isCurrentUser($user->id))
+                    <?php $current_user = User::find(Session::get('user')['id']);?>
+                    <div class="header-follow-btn">
+                        @if(in_array($user->id,$current_user->getFollowingUsersId()))
+                        <button type="button" class="btn btn-default unfollow" itemref="{{url("follow")}}" itemprop="{{url('follow/'.FEFollowsHelper::getId($current_user->id, $user->id))}}" >Unfollow</button>
+                        <button type="button" class="btn btn-default follow hidden"  itemid='{{$current_user->id}}' itemref="{{$user->id}}" itemprop="{{url("follow")}}">Follow</button>
+                        @else
+                        <button type="button" class="btn btn-default unfollow hidden" itemref="{{url("follow")}}" itemprop="">Unfollow</button>
+                        <button type="button" class="btn btn-default follow" itemid='{{$current_user->id}}' itemref="{{$user->id}}" itemprop="{{url('follow')}}">Follow</button>
+                        @endif
+
+                    </div>
+                    @endif
 				</div>
 				<ul class="bh_link-list">
 					<li class="@yield('Photos')">

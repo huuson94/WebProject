@@ -15,7 +15,7 @@
 			<div class="ncc_friend-list-head">
 				<h3>
 					<i class="glyphicon glyphicon-user"></i>
-					Danh sách đã follow
+					Danh sách {{$user['fullname']}} đã follow
 				</h3>
 <!--				<div class="ncc_search-box">
 					<input type="text" placeholder="Tìm kiếm bạn bè">

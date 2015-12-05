@@ -899,3 +899,8 @@ div.like i {
     top: 0px;
 }
 
+div.header-follow-btn button{
+    background-color: #fff;
+    border-color: #337ab7;
+    color: #337ab7;
+}
