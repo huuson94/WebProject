@@ -18,7 +18,7 @@ class FEViewController extends BaseController {
     
     private function getViewIndexDatas(){
         $current_user_id = Session::get('user')['id'];
-        $owners_id = Follow::where('follower_id',$current_user_id)->get(['followed_id'])->toArray();
+        $owners_id = Follow::where('follower_id',$current_user_id)->where('is_deleted',0)->get(['followed_id'])->toArray();
         array_walk($owners_id, function( &$value, $key){
             $value = $value['followed_id'];
         });
