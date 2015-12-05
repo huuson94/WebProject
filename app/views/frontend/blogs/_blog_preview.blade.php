@@ -11,5 +11,7 @@
     <div class="bh_text light">
 		{{$blog->content}}
 	</div>
+    @include('frontend/_like_comment',array('entry',$blog->getEntry()))
+    @include('frontend/comments/_comments',array('entry',$blog->getEntry()))
 </article>
 @endif

@@ -16,14 +16,7 @@
     <div class="bh_text light">
         <p>{{$post->content}}
     </div>
-    <div class="l-cmt">
-        <div class="like">
-            <a href="#"><i class="glyphicon glyphicon-thumbs-up"></i> Thích</a>
-         </div>
-         <div class="comment">
-            <a href="#"><i class="glyphicon glyphicon-comment"></i> Bình luận</a>
-        </div>
-    </div>
-    @include('frontend/comments/_comments',array('comment',null))
+    @include('frontend/_like_comment',array('entry',$post->getEntry()))
+    @include('frontend/comments/_comments',array('entry',$post->getEntry()))
 </article>
 @endif($post)

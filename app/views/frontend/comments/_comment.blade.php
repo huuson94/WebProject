@@ -1,9 +1,12 @@
-<li>
+@if($comment)
+<li class="comment-item">
     <div class="ava">
-        <img src="{{url('public/assets/images/ava_default.jpg')}}" alt="">
+        <img src="{{url($comment->user->avatar)}}" alt="">
     </div>
     <div class="content">
-        <a href=""><h5>YoYo</h5></a>
-        <span class="light">Donec id elit non mi porta gravida at eget metus!!</span>
+        <a href="{{url($comment->user->account."/profile")}}"><h5>{{$comment->user->fullname}}</h5></a>
+        <span class="light">{{$comment->content}}</span>
+        <p class="comment-time"><span>{{$comment->updated_at}}</span></p>
     </div>
 </li>
+@endif

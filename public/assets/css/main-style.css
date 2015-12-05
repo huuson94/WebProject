@@ -870,3 +870,15 @@ div.conversation{
 div.ncc_message-box div.ncc_search-box div.ncc_box{
     height: 35px;
 }
+blockquote.comment{
+    background-color: #f6f7f8 !important;
+}
+blockquote.comment p.comment-time span{
+    color: #9197a3;
+    font-size: 12px;
+}
+
+div.comment span.count-comment {
+    position: relative;
+    bottom: 2px;
+}

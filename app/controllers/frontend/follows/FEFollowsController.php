@@ -30,7 +30,7 @@ class FEFollowsController extends ResourceBaseController{
     public function store() {
         $follower_id = Input::get('follower_id');
         $followed_id = Input::get('followed_id');
-        $follow_id = FEFollowsHelper::getId($follower_id, $followed_id);
+        $follow_id = FEFollowsHelper::getId($follower_id, $followed_id, false);
         if(!$follow_id){
             $follow = new Follow;
             $follow->follower_id = $follower_id;

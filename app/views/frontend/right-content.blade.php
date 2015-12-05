@@ -31,8 +31,8 @@
                             </div>
                             @if(FEUsersHelper::isLogged())
                             <div class="ncc_op">
-                                <button type="button" class="btn btn-default unfollow hidden" itemprop="">Unfollow</button>
-                                <button type="button" class="btn btn-default follow" itemid='{{$user->id}}' itemref="{{$suggest->followed->id}}" >Follow</button>
+                                <button type="button" class="btn btn-default unfollow hidden"  itemref="{{url("follow")}}">Unfollow</button>
+                                <button type="button" class="btn btn-default follow" itemprop="{{url("follow")}}" itemid='{{$user->id}}' itemref="{{$suggest->followed->id}}" >Follow</button>
                             </div>
                             @endif
                         </li>
