@@ -27,5 +27,7 @@
         </ul>
         
 	</div>
+    @include('frontend/_like_comment',array('entry',$album->getEntry()))
+    @include('frontend/comments/_comments',array('entry',$album->getEntry()))
 </article>
 @endif
