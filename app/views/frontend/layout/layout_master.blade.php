@@ -14,6 +14,7 @@
     <script src="{{url('public/assets/js/jquery-ui.min.js')}}" type="text/javascript"></script>
     <script src="{{url('public/assets/js/myScript.js')}}"></script>
     <script type="text/javascript" src="{{url('public/assets/js/jquery.flex-images.min.js')}}"></script>
+    <script type="text/javascript" src="{{url('public/assets/js/jquery-ias.min.js')}}"></script>
     @yield('addjs')
 
     <!-- Include the CSS -->
