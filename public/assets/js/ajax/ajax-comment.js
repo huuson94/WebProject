@@ -25,6 +25,9 @@ $(document).ready(function () {
                             template.find('div.content p.comment-time span').text(result.updated_at);
                             obj.closest('li.new-comment').before(template.html());
                             obj.val('');
+                            var count = parseInt(obj.closest('blockquote').prev('div').find('.count-comment').text());
+                            count += 1;
+                            obj.closest('blockquote').prev('div').find('.count-comment').text(count);
                         }else if(result.status == 'fail'){
                             alert('Lỗi xẩy ra khi comment');
                         }
