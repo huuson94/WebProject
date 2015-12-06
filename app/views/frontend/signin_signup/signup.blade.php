@@ -10,11 +10,11 @@
 		</div>
 		<form id="sign-up" action="{{url('/user')}}">
 			<div class="td-input-signup has-feedback">
-				<input class="td-input-su form-control" name="fullname" type="text" placeholder="Full name">
+				<input class="td-input-su form-control" name="account" type="text" placeholder="username. Eg: huuson94">
 				<div class="error"></div>
 			</div>
 			<div class="td-input-signup has-feedback">
-				<input class="td-input-su form-control" name="account" type="text" placeholder="User name">
+				<input class="td-input-su form-control" name="fullname" type="text" placeholder="Full name. Eg: Nguyen Huu Son">
 				<div class="error"></div>
 			</div>
 			<div class="td-input-signup has-feedback">
