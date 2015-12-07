@@ -24,9 +24,15 @@
 		<ul class="wrapper flex-images">
 			@foreach($album->images as $image)
 				<li class="item" data-w="{{$image['width']}}" data-h="{{$image['height']}}">
-                    <a href="#">
+                    <div class="click">
                     <img src="{{url('public/upload/'.$user['account'].'/'.$image['path'])}}" alt="test">
-                    </a>
+                    </div>
+                    <div class="popup">
+                    	<div class="wrapper">
+                    		<img src="{{url('public/upload/'.$user['account'].'/'.$image['path'])}}" alt="test">
+                    		<p class="x-close">X</p>
+                    	</div>
+                    </div>
 				</li>
 			@endforeach
 			<li class="item hide"></li>
@@ -37,6 +43,15 @@
         </div>
         {{Form::close()}}
 	</div>
-
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.click').click(function(){
+			$(this).next().css('display','block');
+		});
+		$('.x-close').click(function(){
+			$('.popup').css('display','none');
+		});
+	})
+</script>
 @stop
 
