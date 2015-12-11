@@ -67,7 +67,7 @@ class BEUsersHelper {
     }
 
     public static function isCurrentUser($id){
-        if(FEUsersHelper::isLogged()){
+        if(BEUsersHelper::isLogged()){
             if($id == Session::get('current_user')){
                 return true;
             }else{
