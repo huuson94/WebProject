@@ -36,6 +36,10 @@
                 }
                 // maxFileCount: 5
             });
+            $("#file").on('filebatchuploadcomplete', function(event, files, extra) {
+                
+                location.reload();
+            });
             $('.flex-images').flexImages({rowHeight: 250});
         });
 	</script>
