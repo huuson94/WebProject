@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" href="{{url('public/assets/css/fileinput.css')}}" media="all" />
 <link rel="stylesheet" href="{{url('public/assets/css/font-awesome.min.css')}}">
 @stop
+
 @section('Photos')
 active
 @stop
@@ -15,18 +16,10 @@ active
 	<!-- Large modal -->
 	@include('frontend/photos/images/_tab_link',array('user',$user))
 	@include('frontend/photos/albums/_upload',array('privacies',$privacies))
-	<ul class="wrapper flex-images">
+    <ul class="wrapper flex-images images-preview" itemprop="200">
 		@foreach($images as $image)
 		<li class="item" data-w="{{$image->width}}" data-h="{{$image->height}}">
-			<div class="click">
-				<img src="{{url('public/upload/'.$user['account'].'/'.$image->path)}}" alt="test">
-			</div>
-			<div class="popup">
-				<div class="wrapper">
-				<img src="{{url('public/upload/'.$user['account'].'/'.$image->path)}}">
-					<p class="x-close">X</p>
-				</div>
-			</div>
+			@include('frontend/photos/images/_image',array('image',$image))
 		</li>
 		<li class="item hide"></li>
 		@endforeach
@@ -39,15 +32,14 @@ active
         </div>
     </div>
 </div>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('.click').click(function(){
-			$(this).next().css('display','block');
-		});
-		$('.x-close').click(function(){
-			$('.popup').css('display','none');
-		});
-	})
+@stop
+
+@section('addjs')
+<script>
+$(document).ready(function(){
+   $('.flex-images').flexImages({rowHeight: $(".flex-images").attr('itemprop')}); 
+});
 </script>
+{{HTML::script('public/assets/js/ajax/ajax-delete_image.js')}}
 @stop
 
