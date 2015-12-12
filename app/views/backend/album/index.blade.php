@@ -62,7 +62,7 @@
                                 {{ $item->title }}
                             </td>
                             <td>
-                                <img src="{{url('public/upload/'.$item->user->account.'/'.$item->album_img)}}" alt="{{$item->title}}" width="64" height="64" class="img-thumbnail">
+                                <img src="{{url($item->images->first()->path)}}" alt="{{$item->title}}" width="64" height="64" class="img-thumbnail">
                             </td>
                             <td>
                                 {{$item->user->fullname}}

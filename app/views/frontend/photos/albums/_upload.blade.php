@@ -21,27 +21,27 @@
         </div>
     </div>
 </div>
-@section('addjs')
-	<script type="text/javascript">
-        
-        $(document).ready(function(){
-            $("#file").fileinput({
-                uploadUrl: "{{url('album')}}", // server upload action
-                uploadAsync: false,
-                uploadExtraData: function(){
-                    return {
-                        'title':$('#title').val(),
-                        'privacy':$('#privacy').val()
-                    }
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $("#file").fileinput({
+            uploadUrl: "{{url('album')}}", // server upload action
+            uploadAsync: false,
+            uploadExtraData: function(){
+                return {
+                    'title':$('#title').val(),
+                    'privacy':$('#privacy').val()
                 }
-                // maxFileCount: 5
-            });
-            $("#file").on('filebatchuploadcomplete', function(event, files, extra) {
-                if(!confirm('Bạn có muốn upload tiếp không?')){
-                    location.reload();
-                }
-            });
-            $('.flex-images').flexImages({rowHeight: 250});
+            }
+            // maxFileCount: 5
         });
-	</script>
-@stop
+        $("#file").on('filebatchuploadcomplete', function(event, files, extra) {
+            if(!confirm('Bạn có muốn upload tiếp không?')){
+                location.reload();
+            }
+        });
+        
+    });
+</script>
+

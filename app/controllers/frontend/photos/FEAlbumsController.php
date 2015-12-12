@@ -13,7 +13,7 @@ class FEAlbumsController extends BaseController{
         $album = Album::find($id);
         if (FEUsersHelper::isCurrentUser($album->user->id)) {
             $user_id =$album->user_id;
-            $album->getEntry()->delete();
+            
             foreach($album->images as $image){
                 $image->delete();
             }
@@ -70,28 +70,26 @@ class FEAlbumsController extends BaseController{
         
         $file = Input::file('img');
         $folder_user = Session::get('user')['account'];
-        $x = 1;
+        $album_path = 'public/upload/' . $folder_user . '/' .uniqid(date('ymdHisu'));
         foreach ($file as $key => $f) {
-            $name = uniqid() . '.jpg';
-            $f->move('public/upload/' . $folder_user, $name);
-            if ($x == 1) {
-                $album['album_img'] = $name;
-                $x = 0;
+            $name = uniqid() .".". $f->getClientOriginalExtension();
+            $f->move($album_path, $name);
+            if ($key == 0) {
+//                $album['album_img'] = $name;
                 $album->save();
                 FEEntriesHelper::save($album->id, FEEntriesHelper::getId("Album"), $album->user_id, $album->privacy);
             }
             
-            list($width, $height) = getimagesize('public/upload/' . $folder_user . '/' . $name);
+            $path = $album_path.'/'. $name;
 
             $image = new Image;
-            $image['path'] = $name;
+            $image['path'] = $path;
             $image['user_id'] = Session::get('user')['id'];
             $image['album_id'] = $album['id'];
-            $image['width'] = $width;
-            $image['height'] = $height;
+            $image['width'] = getimagesize($path)[0];
+            $image['height'] = getimagesize($path)[1];
             $image->save();
         }
-        $data = Input::all();
         echo json_encode($file);
     }
 
