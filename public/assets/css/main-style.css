@@ -907,6 +907,10 @@ div.header-follow-btn button{
 .click{
   cursor: pointer;
 }
+.click img{
+  width: 100% !important;
+  height: 100% !important;
+}
 .popup{
   width: 100%;
   height: 100%;
