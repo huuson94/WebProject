@@ -8,7 +8,18 @@ class FEImagesController extends ResourceBaseController{
     }
 
     public function destroy($id) {
-        
+        $image = Image::find($id);
+        $result = array();
+        if(FEUsersHelper::isCurrentUser($image->album->user->id)){
+            if($image->album->images->count() > 1){
+                $image->delete();
+                echo 'true';
+            }else{
+                echo 'error';// this is image is the last one of album. 
+            }
+        }else{
+            echo 'false';
+        }
     }
 
     public function edit($id) {
