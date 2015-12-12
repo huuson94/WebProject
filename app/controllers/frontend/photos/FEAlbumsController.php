@@ -2,6 +2,9 @@
 
 
 class FEAlbumsController extends BaseController{
+    private $album_per_page = 5;
+    
+    
     public function create() {
         
     }
@@ -43,7 +46,7 @@ class FEAlbumsController extends BaseController{
 
             return View::make('frontend/photos/albums/index')
                                 ->with('user', $user)
-                                ->with('albums', $albums_d->get());
+                                ->with('albums', $albums_d->paginate($this->album_per_page));
         }else{
             return Redirect::to('/');
         }

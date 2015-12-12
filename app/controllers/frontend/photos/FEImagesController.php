@@ -1,6 +1,8 @@
 <?php
 
 class FEImagesController extends ResourceBaseController{
+    private $image_per_page = 10;
+    
     public function create() {
         
     }
@@ -25,7 +27,7 @@ class FEImagesController extends ResourceBaseController{
 
             return View::make('frontend/photos/images/index')
                             ->with('user', $user)
-                            ->with('images', $images_d->get());
+                            ->with('images', $images_d->paginate($this->image_per_page));
         } else {
             return Redirect::to('/');
         }

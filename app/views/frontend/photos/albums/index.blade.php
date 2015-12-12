@@ -25,5 +25,12 @@
         </li>
         @endforeach
         </ul>
+        <div class="box-footer clearfix">
+            <div class="box-tools">
+                <div class="col-md-9 text-left">
+                    {{ $albums->links() }}
+                </div>
+            </div>
+        </div>
     </div>
 @stop

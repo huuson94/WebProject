@@ -31,6 +31,13 @@ active
 		<li class="item hide"></li>
 		@endforeach
 	</ul>
+    <div class="box-footer clearfix">
+        <div class="box-tools">
+            <div class="col-md-9 text-left">
+                {{ $images->links() }}
+            </div>
+        </div>
+    </div>
 </div>
 <script type="text/javascript">
 	$(document).ready(function(){
