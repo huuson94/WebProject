@@ -943,3 +943,41 @@ div.header-follow-btn button{
   right: -18px;
   cursor: pointer;
 }
+
+.click-active{
+  content: '';
+  display: block;
+  width: 15px;
+  height: 15px;
+  background-color: #fff !important;
+  position: absolute;
+  bottom: -23px;
+  transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  top: -14px;
+  right: 12px;
+}
+.noti-box{
+  display: none;
+  position: absolute;
+  width: 300px;
+  background-color: #fff;
+  top: 35px;
+  right: -10px;
+  color: #000 !important;
+  font-size: 15px;
+  border: 1px solid #ddd; 
+}
+.noti-header{
+  height: 30px;
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+}
+.list{
+  height: 50px;
+  border-bottom:1px solid #ddd;
+}
+.list a{
+  color: #000 !important;
+}
