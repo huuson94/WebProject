@@ -981,3 +981,7 @@ div.header-follow-btn button{
 .list a{
   color: #000 !important;
 }
+li.list span{
+  color: #000 !important;
+  font-size: 15px !important;
+}

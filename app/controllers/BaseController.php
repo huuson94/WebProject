@@ -19,8 +19,10 @@ class BaseController extends Controller {
 	public function __construct() {
 		$privacies = Privacy::where('is_deleted',0)->get();
 		View::share('privacies',$privacies);
-		$notifications = $this->getNotification();
-		View::share('noti_data',$notifications);
+		if(Session::has('user') && User::find(Session::get('user')['id'])){
+			$notifications = $this->getNotification();
+			View::share('noti_data',$notifications);
+		}
 	}
 
 	public function getNotification(){
@@ -48,7 +50,7 @@ class BaseController extends Controller {
 	}
 
 	public function getNewFollowsNotification($current_user_id, $last_time){
-		$new_followed = Follow::where('follower_id','=',$current_user_id)->where('created_at','>=',$last_time)->get();
+		$new_followed = Follow::where('followed_id','=',$current_user_id)->where('created_at','>=',$last_time)->get();
 		return $new_followed?$new_followed:array();
 	}
 	public function getNewMessagesNotification($current_user_id, $last_time){

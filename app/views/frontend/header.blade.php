@@ -41,22 +41,53 @@
 									<span class="click-active"></span>
 									<div class="noti-header">Thông báo ({{$noti_data['noti_count']}} thông báo mới)</div>
 									<ul class="noti-list">
+									@if(count($noti_data['post'])>0)
+										@foreach($noti_data['post'] as $status)
 										<li class="list">
-											<strong>chinhnc</strong>
-											<p>đã đăng status</p>
+											<img src="{{url($status->user->avatar)}}" style="height: 100%;">
+											<strong>{{$status->user->account}}</strong>
+											<span style="color: #000;font-size: 15px;">đã đăng status</span>
 										</li>
+										@endforeach
+									@endif
+									@if(count($noti_data['follows'])>0)
+										@foreach($noti_data['follows'] as $follow)
 										<li class="list">
-											<strong>chinhnc</strong>
-											<p>đã đăng album</p>
+											<img src="{{url($follow->follower->avatar)}}" style="height: 100%;">
+											<strong>{{$follow->follower->account}}</strong>
+											<span style="color: #000;font-size: 15px;">đã follow bạn</span>
 										</li>
+										@endforeach
+									@endif
+									@if(count($noti_data['blogs'])>0)
+										@foreach($noti_data['follows'] as $blog)
 										<li class="list">
-											<strong>chinhnc</strong>
-											<p>đã đăng ảnh</p>
+											<img src="{{url($blog->user->avatar)}}" style="height: 100%;">
+											<strong>{{$blog->user->account}}</strong>
+											<span style="color: #000;font-size: 15px;">đã đăng blog</span>
 										</li>
+										@endforeach
+									@endif
+									@if(count($noti_data['messages'])>0)
+										@foreach($noti_data['messages'] as $message)
 										<li class="list">
-											<strong>chinhnc</strong>
-											<p>đã đăng blog</p>
+											<img src="{{url($message->sendUser->avatar)}}" style="height: 100%;">
+											<strong>{{$message->sendUser->account}}</strong>
+											<span style="color: #000;font-size: 15px;">đã gửi tin nhắn cho bạn</span>
 										</li>
+										@endforeach
+									@endif
+									@if(count($noti_data['new_albums'])>0)
+										@foreach($noti_data['new_albums'] as $album)
+										<li class="list">
+											<img src="{{url($album->user->avatar)}}" style="height: 100%;">
+											<strong>{{$album->user->account}}</strong>
+											<span style="color: #000;font-size: 15px;">đã đăng album mới</span>
+										</li>
+										@endforeach
+									@endif
+
+
 										<li style="height: 20px;"></li>
 									</ul>
 								</div>
@@ -86,20 +117,22 @@
 					type: 'POST',
 					dataType: 'JSON',
 					data: {
-						current_id: user_id
+						_method: 'POST'
 					},
 					success: function(result){
 						if(result.status == 'success'){
-							// thao tác css ở đây
+							$('.noti-box').css('display', 'block');
+							$('.noti-header').text('Thông báo (0 thông báo mới)');
 						}
 					}
-					return false;
-				};
-				if (t%2==1) {
-					$('.noti-box').css('display', 'none');
-					return false;
-				};
-			});
+				});
+				return false;
+			};
+			if (t%2==1) {
+				$('.noti-box').css('display', 'none');
+				return false;
+			};
+		});
 
-			})
-	</script>
+	})
+</script>
