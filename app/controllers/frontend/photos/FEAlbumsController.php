@@ -17,8 +17,9 @@ class FEAlbumsController extends BaseController{
             foreach($album->images as $image){
                 $image->delete();
             }
-            $album->delete();
+            FELikesHelper::delete($album->getEntry()->id);
             FEEntriesHelper::delete($album->id, 3);
+            $album->delete();
             return Redirect::to('album?user_id='.$user_id);
         } else {
             return Redirect::to('/');

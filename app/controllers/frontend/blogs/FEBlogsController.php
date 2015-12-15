@@ -12,6 +12,7 @@ class FEBlogsController extends ResourceBaseController{
     public function destroy($id) {
         $blog = Blog::find($id);
         if($blog && FEUsersHelper::isCurrentUser($blog->user->id)){
+            FELikesHelper::delete($blog->getEntry()->id);
             FEEntriesHelper::delete($blog->id, 2);
             $blog->delete();
             return Redirect::to('blog?user_id='.$blog->user->id);
