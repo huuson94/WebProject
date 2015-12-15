@@ -9,12 +9,37 @@ class BEAlbumController extends BaseController{
         //
         $sortby = Input::get('sortby');
         $order  = Input::get('order');
-        if($sortby && $order){
+        $keyword = Input::get('keyword');
+        $option = Input::get('search_opt');
+
+        if($sortby && $option && $keyword && $option == "fullname"){
+            $users = User::where('fullname','LIKE',"%$keyword%")->get();
+            $users_id = array();
+            foreach ($users as $key => $user) {
+                $users_id[] = $user->id;
+            }
+             $albums = Album::whereIn('user_id',$users_id)->orderBy($sortby, $order)->paginate(8);
+        }
+        elseif($sortby && $option && $keyword && $option == "title"){
+            $albums = Album::select('*')->where('title','LIKE','%'.$keyword.'%')->orderBy($sortby, $order)->paginate(5);
+        }
+        elseif($keyword && $option == "fullname"){
+            $users = User::where('fullname','LIKE',"%$keyword%")->get();
+            $users_id = array();
+            foreach ($users as $key => $user) {
+                $users_id[] = $user->id;
+            }
+             $albums = Album::whereIn('user_id',$users_id)->paginate(8);
+        }
+        elseif($keyword && $option == "title"){
+            $albums = Album::select('*')->where($option,'LIKE','%'.$keyword.'%')->paginate(5);
+        }
+        elseif($sortby && $order){
             $albums = Album::select('*')->orderBy($sortby, $order)->paginate(8);
         }else{
-        $albums = Album::select('*')->paginate(8);
+        $albums = Album::select('*')->paginate(5);
     }
-            return View::make('backend.album.index',compact('albums', 'sortby', 'order'));
+            return View::make('backend.album.index',compact('albums', 'sortby', 'order','keyword','option'));
     }
 
     /**
@@ -77,6 +102,15 @@ class BEAlbumController extends BaseController{
      */
     public function destroy($id) {
         //
+        $album = Album::find($id);
+        $album->getEntry()->delete();
+        foreach($album->images as $image){
+            $image->delete();
+        }
+        $album->delete();
+        Session::flash('status',true);
+        Session::flash('messages',array('Đã xóa ảnh'));
+        return Redirect::route('admin.album.index');
         
     }
 

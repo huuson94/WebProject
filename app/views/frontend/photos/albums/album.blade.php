@@ -53,7 +53,7 @@
 			@foreach($albums as $album)
 				<li class="item" data-w="{{$album->images()->first()['width']}}" data-h="{{$album->images()->first()['height']}}">
 				    <a href="{{url($user['account'].'/photo/album/'.$album['id'])}}">
-				    	<img src="{{url('public/upload/'.$user['account'].'/'.$album['album_img'])}}" alt="test">
+				    	<img src="{{url($album->images->first()->path)}}" alt="test">
 				    </a>
 				</li>
 			@endforeach

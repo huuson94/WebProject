@@ -907,10 +907,19 @@ div.header-follow-btn button{
 .click{
   cursor: pointer;
 }
+.click span{
+    position: absolute;
+    border-radius: 7px;
+    background: #A8E2F0;
+}
+.click img{
+  width: 100% !important;
+  height: 100% !important;
+}
 .popup{
   width: 100%;
   height: 100%;
-  background-color: rgba(81, 140, 74, 0.64);
+  background-color: rgba(0, 0, 0, 0.4);
   position: fixed;
   display: none;
   top:0;
@@ -937,7 +946,7 @@ div.header-follow-btn button{
   color: #000;
   text-shadow: 0 1px 0 #fff;
   filter: alpha(opacity=20);
-  opacity: .2;
+  opacity: 1;
   position: absolute;
   top: -20px;
   right: -18px;
@@ -984,4 +993,8 @@ div.header-follow-btn button{
 li.list span{
   color: #000 !important;
   font-size: 15px !important;
+}
+
+.edit-album{
+    word-spacing: -11px;
 }

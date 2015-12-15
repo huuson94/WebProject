@@ -115,12 +115,30 @@ class BEUsersController extends BaseController{
     public function destroy($id) {
         //
         $user = User::find($id);
-        // foreach($user->albums as $album){
-        //     $album->delete();
-        // }
-
         if(BEUsersHelper::isCurrentUser($id)){
             Session::flush('current_user');
+        }
+        foreach($user->albums as $album){
+            $album->delete();
+        }
+
+        foreach($user->images as $image){
+            $image->delete();
+        }
+
+        foreach($user->blogs as $blog){
+            $blog->delete();
+        }
+
+        foreach($user->entries as $entry){
+            $entry->delete();
+        }
+
+        foreach($user->posts as $post){
+            $post->delete();
+        }
+        foreach($user->follows as $follow){
+            $follow->delete();
         }
         $user->delete();
         Session::flash('status',true);

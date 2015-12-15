@@ -81,10 +81,14 @@ class FEMessagesController extends ResourceBaseController{
     public function show($id) {
         if (FEUsersHelper::isLogged()) {
             $conversation = Conversation::find($id);
-            if(FEUsersHelper::isCurrentUser($conversation->user1_id) || FEUsersHelper::isCurrentUser($conversation->user2_id)){
-                return View::make('frontend/messages/show')->with('user', User::find(Session::get('user')['id']))
-                            ->with('conversations', $this->conversations)
-                            ->with('conversation', $conversation);
+            if($conversation){
+                if(FEUsersHelper::isCurrentUser($conversation->user1_id) || FEUsersHelper::isCurrentUser($conversation->user2_id)){
+                    return View::make('frontend/messages/show')->with('user', User::find(Session::get('user')['id']))
+                                ->with('conversations', $this->conversations)
+                                ->with('conversation', $conversation);
+                }else{
+                    return Redirect::to('message');
+                }
             }else{
                 return Redirect::to('message');
             }
