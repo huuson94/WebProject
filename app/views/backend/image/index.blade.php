@@ -42,7 +42,7 @@
                         <tr>
                             <td class="text-center">{{ $i++ }}.</td>
                             <td>
-                                <img src="{{url('public/upload/'.$item->album->user->account.'/'.$item->path)}}"width="80px" height="80px!important" class="img-thumbnail">
+                                <img src="{{url($item->path)}}"width="80px" height="80px!important" class="img-thumbnail">
                             </td>
                             <td>
                                 {{ $item->album->user->fullname }}
