@@ -33,7 +33,8 @@ class FEImagesController extends ResourceBaseController{
             if (FEUsersHelper::isCurrentUser($user->id)) {
                 $images_d = Image::where('user_id', '=', $user->id);
             } else {
-                $images_d = Image::where('user_id', '=', $user->id)->where('privacy', PrivaciesHelper::getId("Công khai"));
+                $album_id = Album::where('user_id', '=', $user->id)->where('privacy', PrivaciesHelper::getId("Công khai"))->select('id')->get();
+                $images_d = Image::where('user_id', '=', $user->id)->whereIn('album_id',$album_id->fetch('id')->toArray());
             }
 
             return View::make('frontend/photos/images/index')

@@ -45,7 +45,7 @@
 		</div>
 		<div class="tb1">
 			<div class="b3">
-				© 2015 Bootstrap
+				© Nhóm bài tập web<br/>
 				<a href="#">About</a>
 				<a href="#">Help</a>
 				<a href="#">Terms</a>

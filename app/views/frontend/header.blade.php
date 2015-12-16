@@ -39,7 +39,7 @@
 						@if($noti_data['noti_count']>0)
 							<span class="noti-number">{{$noti_data['noti_count']}}</span>
 						@endif
-							<span class="glyphicon glyphicon-globe noti-click" itemid='{{Session::get('user')['id']}}' itemref='{{url('noti')}}'>
+							<span class="glyphicon glyphicon-globe noti-click" itemid='{{Session::get('user')['id']}}' itemref='{{url('noti')}}'></span>
 								<div class="noti-box">
 									<span class="click-active"></span>
 									<div class="noti-header">Thông báo ({{$noti_data['noti_count']}} thông báo mới)</div>
@@ -75,8 +75,8 @@
 										@foreach($noti_data['messages'] as $message)
 										<li class="list">
 											<img src="{{url($message->sendUser->avatar)}}" style="height: 100%;">
-											<strong>{{$message->sendUser->account}}</strong>
-											<span style="color: #000;font-size: 15px;">đã gửi tin nhắn cho bạn</span>
+											
+											<span style="color: #000;font-size: 15px;"><strong>{{$message->sendUser->account}}</strong> đã gửi tin nhắn cho bạn</span>
 										</li>
 										@endforeach
 									@endif
@@ -89,12 +89,9 @@
 										</li>
 										@endforeach
 									@endif
-
-
 										<li style="height: 20px;"></li>
 									</ul>
 								</div>
-							</span>
 						</li>
 						<li class="bh_logo_user visible-sm-block visible-md-block visible-lg-block">
 							<img src="{{url(Session::get('user')['avatar'])}}" alt="">
