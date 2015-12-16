@@ -36,6 +36,9 @@
 						</li>
 						@if(Session::has('user'))
 						<li class="bh_notifi visible-sm-block visible-md-block visible-lg-block">
+						@if($noti_data['noti_count']>0)
+							<span class="noti-number">{{$noti_data['noti_count']}}</span>
+						@endif
 							<span class="glyphicon glyphicon-globe noti-click" itemid='{{Session::get('user')['id']}}' itemref='{{url('noti')}}'>
 								<div class="noti-box">
 									<span class="click-active"></span>
@@ -123,6 +126,7 @@
 						if(result.status == 'success'){
 							$('.noti-box').css('display', 'block');
 							$('.noti-header').text('Thông báo (0 thông báo mới)');
+							$('.noti-number').css('display', 'none');
 						}
 					}
 				});

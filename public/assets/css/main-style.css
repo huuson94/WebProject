@@ -908,9 +908,9 @@ div.header-follow-btn button{
   cursor: pointer;
 }
 .click span{
-    position: absolute;
-    border-radius: 7px;
-    background: #A8E2F0;
+  position: absolute;
+  border-radius: 7px;
+  background: #A8E2F0;
 }
 .click img{
   width: 100% !important;
@@ -996,5 +996,16 @@ li.list span{
 }
 
 .edit-album{
-    word-spacing: -11px;
+  word-spacing: -11px;
+}
+.noti-number{
+  border-radius: 2px;
+  background-color: #dc0d17 !important;
+  font-size: 11px !important;
+  padding: 2px;
+  position: absolute;
+  top: 2px;
+  right: 4px;
+  z-index: 1;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .7);
 }
