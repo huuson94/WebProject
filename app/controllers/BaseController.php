@@ -50,7 +50,7 @@ class BaseController extends Controller {
 	}
 
 	public function getNewFollowsNotification($current_user_id, $last_time){
-		$new_followed = Follow::where('followed_id','=',$current_user_id)->where('created_at','>=',$last_time)->get();
+		$new_followed = Follow::where('followed_id','=',$current_user_id)->where('updated_at','>=',$last_time)->get();
 		return $new_followed?$new_followed:array();
 	}
 	public function getNewMessagesNotification($current_user_id, $last_time){
