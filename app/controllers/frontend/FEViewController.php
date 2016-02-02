@@ -1,7 +1,9 @@
 <?php
 
 class FEViewController extends BaseController {
-
+    
+    private $entries_per_page = 3;
+    
 	public function getIndex(){
         if(FEUsersHelper::isLogged()){
             $entries = $this->getViewIndexDatas()['datas'];
@@ -18,7 +20,7 @@ class FEViewController extends BaseController {
     
     private function getViewIndexDatas(){
         $current_user_id = Session::get('user')['id'];
-        $owners_id = Follow::where('follower_id',$current_user_id)->get(['followed_id'])->toArray();
+        $owners_id = Follow::where('follower_id',$current_user_id)->where('is_deleted',0)->get(['followed_id'])->toArray();
         array_walk($owners_id, function( &$value, $key){
             $value = $value['followed_id'];
         });
@@ -27,7 +29,7 @@ class FEViewController extends BaseController {
         
         $entries = Entry::whereIn('user_id',$owners_id)
                         ->where('privacy',1)->orWhere('user_id',$current_user_id)
-                        ->orderBy('updated_at', 'DESC')->paginate(3);
+                        ->orderBy('updated_at', 'DESC')->paginate($this->entries_per_page);
         $left_albums = Album::whereIn('user_id',$owners_id)
                         ->where('privacy',1)->orWhere('user_id',$current_user_id)
                         ->orderBy('updated_at', 'DESC')->get();
@@ -67,12 +69,12 @@ class FEViewController extends BaseController {
         $datas = array();
         if (FEUsersHelper::isCurrentUser($user_id)) {
             $entries = Entry::where('user_id',$user_id)
-                        ->orderBy('updated_at', 'DESC')->get();
+                        ->orderBy('updated_at', 'DESC')->paginate($this->entries_per_page);
             $left_albums = Album::where('user_id',$user_id)
                         ->orderBy('updated_at', 'DESC')->get();
         } else {
             $entries = Entry::where('user_id',$user_id)->where('privacy',$privacy->id)
-                        ->orderBy('updated_at', 'DESC')->get();
+                        ->orderBy('updated_at', 'DESC')->paginate($this->entries_per_page);
             $left_albums = Album::where('user_id',$user_id)
                         ->where('privacy',1)
                         ->orderBy('updated_at', 'DESC')->get();

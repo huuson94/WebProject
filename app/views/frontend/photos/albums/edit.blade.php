@@ -22,12 +22,10 @@
         <h4 class=""><input class='form-control' name='title' value='Không tiêu đề'></input></h4>
         @endif
         
-		<ul class="wrapper flex-images">
+        <ul class="wrapper flex-images images-preview"itemprop="300">
 			@foreach($album->images as $image)
 				<li class="item" data-w="{{$image['width']}}" data-h="{{$image['height']}}">
-                    <a href="#">
-                    <img src="{{url('public/upload/'.$user['account'].'/'.$image['path'])}}" alt="test">
-                    </a>
+                    @include('frontend/photos/images/_image',array('image',$image))
 				</li>
 			@endforeach
 			<li class="item hide"></li>
@@ -52,3 +50,11 @@
 
 @stop
 
+@section('addjs')
+<script>
+$(document).ready(function(){
+   $('.flex-images').flexImages({rowHeight: $(".flex-images").attr('itemprop')}); 
+});
+</script>
+{{HTML::script('public/assets/js/ajax/ajax-delete_image.js')}}
+@stop

@@ -42,6 +42,7 @@ return array(
     'Like' => $baseDir . '/app/models/Like.php',
     'Message' => $baseDir . '/app/models/Message.php',
     'Normalizer' => $vendorDir . '/patchwork/utf8/src/Normalizer.php',
+    'NotiController' => $baseDir . '/app/controllers/frontend/NotiController.php',
     'Post' => $baseDir . '/app/models/Post.php',
     'PrivaciesHelper' => $baseDir . '/app/helpers/PrivaciesHelper.php',
     'Privacy' => $baseDir . '/app/models/Privacy.php',

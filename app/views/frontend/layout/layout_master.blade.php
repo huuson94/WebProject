@@ -12,13 +12,17 @@
     <script src="{{url('public/assets/js/bootstrap.min.js')}}"></script>
     <script src="{{url('public/assets/js/fileinput.js')}}" type="text/javascript"></script>
     <script src="{{url('public/assets/js/jquery-ui.min.js')}}" type="text/javascript"></script>
+    {{HTML::script('public/assets/js/jquery.magnific-popup.min.js')}}
     <script src="{{url('public/assets/js/myScript.js')}}"></script>
     <script type="text/javascript" src="{{url('public/assets/js/jquery.flex-images.min.js')}}"></script>
+    
+    <!--<script type="text/javascript" src="{{url('public/assets/js/jquery-ias.min.js')}}"></script>-->
     @yield('addjs')
 
     <!-- Include the CSS -->
     <link href="{{url('public/assets/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{url('public/assets/css/jquery-ui.min.css')}}" rel="stylesheet">
+    {{HTML::style('public/assets/css/magnific-popup.css')}}
     @yield('addcss')
 </head>
 <body>

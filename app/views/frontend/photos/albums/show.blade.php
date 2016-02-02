@@ -20,13 +20,13 @@
         @else
         <h4 class="text-center">Không tiêu đề</h4>
         @endif
-        <a href="{{url('album/'.$album->id.'/edit')}}"><i class='glyphicon glyphicon-pencil'>Sửa</i></a>
-		<ul class="wrapper flex-images">
+        @if(FEUsersHelper::isCurrentUser($album->user->id))
+        <a href="{{url('album/'.$album->id.'/edit')}}"><i class='glyphicon glyphicon-pencil edit-album'>Chỉnh sửa album này</i></a>
+        @endif
+        <ul class="wrapper flex-images images-preview" itemprop="300">
 			@foreach($album->images as $image)
 				<li class="item" data-w="{{$image['width']}}" data-h="{{$image['height']}}">
-                    <a href="#">
-                    <img src="{{url('public/upload/'.$user['account'].'/'.$image['path'])}}" alt="test">
-                    </a>
+                    @include('frontend/photos/images/_image',array('image',$image))
 				</li>
 			@endforeach
 			<li class="item hide"></li>
@@ -37,6 +37,13 @@
         </div>
         {{Form::close()}}
 	</div>
-
 @stop
 
+@section('addjs')
+<script>
+$(document).ready(function(){
+   $('.flex-images').flexImages({rowHeight: $(".flex-images").attr('itemprop')}); 
+});
+</script>
+{{HTML::script('public/assets/js/ajax/ajax-delete_image.js')}}
+@stop

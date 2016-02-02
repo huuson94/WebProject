@@ -9,7 +9,7 @@
 @stop
 @section('addcontent')
 	@include('frontend/header')
-	<section class="container-fluid bh_main_content">
+    <section class="container-fluid bh_main_content">
 		<div class="container">
 			<div class="row">
 				
@@ -30,9 +30,11 @@
                             @endif
                         @endforeach
                     </div>
+                    {{ $entries->appends(Request::input())->links() }}
 				</div>
 				@include('frontend/right-content')
 			</div>
+            
 		</div>
 	</section>
 @stop
@@ -41,6 +43,7 @@
 	<script type="text/javascript">
         $(document).ready(function(){
             $('.flex-images').flexImages({rowHeight: 120});
+            
         });
 		
     </script>

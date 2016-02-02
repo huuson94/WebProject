@@ -10,11 +10,11 @@
 	<div class="td-login-card">
 		<form action="{{url('login')}}" method="POST" id="login">
 			<div class="td-input-id-pass has-feedback">
-				<input class="td-input form-control" name="account" type="text" placeholder="Username">
+				<input class="td-input form-control" name="account" type="text" placeholder="username">
 				<div class="error"></div>
 			</div>
 			<div class="td-input-id-pass has-feedback">
-				<input class="td-input form-control" name="password" type="password" placeholder="Password">
+				<input class="td-input form-control" name="password" type="password" placeholder="password">
 				<div class="error"></div>
 			</div>
 			<div class="td-button">
@@ -22,7 +22,7 @@
 				<a href="{{url('/signup')}}" class="td-button-signup">Sign up</a>
 			</div>
 		</form>
-		<p class="td-fogot"><a href="#">Forgot password</a><p>
+<!--		<p class="td-fogot"><a href="#">Forgot password</a><p>-->
 	</div>
 @stop
 @section('addjs')

@@ -22,4 +22,12 @@ class FELikesHelper{
             return null;
         }
     }
+    
+    public static function delete($entry_id){
+        $likes = Like::where('entry_id',$entry_id)->get();
+        foreach($likes as $like){
+            $like->delete();
+        }
+        return true;
+    }
 }

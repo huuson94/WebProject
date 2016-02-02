@@ -1,5 +1,5 @@
 @if($album)
-<article class="col-md-12 item border">
+<article class="col-md-12 item border scroll-item">
 	<div class="p_post">
 		<img class="ava radius_50 left" src="{{url($album->user->getAvatar())}}" alt="test">
 		<div class="left">
@@ -9,7 +9,7 @@
 	</div>
     <div class="bh_text light">
         @if($album['title'] != "")
-        <h4 class="album-title"><a href="{{url('album/'.$album->id)}}">Album {{$album['title']}}</a></h4>
+        <h4 class="text-center"><a href="{{url('album/'.$album->id)}}">Album {{$album['title']}}</a></h4>
         @else
         <h4 class="text-center"><a href="{{url('album/'.$album->id)}}">Không tiêu đề</a></h4>
         @endif
@@ -18,7 +18,7 @@
                 @if($index <= 2)
                     <li class="item" data-w="{{$image['width']}}" data-h="{{$image['height']}}">
                         <a href="#">
-                            <img src="{{url('public/upload/'.$album->user['account'].'/'.$image['path'])}}" alt="test">
+                            <img src="{{url($image['path'])}}" alt="test">
                         </a>
                     </li>
                 @endif

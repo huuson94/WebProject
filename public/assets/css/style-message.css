@@ -71,21 +71,23 @@ input{
 .ncc_avatar{
 	float: left;
 	height: 100%;
+        width: 100%;
 }
 .ncc_avatar img{
 	height: 80%;
-	border-radius: 50%;
+	border-radius: 10px;
 	position: absolute;
 	top: 6px;
 	left: 10px;
 	cursor: pointer;
+        width: 57px;
 }
 .ncc_info{
 	float: left;
 	position: absolute;
 	font-size: 12px;
 	color: #324B59;
-	top: 13px;
+	top: 6px;
 	left:75px;
 }
 .ncc_info p, .ncc_info h5{
@@ -257,4 +259,8 @@ form button.remove-conversation{
     width: 17px;
     background-color: #AEE2F0;
     border-radius: 50%;
+}
+.remove-conversation{
+    position: absolute;
+    right: 0px;
 }

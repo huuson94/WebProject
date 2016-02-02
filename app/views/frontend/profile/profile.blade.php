@@ -28,6 +28,7 @@
                 @include('frontend/photos/albums/_album', array('album' => $entry->getEntry()))
                 @endif
             @endforeach
+            {{ $entries->appends(Request::input())->links() }}
         </div>
 	</div>
     <div class="box-footer clearfix">
